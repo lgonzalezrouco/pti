@@ -60,7 +60,7 @@ def dump_form():
     print "for order to be submitted, otherwise a copy of the order that would have been submitted will\n"
     print "will be displayed.<P>\n"
     print "<HR>\n"
-    print "<FORM ACTION=\"/cgi-bin/%s\" METHOD=\"POST\">\n"%'jj-python.py'
+    print "<FORM ACTION=\"/cgi-bin/%s\" METHOD=\"POST\">\n"%'template_cgi.py'
     print "Password: <INPUT TYPE=\"text\" NAME=\"password\" MAXLENGTH=\"20\"><P>\n"
     print "<H3>Sub Type</H3>\n"
     print "Select which you would like of the following:<P>\n"
