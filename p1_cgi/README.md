@@ -14,6 +14,7 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
 Open a terminal (CTRL+ALT+T) and type:
 
+    sudo apt-get update
     sudo apt-get install apache2 #password = sistemes
 
 Check with version is installed:
@@ -25,7 +26,7 @@ test in browser: http://localhost:80
 
 ###1.3 Install examples
 
-Install git:
+Install git (if necessary):
 
     sudo apt-get install git
 
@@ -39,12 +40,19 @@ Download the examples:
   
 #### 1.3.1 Static html page
     
-    sudo mkdir /var/www/p1
-    sudo cp *.html /var/www/p1
+    sudo mkdir /var/www/html/p1
+    sudo cp *.html /var/www/html/p1
+
 test in browser: http://localhost:80/p1/example.html
 
 #### 1.3.2 Dynamic content with a CGI (a Python script)
-    
+
+enable CGIs:
+
+    sudo a2enmod cgi
+
+copy examples:
+	    
     sudo cp *.py /usr/lib/cgi-bin
     sudo chmod 055 /usr/lib/cgi-bin/*
 
@@ -62,6 +70,7 @@ Check errors with:
     cat /var/log/apache2/error.log
 
 Check config at:
+
     cat /etc/apache2/sites-enabled/000-default
     cat /etc/apache2/apache2.conf 
 
