@@ -1,10 +1,10 @@
 # Common Gateway Interface (CGI)
 
-##1. Quick Start
+##1. Apache and CGIs. Quick Start
 
 ###1.1 Booting the machine
 
-Select the latest Ubuntu imatge (e.g. Ubuntu 14)
+Select the latest Ubuntu imatge (e.g. Ubuntu 14). 
 
     user: alumne
     pwd: sistemes
@@ -62,8 +62,6 @@ test in browser: http://localhost/cgi-bin/example_cgi.py
 ###1.5 Form+CGI template
 
 test in browser: http://localhost:80/p1/formulari.html and submit. The script that is processing the request is /usr/lib/cgi-bin/template_cgi.py. 
-Starting from it you can complete the lab assignment. 
-
 
 ###1.6 Troubleshooting
 
@@ -82,5 +80,31 @@ NOTE: Restart apache after changing the configuration with:
 Apache documentation at http://httpd.apache.org/docs/2.2/
 
     
+##2. Creating your own car rental web page 
+
+As an example CGI you will create a simple car rental web page. It will consist in two functionalities:
+
+- Request a new rental: A form to enter a new rental order. Input fields will include the car maker, car model, number of days and number of units. If all data is correct the total price of the rental will be returned to the user along with the data of the requested rental.
+ 
+- Request the list of all rentals: A form asking a password (as only the administrator can see this information) that will return the list of all saved rental orders. 
+
+Both functionalities will consist in a request form plus a response page. In case of invalid input data the request form will be shown again but alerting about the error. While the request forms may be static HTML pages, it is better to generate them from CGIs (this way they can show error messages). 
+
+In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
+
+###2.1 Directory structure
+
+There are several ways to solve the problem and you are free to choose the one you prefer. A simple approach would be to program two CGIs:
+
+    /usr/lib/cgi-bin/new.py
+    /user/lib/cgi-bin/list.py
+
+Each one will:
+
+	1) If there's no input data just generate the form.
+	2) If there's input data validate it and return the result (some info or a message error plus the form again)
+
+
+
 
 
