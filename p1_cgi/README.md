@@ -6,8 +6,8 @@
 
 Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
-user: alumne
-pwd: sistemes
+    user: alumne
+    pwd: sistemes
 
 
 ###1.2 Install Apache 
@@ -21,9 +21,19 @@ test in browser: http://localhost:80
 
 ###1.3 Install examples
 
-    cd $HOME
-    mkdir p1
-    cd p1 
+Install git:
+
+    sudo apt-get install git
+
+
+Download the examples:
+
+    cd $HOME       
+    git clone https://github.com/rtous/pti.git
+    cd pti/p1_cgi
+    ls
+
+    
 
 #### 1.3.1 Static html page
 
