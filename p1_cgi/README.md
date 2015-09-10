@@ -50,6 +50,7 @@ test in browser: http://localhost:80/p1/example.html
 enable CGIs:
 
     sudo a2enmod cgi
+    sudo service apache2 restart    
 
 copy examples:
 	    
@@ -61,7 +62,7 @@ test in browser: http://localhost/cgi-bin/example_cgi.py
 ###1.5 Form+CGI template
 
 test in browser: http://localhost:80/p1/formulari.html and submit. The script that is processing the request is /usr/lib/cgi-bin/template_cgi.py. 
-Starting for it you can complete the lab assignment. 
+Starting from it you can complete the lab assignment. 
 
 
 ###1.6 Troubleshooting
@@ -73,6 +74,10 @@ Check config at:
 
     cat /etc/apache2/sites-enabled/000-default
     cat /etc/apache2/apache2.conf 
+
+NOTE: Restart apache after changing the configuration with:
+
+    sudo service apache2 restart
 
 Apache documentation at http://httpd.apache.org/docs/2.2/
 
