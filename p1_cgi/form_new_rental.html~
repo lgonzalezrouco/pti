@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!-- Plana de la comanda per al lloguer de cotxes -->
+<html>
+<title>Realitzar Lloguer</title>
+<body>
+<h1>Realitzar Lloguer</h1>
+&nbsp; <br>
+<form action="/cgi-bin/lloguer" method="GET">
+<table summary="">
+<tr>
+<td>Model del Vehicle:</td>
+<td><select name=model_vehicle>
+<option selected VALUE=54>Econòmic
+<option VALUE=71>Semi-Luxe
+<option VALUE=82>Luxe
+<option VALUE=139>Limusina
+</select>
+</td>
+<td>Tipus de motor:</td>
+<td><select name=sub_model_vehicle>
+<option selected VALUE=Diesel>Diesel
+<option VALUE=Gasolina>Gasolina
+</select>
+</td>
+</tr>
+
+<tr>
+<td>Dies del lloguer:</td>
+<td><input name=dies_lloguer size=3 maxlength=3 value=1></td>
+<td>Quantitat de vehicles:</td>
+<td><input name=num_vehicles size=3 maxlength=3 value=1></td>
+</tr>
+<tr>
+<td>Descompte(%):</td>
+<td><input name=descompte size=3 maxlength=3 value=0.0></td>
+</tr>
+
+</table>
+&nbsp; <br>
+<input name=llogar type=submit value="Llogar vehicle (GET)">
+<br>
+</form>
+&nbsp; <br>
+<a href="main.html">Tornar a la plana principal</a>
+</body>
+</html>

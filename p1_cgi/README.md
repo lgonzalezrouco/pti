@@ -92,6 +92,8 @@ Both functionalities will consist in a request form plus a response page. In cas
 
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
 
+NOTE: Files carrental_home.html, carrental_form_new.html and carrental_form_list.html show a possible user interface. It's not compulsory to use these files within the solution (you may generate the forms dynamically from the CGIs).
+
 ###2.1 Directory structure
 
 There are several ways to solve the problem and you are free to choose the one you prefer. A simple approach would be to program two CGIs:
