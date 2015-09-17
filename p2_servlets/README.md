@@ -29,7 +29,7 @@ Install Tomcat 7:
     sudo apt-get install tomcat7 #password = sistemes
     sudo apt-get install tomcat7-docs tomcat7-admin
 
-Check if it's running (with the browser): http://mbdc1.pc.ac.upc.edu:8080/   
+Check if it's running (with the browser): http://localhost:8080/   
 
 See configuration at: /etc/tomcat7/
 
