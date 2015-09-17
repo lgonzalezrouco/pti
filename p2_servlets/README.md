@@ -58,7 +58,6 @@ Check: http://localhost:8080/my_webapp
 
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF
     sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
-    sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
         <web-app>
             <servlet>
               <servlet-name>my_servlet</servlet-name>
