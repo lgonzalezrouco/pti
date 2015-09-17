@@ -103,13 +103,17 @@ Check: http://localhost:8080/my_webapp
           }
         }
 
-    sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*
+    sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*.java
     sudo service tomcat7 stop
     sudo service tomcat7 start
 
     Check errors: 
 
          sudo tail -n 200 /var/lib/tomcat7/logs/catalina.out
+
+    I'ts useful to open a dedicated terminal and check errors continuously:
+
+	 sudo tail -n 200 /var/lib/tomcat7/logs/catalina.out
 
     Check browser:
 
