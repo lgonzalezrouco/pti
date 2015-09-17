@@ -55,7 +55,7 @@ Restart Tomcat with:
     sudo service tomcat7 start
 
 
-###1.2 Create and display a simple HTML page
+###1.3 Create and display a simple HTML page
 
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp
     sudo vi /var/lib/tomcat7/webapps/my_webapp/index.html
@@ -70,7 +70,7 @@ Restart Tomcat with:
 Check: http://localhost:8080/my_webapp
 
 
-###1.3 Create and simple servlet
+###1.4 Create and simple servlet
 
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF
     sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
@@ -132,7 +132,7 @@ Download the examples (if you already have the pti repository, just do a git pul
 
 ##3 Lab assignment 
 
-[TODO (see official documentation)]
+You have to program a web application that does exactly the same as in session 1 (CGIs) but this time using Tomcat and servlets.
 
 
 ##4. Advanced Tomcat configuration (not necessary to complete this lab)
