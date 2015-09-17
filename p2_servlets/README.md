@@ -113,7 +113,7 @@ Check: http://localhost:8080/my_webapp
 
     I'ts useful to open a dedicated terminal and check errors continuously:
 
-	 sudo tail -n 200 /var/lib/tomcat7/logs/catalina.out
+        sudo tail -f 200 /var/lib/tomcat7/logs/catalina.out
 
     Check browser:
 
