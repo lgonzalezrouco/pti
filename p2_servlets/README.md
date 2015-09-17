@@ -69,7 +69,7 @@ Enabling webapp deployment with the manager:
         <user username="john" password="1234" roles="manager-gui,admin-gui"/>
 
 
-Check manager with: http://mbdc1.pc.ac.upc.edu:8080/manager
+Check manager with: http://localhost:8080/manager
 
 Enabling HTTPS. 
 
