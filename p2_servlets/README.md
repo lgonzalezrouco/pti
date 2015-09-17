@@ -167,6 +167,7 @@ Add two new servlet definitions to web.xml:
               <url-pattern>/list</url-pattern>
             </servlet-mapping>
         </web-app>
+
         sudo service tomcat7 stop
         sudo service tomcat7 start
 
