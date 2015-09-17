@@ -17,11 +17,13 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
 ###1.2 Install Tomcat 7
 
+Open a terminal (CTRL+ALT+T).
+
 Check if java is installed (if not you will have to install it):
 
     java -version
 
-Open a terminal (CTRL+ALT+T) and type:
+Install Tomcat 7:
 
     sudo apt-get update
     sudo apt-get install tomcat7 #password = sistemes
