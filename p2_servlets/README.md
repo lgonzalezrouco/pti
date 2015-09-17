@@ -41,7 +41,65 @@ Restart Tomcat with:
     sudo service tomcat7 start
 
 
-###1.3 Install examples
+###1.2 Create and display a simple HTML page
+
+    sudo mkdir /var/lib/tomcat7/webapps/my_webapp
+    sudo vi /var/lib/tomcat7/webapps/my_webapp/index.html
+        <html>
+            <h1>Hello World!</h1>
+        </html>
+    sudo service tomcat7 stop
+    sudo service tomcat7 start
+
+Check: http://localhost:8080/my_webapp
+
+
+###1.3 Create and simple servlet
+
+    sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF
+    sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
+    sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
+        <web-app>
+            <servlet>
+              <servlet-name>my_servlet</servlet-name>
+              <servlet-class>mypackage.MyServlet</servlet-class>
+            </servlet>
+            <servlet-mapping>
+              <servlet-name>my_servlet</servlet-name>
+              <url-pattern>/my_servlet</url-pattern>
+            </servlet-mapping>
+        </web-app>
+
+    sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/MyServlet.java
+    sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes
+    sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage
+        package mypackage;
+        import java.io.*;
+        import javax.servlet.*;
+        import javax.servlet.http.*;
+        public class MyServlet extends HttpServlet {
+          public void doGet(HttpServletRequest req, HttpServletResponse res)
+                            throws ServletException, IOException {
+            res.setContentType("text/html");
+            PrintWriter out = res.getWriter();
+            out.println("<html><big>I'm a servlet!!</big></html>");
+          }
+        }
+
+    sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*
+    sudo service tomcat7 stop
+    sudo service tomcat7 start
+
+    Check errors: 
+
+         sudo tail -n 200 /var/lib/tomcat7/logs/catalina.out
+
+    Check browser:
+
+        http://localhost:8080/my_webapp/my_servlet
+
+
+###1.4 Download PTI examples
 
 Install git:
 
@@ -53,6 +111,7 @@ Download the examples (if you already have the pti repository, just do a git pul
     git clone https://github.com/rtous/pti.git
     cd pti/p2_servlets
     ls
+
 
 ##3. Advanced Tomcat configuration (not necessary to complete this lab)
 
@@ -67,7 +126,6 @@ Enabling webapp deployment with the manager:
         <role rolename="manager-gui"/>
         <role rolename="admin-gui"/>
         <user username="john" password="1234" roles="manager-gui,admin-gui"/>
-
 
 Check manager with: http://localhost:8080/manager
 
