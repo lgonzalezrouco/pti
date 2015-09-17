@@ -129,9 +129,48 @@ Install git:
 Download the examples (if you already have the pti repository, just do a git pull):
 
     cd $HOME       
-    git clone https://github.com/rtous/pti.git
-    cd pti/p2_servlets
-    ls
+    git clone https://github.com/rtous/pti.git    
+
+Copy examples to Tomcat:
+    
+        sudo cp ./pti//p2_servlets/*.html /var/lib/tomcat7/webapps/my_webapp/
+        sudo cp ./pti/p2_servlets/*.java /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage
+        sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*.java
+
+Add two new servers to web.xml:
+
+        sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
+
+        <web-app>
+            <servlet>
+              <servlet-name>my_servlet</servlet-name>
+              <servlet-class>mypackage.MyServlet</servlet-class>
+            </servlet>
+            <servlet-mapping>
+              <servlet-name>my_servlet</servlet-name>
+              <url-pattern>/my_servlet</url-pattern>
+            </servlet-mapping>
+            <servlet>
+              <servlet-name>new</servlet-name>
+              <servlet-class>mypackage.CarRentalNew</servlet-class>
+            </servlet>
+            <servlet-mapping>
+              <servlet-name>new</servlet-name>
+              <url-pattern>/new</url-pattern>
+            </servlet-mapping>
+            <servlet>
+              <servlet-name>list</servlet-name>
+              <servlet-class>mypackage.CarRentalList</servlet-class>
+            </servlet>
+            <servlet-mapping>
+              <servlet-name>list</servlet-name>
+              <url-pattern>/list</url-pattern>
+            </servlet-mapping>
+
+        </web-app>
+        sudo service tomcat7 stop
+        sudo service tomcat7 start
+
 
 
 ##3 Lab assignment 
