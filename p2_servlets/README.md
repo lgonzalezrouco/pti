@@ -45,9 +45,11 @@ Restart Tomcat with:
 
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp
     sudo vi /var/lib/tomcat7/webapps/my_webapp/index.html
+
         <html>
             <h1>Hello World!</h1>
         </html>
+
     sudo service tomcat7 stop
     sudo service tomcat7 start
 
@@ -58,6 +60,7 @@ Check: http://localhost:8080/my_webapp
 
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF
     sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
+
         <web-app>
             <servlet>
               <servlet-name>my_servlet</servlet-name>
@@ -68,10 +71,11 @@ Check: http://localhost:8080/my_webapp
               <url-pattern>/my_servlet</url-pattern>
             </servlet-mapping>
         </web-app>
-
-    sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/MyServlet.java
+    
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage
+    sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/MyServlet.java
+
         package mypackage;
         import java.io.*;
         import javax.servlet.*;
@@ -98,7 +102,7 @@ Check: http://localhost:8080/my_webapp
         http://localhost:8080/my_webapp/my_servlet
 
 
-###1.4 Download PTI examples
+##2 Download PTI examples
 
 Install git:
 
@@ -112,7 +116,12 @@ Download the examples (if you already have the pti repository, just do a git pul
     ls
 
 
-##3. Advanced Tomcat configuration (not necessary to complete this lab)
+##3 Lab assignment 
+
+[TODO (see official documentation)]
+
+
+##4. Advanced Tomcat configuration (not necessary to complete this lab)
 
 Open ports for external access with:
 
