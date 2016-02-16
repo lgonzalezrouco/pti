@@ -106,6 +106,32 @@ Each one will:
 	1) If there's no input data just generate the form.
 	2) If there's input data validate it and return the result (some info or a message error plus the form again)
 
+##ANNEX 1: Compiling and installing Apache 2.4 from sources
+
+	(replace PREFIX by the installation directory, e.g. /home/rtous)
+
+	wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
+   	tar -xvzf pcre-8.37.tar.gz 
+	pcre-8.37/configure --prefix=PREFIX/pcre
+  	pcre-8.37/make
+	pcre-8.37/make install
+	wget http://ftp.cixug.es/apache//httpd/httpd-2.4.18.tar.gz
+	tar -xvzf httpd-2.4.18.tar.gz
+	wget http://apache.rediris.es//apr/apr-1.5.2.tar.gz
+	wget http://apache.rediris.es//apr/apr-util-1.5.4.tar.gz
+	tar -xvzf apr-1.5.2.tar.gz 
+ 	tar -xvzf apr-util-1.5.4.tar.gz
+	mv apr-1.5.2 httpd-2.4.18/srclib/apr
+   	mv apr-util-1.5.4 httpd-2.4.18/srclib/apr-util
+	httpd-2.4.18/configure --prefix=PREFIX/apache2 --with-included-apr --with-pcre=PREFIX/pcre
+	httpd-2.4.18/make
+	httpd-2.4.18/make install
+	gedit PREFIX/apache2/conf/httpd.conf
+
+	#Replace listening port to 2345
+	
+   	PREFIX/apache2/bin/apachectl -k start
+  
 
 
 
