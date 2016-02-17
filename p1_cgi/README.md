@@ -144,17 +144,14 @@ Each one will:
 	
    	PREFIX/apache2/bin/apachectl -k start
 
-
-##ANNEX 1. 1
-
-    Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache2/cgi-bin:
+Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache2/cgi-bin:
 
     cd       
     git clone https://github.com/rtous/pti.git
     sudo cp pti/p1_cgi/*.html PREFIX/apache2/htdocs
     sudo cp pti/p1_cgi/*.py PREFIX/apache2/cgi-bin
 
-    test in browser: http://localhost:2345/cgi-bin/formulari.html and submit. The script that is processing the request is PREFIX/apache2/cgi-bin/template_cgi.py. 
+test in browser: http://localhost:2345/cgi-bin/formulari.html and submit. The script that is processing the request is PREFIX/apache2/cgi-bin/template_cgi.py. 
     
   
 
