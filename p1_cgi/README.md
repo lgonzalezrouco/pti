@@ -3,7 +3,7 @@
 ##1. Introduction
 
 The goal of this session is to create a dynamic web page using the Apache HTTP Server and CGIs. The description of the web page to develop is provided in section 3. You can choose the programming language 
-you you'd like to use (C, Python, Perl, PHP, etc.) and you can install and configure the Apache Server the way you want. However, in order to help you, we provide an example using Python, and, in Section 2, we explain one possible way to install and configure the Apache HTTP Server.
+you'd like to use (C, Python, Perl, PHP, etc.) and you can install and configure the Apache Server the way you want. However, in order to help you, we provide an example using Python, and, in Section 2, we explain one possible way to install and configure the Apache HTTP Server.
 
 
 ##2. Apache and CGIs. Quick Start
@@ -11,6 +11,7 @@ you you'd like to use (C, Python, Perl, PHP, etc.) and you can install and confi
 ###2.1 Booting the machine 
 
 Conventional room: Select a Linux image and login with your credentials.
+
 Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with credentials user=alumne and pwd:=sistemes
 
 
