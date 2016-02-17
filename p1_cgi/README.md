@@ -1,18 +1,22 @@
 # Common Gateway Interface (CGI)
 
-##1. Apache and CGIs. Quick Start
+##1. Introduction
 
-###1.1 Booting the machine
-
-Select the latest Ubuntu imatge (e.g. Ubuntu 14). 
-
-    user: alumne
-    pwd: sistemes
+The goal of this session is to create a dynamic web page using the Apache HTTP Server and CGIs. The description of the web page to develop is provided in section 3. You can choose the programming language 
+you you'd like to use (C, Python, Perl, PHP, etc.) and you can install and configure the Apache Server the way you want. However, in order to help you, we provide an example using Python, and, in Section 2, we explain one possible way to install and configure the Apache HTTP Server.
 
 
-###1.2 Install Apache 
+##2. Apache and CGIs. Quick Start
 
-IMPORTANT: If you don't have root access follow instructions in ANNEX 1 
+###2.1 Booting the machine 
+
+Conventional room: Select a Linux image and login with your credentials.
+Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with credentials user=alumne and pwd:=sistemes
+
+
+###2.2 Install Apache with root privileges (in your laptop or at one Operating Systems room)
+
+IMPORTANT: If you don't have root access follow instructions in ANNEX 1 (also copy the examples as explained there)
 
 Open a terminal (CTRL+ALT+T) and type:
 
@@ -26,7 +30,7 @@ Check with version is installed:
 test in browser: http://localhost:80
 
 
-###1.3 Install examples
+###2.3 Install examples
 
 Install git (if necessary):
 
@@ -40,14 +44,14 @@ Download the examples:
     cd pti/p1_cgi
     ls
   
-#### 1.3.1 Static html page
+#### 2.3.1 Static html page
     
     sudo mkdir /var/www/html/p1
     sudo cp *.html /var/www/html/p1
 
 test in browser: http://localhost:80/p1/example.html
 
-#### 1.3.2 Dynamic content with a CGI (a Python script)
+#### 2.3.2 Dynamic content with a CGI (a Python script)
 
 enable CGIs:
 
@@ -61,11 +65,11 @@ copy examples:
 
 test in browser: http://localhost/cgi-bin/example_cgi.py
 
-###1.5 Form+CGI template
+###2.5 Form+CGI template
 
 test in browser: http://localhost:80/p1/formulari.html and submit. The script that is processing the request is /usr/lib/cgi-bin/template_cgi.py. 
 
-###1.6 Troubleshooting
+###2.6 Troubleshooting
 
 Check errors with:
     cat /var/log/apache2/error.log
@@ -82,7 +86,7 @@ NOTE: Restart apache after changing the configuration with:
 Apache documentation at http://httpd.apache.org/docs/2.2/
 
     
-##2. Creating your own car rental web page 
+##3. Creating your own car rental web page 
 
 As an example CGI you will create a simple car rental web page. It will consist in two functionalities:
 
@@ -96,7 +100,7 @@ In order to keep the rentals data (to be able to list them) you will need to sav
 
 NOTE: Files carrental_home.html, carrental_form_new.html and carrental_form_list.html show a possible user interface. It's not compulsory to use these files within the solution (you may generate the forms dynamically from the CGIs).
 
-###2.1 Directory structure
+###3.1 Directory structure
 
 There are several ways to solve the problem and you are free to choose the one you prefer. A simple approach would be to program two CGIs:
 
@@ -139,7 +143,18 @@ Each one will:
 	
    	PREFIX/apache2/bin/apachectl -k start
 
-IMPORTANT: Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache2/cgi-bi.
+
+##ANNEX 1. 1
+
+    Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache2/cgi-bin:
+
+    cd       
+    git clone https://github.com/rtous/pti.git
+    sudo cp pti/p1_cgi/*.html PREFIX/apache2/htdocs
+    sudo cp pti/p1_cgi/*.py PREFIX/apache2/cgi-bin
+
+    test in browser: http://localhost:2345/cgi-bin/formulari.html and submit. The script that is processing the request is PREFIX/apache2/cgi-bin/template_cgi.py. 
+    
   
 
 
