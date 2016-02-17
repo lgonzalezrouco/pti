@@ -12,6 +12,8 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14).
 
 ###1.2 Install Apache 
 
+IMPORTANT: If you don't have root access follow instructions in ANNEX 1 
+
 Open a terminal (CTRL+ALT+T) and type:
 
     sudo apt-get update
@@ -111,10 +113,12 @@ Each one will:
 	(replace PREFIX by the installation directory, e.g. /home/rtous)
 
 	wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
-   	tar -xvzf pcre-8.37.tar.gz 
-	pcre-8.37/configure --prefix=PREFIX/pcre
-  	pcre-8.37/make
-	pcre-8.37/make install
+   	tar -xvzf pcre-8.37.tar.gz
+	cd  pcre-8.37
+	./configure --prefix=PREFIX/pcre
+  	make
+	make install
+	cd ..	
 	wget http://ftp.cixug.es/apache//httpd/httpd-2.4.18.tar.gz
 	tar -xvzf httpd-2.4.18.tar.gz
 	wget http://apache.rediris.es//apr/apr-1.5.2.tar.gz
@@ -123,14 +127,19 @@ Each one will:
  	tar -xvzf apr-util-1.5.4.tar.gz
 	mv apr-1.5.2 httpd-2.4.18/srclib/apr
    	mv apr-util-1.5.4 httpd-2.4.18/srclib/apr-util
-	httpd-2.4.18/configure --prefix=PREFIX/apache2 --with-included-apr --with-pcre=PREFIX/pcre
-	httpd-2.4.18/make
-	httpd-2.4.18/make install
+	cd httpd-2.4.18	
+	./configure --prefix=PREFIX/apache2 --with-included-apr --with-pcre=PREFIX/pcre
+	make
+	make install
+	cd
 	gedit PREFIX/apache2/conf/httpd.conf
 
-	#Replace listening port to 2345
+		#Replace listening port to 2345: Listen 2345 
+		#uncomment the following line: LoadModule cgid_module modules/mod_cgid.so
 	
    	PREFIX/apache2/bin/apachectl -k start
+
+IMPORTANT: Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache2/cgi-bi.
   
 
 
