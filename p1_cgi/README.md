@@ -113,6 +113,8 @@ Each one will:
 	1) If there's no input data just generate the form.
 	2) If there's input data validate it and return the result (some info or a message error plus the form again)
 
+You don't need to program the CGIs from scratch, you replicate template_cgi.py.
+
 ##ANNEX 1: Compiling and installing Apache 2.4 from sources
 
 	(replace PREFIX by the installation directory, e.g. /home/rtous)
@@ -156,6 +158,8 @@ Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache
 Now check if CGIs are properly configured: In your browser http://localhost:2345/cgi-bin/example_cgi.py (you should see only "Hello World").
 
 Now you can check how an HTML file and a CGI work together: Open http://localhost:2345/formulari.html and submit. The script that is processing the request is PREFIX/apache2/cgi-bin/template_cgi.py. 
+
+If everything works you can go directly to Section 3 and start working on your car rental web page. 
     
   
 
