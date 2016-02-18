@@ -143,6 +143,7 @@ Each one will:
 		#uncomment the following line: LoadModule cgid_module modules/mod_cgid.so
 	
    	PREFIX/apache2/bin/apachectl -k start
+    (check http://localhost:2345 in your browser to see if it works)
 
 Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache2/cgi-bin:
 
@@ -150,8 +151,11 @@ Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache
     git clone https://github.com/rtous/pti.git
     sudo cp pti/p1_cgi/*.html PREFIX/apache2/htdocs
     sudo cp pti/p1_cgi/*.py PREFIX/apache2/cgi-bin
+    chmod 764 PREFIX/apache2/cgi-bin/* 
 
-test in browser: http://localhost:2345/cgi-bin/formulari.html and submit. The script that is processing the request is PREFIX/apache2/cgi-bin/template_cgi.py. 
+Now check if CGIs are properly configured: In your browser http://localhost:2345/cgi-bin/example_cgi.py (you should see only "Hello World").
+
+Now you can check how an HTML file and a CGI work together: Open http://localhost:2345/formulari.html and submit. The script that is processing the request is PREFIX/apache2/cgi-bin/template_cgi.py. 
     
   
 
