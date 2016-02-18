@@ -115,6 +115,8 @@ Each one will:
 
 You don't need to program the CGIs from scratch, you replicate template_cgi.py.
 
+In order to write/read the orders to a disk file you can use a comma-separated values format (CSV) and the csv python module. Take a look to ANNEX2 for an example.
+
 ##ANNEX 1: Compiling and installing Apache 2.4 from sources
 
 	(replace PREFIX by the installation directory, e.g. /home/rtous)
@@ -162,6 +164,19 @@ Now you can check how an HTML file and a CGI work together: Open http://localhos
 If everything works you can go directly to Section 3 and start working on your car rental web page. 
     
   
+##ANNEX 2: Read and Write CSV files
+
+Writing:
+
+import csv
+c = csv.writer(open("MYFILE.csv", "wb"))
+c.writerow(["Name","Address","Telephone","Fax","E-mail","Others"])
+
+Reading:
+
+cr = csv.reader(open("MYFILE.csv","rb"))
+for row in reader:    
+    print row[0], row[1]
 
 
 
