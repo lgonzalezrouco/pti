@@ -169,13 +169,13 @@ If everything works you can go directly to Section 3 and start working on your c
 Writing:
 
     import csv
-    c = csv.writer(open("MYFILE.csv", "wb"))
+    c = csv.writer(open("MYFILE.csv", "a"))
     c.writerow(["Name","Address","Telephone","Fax","E-mail","Others"])
 
 Reading:
 
     cr = csv.reader(open("MYFILE.csv","rb"))
-    for row in reader:    
+    for row in cr:    
         print row[0], row[1]
 
 
