@@ -29,7 +29,7 @@ If not installed do the following:
     sudo apt-get update
     sudo apt-get install oracle-java8-installer
     sudo apt-get install oracle-java8-set-default
-    
+    sudo ln -s /usr/lib/jvm/java-8-oracle /usr/lib/jvm/default-java    
 	
 
 Install Tomcat 7:
