@@ -37,11 +37,13 @@ Install Tomcat 7:
     sudo apt-get update
     sudo apt-get install tomcat7 
     sudo apt-get install tomcat7-docs tomcat7-admin
-    sudo gedit /etc/default/tomcat7
-    	
-	JAVA_HOME=/usr/lib/jvm/java-8-oracle
 
-    sudo service tomcat7 start
+    (this should be enough but if it cannot find Java try:
+    	sudo gedit /etc/default/tomcat7
+ 
+		JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
+    	sudo service tomcat7 start
 
 Check if it's running (with the browser): http://localhost:8080/   
 
