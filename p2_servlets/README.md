@@ -180,7 +180,7 @@ Check the following link and submit:
 	http://localhost:8080/my_webapp/carrental_form_list.html
 
 
-
+We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar.
 
 ##3. Advanced Tomcat configuration (not necessary to complete this lab)
 
