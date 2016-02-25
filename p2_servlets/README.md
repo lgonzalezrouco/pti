@@ -147,7 +147,7 @@ Copy the sources to Tomcat and compile the servlets:
         sudo cp ./pti/p2_servlets/*.java /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage
         sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib
         sudo cp ./pti/p2_servlets/*.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib        
-        sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar:/var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib/javax.json-api-1.0.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*.java
+        sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar:/var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib/json-simple-1.1.1.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*.java
 
 Add two new servlet definitions to web.xml:
 
@@ -180,7 +180,7 @@ Check the following link and submit:
 	http://localhost:8080/my_webapp/carrental_form_list.html
 
 
-We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar.
+We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
 
 ##3. Advanced Tomcat configuration (not necessary to complete this lab)
 
