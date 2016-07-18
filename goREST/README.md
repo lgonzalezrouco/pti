@@ -6,7 +6,7 @@ The goal of this session is to create a dynamic web page using the Apache HTTP S
 you'd like to use (C, Python, Perl, PHP, etc.) and you can install and configure the Apache Server the way you want. However, in order to help you, we provide an example using Python, and, in Section 2, we explain one possible way to install and configure the Apache HTTP Server.
 
 
-##2. Apache and CGIs. Quick Start
+##2. Setup
 
 ###2.1 Booting the machine 
 
@@ -14,42 +14,49 @@ Conventional room: Select a Linux image and login with your credentials.
 
 Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with credentials user=alumne and pwd:=sistemes
 
+###2.2 Prerequisites
 
-###2.2 Install Go
-
-Download Go from https://golang.org/dl/ (>80 MB !)
-
-###2.3 Setup a directory hierarchy 
-
-(check [this](https://golang.org/doc/code.html) for more info in how to write Go code)
-
-Create a directory to contain your workspace, $HOME/work for example, and set the GOPATH environment variable to point to that location
-
-    export GOPATH=$HOME/work
-    (export GOPATH=/Users/rtous/Dropbox/docencia/UPC-PTI/lab/pti/goREST)
-
-
-GOPATH
-    |-src
-        |-hello
-            |-hello.go
-
-###2.3 Install examples
-
-Install git (if necessary):
+It's not indispensable but strongly recommended that you have git installed. If not, for a Linux machine just do:
 
     sudo apt-get install git
 
-Download the examples:
+It would be also good if you have an account in any git-compliant hosting service such as GitHub or Bitbucket.
 
-    cd $HOME       
-    git clone https://github.com/rtous/pti.git
-    cd pti/goREST
-    ls
+###2.3 Install Go
+
+Download Go from https://golang.org/dl/ (>80 MB !)
+
+###2.4 Setup a directory hierarchy 
+
+(check [this](https://golang.org/doc/code.html) for more info in how to write Go code)
+
+Create a directory to contain your golang workspace (e.g. $HOME/go) and the examples of this session ($HOME/go/src/examplesGo): 
+
+    cd
+    mkdir $HOME/go
+    mkdir $HOME/go/src
+    mkdir $HOME/go/src/examplesGo
+
+Set the GOPATH environment variable to point to that location
+
+    export GOPATH=$HOME/go
+
+It is recommended that you create a git repository for the code of this session this way:
+    
+    cd $HOME/go/src/examplesGo
+    git remote add origin https://github.com/YOUR_GITHUB_USER/examplesGo.git
+    git push -u origin master
+
   
 #### 2.3.1 Static html page
     
 A RESTful API is a specific type of web (HTTP-based) service. Let's start by programming a basic web server with Go:   
+
+Create a directory for this program:
+
+    mkdir $HOME/go/src/examplesGo/webserver
+
+Edit $HOME/go/src/examplesGo/webserver/webserver.go
 
     package main
 
@@ -69,7 +76,18 @@ A RESTful API is a specific type of web (HTTP-based) service. Let's start by pro
 
     } 
 
+Build (will create an executable within $HOME/go/bin/webserver):
+
+    go install examplesGo/webserver
+
+Run:
+
+    $HOME/go/bin/webserver
+
 test in browser: http://localhost:8080
+    
+
+   
 
 #### 2.3.2 Dynamic content with a CGI (a Python script)
 
@@ -135,68 +153,5 @@ Each one will:
 You don't need to program the CGIs from scratch, you replicate template_cgi.py.
 
 In order to write/read the orders to a disk file you can use a comma-separated values format (CSV) and the csv python module. Take a look to ANNEX2 for an example.
-
-##ANNEX 1: Compiling and installing Apache 2.4 from sources
-
-    (replace PREFIX by the installation directory, e.g. /home/rtous)
-
-    wget ftp://ftp.csx.cam.ac.uk/pub/software/programming/pcre/pcre-8.37.tar.gz
-    tar -xvzf pcre-8.37.tar.gz
-    cd  pcre-8.37
-    ./configure --prefix=PREFIX/pcre
-    make
-    make install
-    cd ..   
-    wget http://ftp.cixug.es/apache//httpd/httpd-2.4.18.tar.gz
-    tar -xvzf httpd-2.4.18.tar.gz
-    wget http://apache.rediris.es//apr/apr-1.5.2.tar.gz
-    wget http://apache.rediris.es//apr/apr-util-1.5.4.tar.gz
-    tar -xvzf apr-1.5.2.tar.gz 
-    tar -xvzf apr-util-1.5.4.tar.gz
-    mv apr-1.5.2 httpd-2.4.18/srclib/apr
-    mv apr-util-1.5.4 httpd-2.4.18/srclib/apr-util
-    cd httpd-2.4.18 
-    ./configure --prefix=PREFIX/apache2 --with-included-apr --with-pcre=PREFIX/pcre
-    make
-    make install
-    cd
-    gedit PREFIX/apache2/conf/httpd.conf
-
-        #Replace listening port to 2345: Listen 2345 
-        #uncomment the following line: LoadModule cgid_module modules/mod_cgid.so
-    
-    PREFIX/apache2/bin/apachectl -k start
-    (check http://localhost:2345 in your browser to see if it works)
-
-Now you have to place the examples within PREFIX/apache2/htdocs or PREFIX/apache2/cgi-bin:
-
-    cd       
-    git clone https://github.com/rtous/pti.git
-    sudo cp pti/p1_cgi/*.html PREFIX/apache2/htdocs
-    sudo cp pti/p1_cgi/*.py PREFIX/apache2/cgi-bin
-    chmod 764 PREFIX/apache2/cgi-bin/* 
-
-Now check if CGIs are properly configured: In your browser http://localhost:2345/cgi-bin/example_cgi.py (you should see only "Hello World").
-
-Now you can check how an HTML file and a CGI work together: Open http://localhost:2345/formulari.html and submit. The script that is processing the request is PREFIX/apache2/cgi-bin/template_cgi.py. 
-
-If everything works you can go directly to Section 3 and start working on your car rental web page. 
-    
-  
-##ANNEX 2: Read and Write CSV files
-
-Writing:
-
-    import csv
-    c = csv.writer(open("MYFILE.csv", "a"))
-    c.writerow(["Name","Address","Telephone","Fax","E-mail","Others"])
-
-Reading:
-
-    cr = csv.reader(open("MYFILE.csv","rb"))
-    for row in cr:    
-        print row[0], row[1]
-
-
 
 
