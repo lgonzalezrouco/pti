@@ -64,7 +64,7 @@ Don't forget to commit your changes
     git push
 
   
-#### 3 A simple web server
+## 3 A simple web server
     
 A web API is a specific type of web (HTTP-based) service. Let's start by programming a basic web server with Go:   
 
@@ -102,7 +102,7 @@ Run:
 
 test in browser: http://localhost:8080
     
-#### 4 URL routing
+## 4 URL routing
     
 An web API exposes different functionalities. These functionalities are accessed through different URL routes or endpoints. We need a mechanism that let us map URL routes into calls to different functions in our code. The standard golang library offers a [too complex routing mechanism](https://husobee.github.io/golang/url-router/2015/06/15/why-do-all-golang-url-routers-suck.html), so we will use an external library for that (mux router from the Gorilla Web Toolkit):
 
