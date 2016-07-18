@@ -1,9 +1,15 @@
-# Making a RESTful JSON API in Go
+# Making a JSON API in Go
 
 ##1. Introduction
 
-The goal of this session is to create a dynamic web page using the Apache HTTP Server and CGIs. The description of the web page to develop is provided in section 3. You can choose the programming language 
-you'd like to use (C, Python, Perl, PHP, etc.) and you can install and configure the Apache Server the way you want. However, in order to help you, we provide an example using Python, and, in Section 2, we explain one possible way to install and configure the Apache HTTP Server.
+A web service is a generic term for a software function that is accessible through HTTP. Traditional web services usually relied in support protocols for data exchange (e.g. SOAP) and service definition (WSDL). However, nowadays the paradigm has evolved to a simplified form, usually called web APIs. Web APIs normally rely only in plain HTTP plus JSON for serializing the messages. Their design is usually influenced by the [REST architectural style](https://en.wikipedia.org/wiki/Representational_state_transfer), though the most part of web APIs do not really comply with REST principles. 
+
+
+
+A Web API is a development in Web services where emphasis has been moving to simpler representational state transfer (REST) based communications
+
+The goal of this session is to create basic JSON API with golang.  
+
 
 
 ##2. Setup
@@ -30,33 +36,48 @@ Download Go from https://golang.org/dl/ (>80 MB !)
 
 (check [this](https://golang.org/doc/code.html) for more info in how to write Go code)
 
-Create a directory to contain your golang workspace (e.g. $HOME/go) and the examples of this session ($HOME/go/src/examplesGo): 
+Create a directory to contain your golang workspace (e.g. $HOME/go): 
 
     cd
     mkdir $HOME/go
     mkdir $HOME/go/src
-    mkdir $HOME/go/src/examplesGo
 
 Set the GOPATH environment variable to point to that location
 
     export GOPATH=$HOME/go
 
-It is recommended that you create a git repository for the code of this session this way:
-    
-    cd $HOME/go/src/examplesGo
-    git remote add origin https://github.com/YOUR_GITHUB_USER/examplesGo.git
-    git push -u origin master
+It is recommended that you create a git repository (e.g. "pti_golang") for the code of this session within $HOME/go/src. If you have a github account you can do it directly from the command line:
+
+    curl -u 'YOUR_GITHUB_USER' https://api.github.com/user/repos -d '{"name":"pti_golang"}'
+    cd $HOME/go/src
+    git clone https://github.com/YOUR_GITHUB_USER/pti_golang
+
+Let's write and test a first program in golang:
+
+    cd $HOME/go/src/pti_golang
+    mkdir hello
+    cd hello
+    wget https://raw.githubusercontent.com/rtous/pti/master/goREST/src/hello/hello.go
+    go install pti_golang/hello
+    $HOME/go/bin/hello
+
+Don't forget to commit your changes
+
+    cd $HOME/go/src/pti_golang
+    git add .
+    git commit -m "first commit"
+    git push
 
   
-#### 2.3.1 Static html page
+#### 2.4 A simple web server
     
 A RESTful API is a specific type of web (HTTP-based) service. Let's start by programming a basic web server with Go:   
 
 Create a directory for this program:
 
-    mkdir $HOME/go/src/examplesGo/webserver
+    mkdir $HOME/go/src/pti_golang/webserver
 
-Edit $HOME/go/src/examplesGo/webserver/webserver.go
+Edit $HOME/go/src/pti_golang/webserver/webserver.go
 
     package main
 
@@ -78,7 +99,7 @@ Edit $HOME/go/src/examplesGo/webserver/webserver.go
 
 Build (will create an executable within $HOME/go/bin/webserver):
 
-    go install examplesGo/webserver
+    go install pti_golang/webserver
 
 Run:
 
@@ -86,7 +107,43 @@ Run:
 
 test in browser: http://localhost:8080
     
+#### 2.5 URL routing
+    
+An API exposes different functionalities. These functionalities are accessed through different URL routes or endpoints. We need a mechanism that let us map URL routes into calls to different functions in our code. The standard golang library offers a [too complex routing mechanism](https://husobee.github.io/golang/url-router/2015/06/15/why-do-all-golang-url-routers-suck.html), so we will use an external library for that (mux router from the Gorilla Web Toolkit):
 
+    go get github.com/gorilla/mux
+
+Let's modify our webserver.go to add some routes:
+
+    package main
+
+    import (
+        "fmt"
+        "log"
+        "net/http"
+        "github.com/gorilla/mux"
+    )
+
+    func main() {
+
+    router := mux.NewRouter().StrictSlash(true)
+    router.HandleFunc("/", Index)
+    router.HandleFunc("/endpoint/{param}", endpointFunc)
+
+    log.Fatal(http.ListenAndServe(":8080", router))
+    }
+
+    func Index(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintln(w, "Service OK")
+    }
+
+    func endpointFunc(w http.ResponseWriter, r *http.Request) {
+        vars := mux.Vars(r)
+        param := vars["param"]
+        fmt.Fprintln(w, "You are calling with param:", param)
+    }
+
+Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
    
 
 #### 2.3.2 Dynamic content with a CGI (a Python script)
