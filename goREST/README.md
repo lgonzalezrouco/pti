@@ -4,12 +4,7 @@
 
 A web service is a generic term for a software function that is accessible through HTTP. Traditional web services usually relied in support protocols for data exchange (e.g. SOAP) and service definition (WSDL). However, nowadays the paradigm has evolved to a simplified form, usually called web APIs. Web APIs normally rely only in plain HTTP plus JSON for serializing the messages. Their design is usually influenced by the [REST architectural style](https://en.wikipedia.org/wiki/Representational_state_transfer), though the most part of web APIs do not really comply with REST principles. 
 
-
-
-A Web API is a development in Web services where emphasis has been moving to simpler representational state transfer (REST) based communications
-
-The goal of this session is to create basic JSON API with golang.  
-
+The goal of this session is to create simple web API with the Go programming language and JSON. We will not bother to follow the REST principles, so it will not be a trully RESTful API.  
 
 
 ##2. Setup
