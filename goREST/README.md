@@ -45,7 +45,7 @@ It is recommended that you create a git repository (e.g. "pti_golang") for the c
 
     curl -u 'YOUR_GITHUB_USER' https://api.github.com/user/repos -d '{"name":"pti_golang"}'
     cd $HOME/go/src
-    git clone https://github.com/YOUR_GITHUB_USER/pti_golang
+    git clone https://github.com/YOUR_GITHUB_USER/pti_golang.git
 
 Let's write and test a first program in golang:
 
@@ -106,7 +106,7 @@ test in browser: http://localhost:8080
     
 An web API exposes different functionalities. These functionalities are accessed through different URL routes or endpoints. We need a mechanism that let us map URL routes into calls to different functions in our code. The standard golang library offers a [too complex routing mechanism](https://husobee.github.io/golang/url-router/2015/06/15/why-do-all-golang-url-routers-suck.html), so we will use an external library for that (mux router from the Gorilla Web Toolkit):
 
-    go get github.com/gorilla/mux
+    go get "github.com/gorilla/mux"
 
 Let's modify our webserver.go to add some routes:
 
@@ -152,6 +152,8 @@ Typically an endpoint has to deal with more complex input and output parameters.
         "net/http"
         "github.com/gorilla/mux"
         "encoding/json"
+        "io"
+        "io/ioutil"
     )
 
     type ResponseMessage struct {
@@ -180,6 +182,44 @@ Typically an endpoint has to deal with more complex input and output parameters.
     }
 
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
+
+Let's now add a new endpoint that accepts JSON as input. First of all add the following struct:
+
+    type RequestMessage struct {
+        Field1 string
+        Field2 string
+    }
+
+Then add a new route:
+
+    router.HandleFunc("/endpoint2/{param}", endpointFunc2JSONInput)
+
+And its related code:
+
+    func endpointFunc2JSONInput(w http.ResponseWriter, r *http.Request) {
+        var requestMessage RequestMessage
+        body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
+        if err != nil {
+            panic(err)
+        }
+        if err := r.Body.Close(); err != nil {
+            panic(err)
+        }
+        if err := json.Unmarshal(body, &requestMessage); err != nil {
+            w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+            w.WriteHeader(422) // unprocessable entity
+            if err := json.NewEncoder(w).Encode(err); err != nil {
+                panic(err)
+            }
+        } else {
+            fmt.Fprintln(w, "Successfully received request with Field1 =", requestMessage.Field1)
+        }
+    }
+
+Rebuild and run. In order to submit a JSON request we will use curl instead of the browser. Open a new terminal and type:
+
+curl -H "Content-Type: application/json" -d '{"Field1":"Value1", "Field2":"Value2"}' http://localhost:8080/endpoint2/1234
+
    
 ##6. Creating your own car rental web API
 
@@ -190,8 +230,6 @@ As an example web API you will create a simple car rental web API. It will consi
 - Request the list of all rentals: An endpoint that will return the list of all saved rental orders. 
 
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
-
-
 
 
 

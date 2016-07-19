@@ -1,0 +1,10 @@
+*.log
+*.pyc
+data/no-git
+.DS_Store
+*.npz
+*.gz
+*.tfrecords
+tmp
+_*
+
