@@ -41,7 +41,8 @@ Install git (if necessary):
 Download the examples:
 
     cd $HOME       
-    git clone https://github.com/rtous/pti.git
+    #git clone https://github.com/rtous/pti.git
+    git clone https://gitlab.fib.upc.edu/pti/pti.git
     cd pti/p1_cgi
     ls
   
