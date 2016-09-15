@@ -107,7 +107,7 @@ NOTE: Files carrental_home.html, carrental_form_new.html and carrental_form_list
 There are several ways to solve the problem and you are free to choose the one you prefer. A simple approach would be to program two CGIs:
 
     /usr/lib/cgi-bin/new.py
-    /user/lib/cgi-bin/list.py
+    /usr/lib/cgi-bin/list.py
 
 Each one will:
 
