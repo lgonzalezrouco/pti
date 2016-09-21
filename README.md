@@ -3,7 +3,7 @@
 
 [Session 1 (CGi)](./p1_cgi/README.md)
 
-[Session 2 (Java servlets)](./p2_servlets_copia/README.md)
+[Session 2 (Java servlets)](./p2_servlets copia/README.md)
 
 [Session 3 (XML Processing with Java)](./p3_xml/README.md)
 
