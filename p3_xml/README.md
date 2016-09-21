@@ -16,8 +16,6 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
 ### 2.2 Download the examples and libraries
 
-First download the 
-
     wget http://docencia.ac.upc.es/FIB/grau/PTI/lab/_xml/lab4.tgz
     tar xzvf lab4.tgz
 
