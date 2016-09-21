@@ -43,7 +43,7 @@ And run it:
 
     java Article
 
-##3 Lab assignment 
+## 3 Lab assignment 
 
 You have to program an console application with the following behavior:
 
