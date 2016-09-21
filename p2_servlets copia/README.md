@@ -139,7 +139,7 @@ Install git:
 Download the sources (if you already have the pti repository, just do a git pull):
 
     cd $HOME       
-    git clone https://github.com/rtous/pti.git    
+    git clone https://gitlab.fib.upc.edu/pti/pti.git
 
 Copy the sources to Tomcat and compile the servlets:
     
