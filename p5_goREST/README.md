@@ -1,29 +1,29 @@
 # Making a JSON API in Go
 
-##1. Introduction
+## 1. Introduction
 
 A web service is a generic term for a software function that is accessible through HTTP. Traditional web services usually relied in support protocols for data exchange (e.g. SOAP) and service definition (WSDL). However, nowadays the paradigm has evolved to a simplified form, usually called web APIs. Web APIs normally rely only in plain HTTP (plus JSON for serializing the messages). Their design is usually influenced by the [REST architectural style](https://en.wikipedia.org/wiki/Representational_state_transfer), though the most part of existing web APIs do not really comply with REST principles. Nowadays, the most part of client-server systems (e.g. web applications and mobile apps) design their back end as a combination of web APIs.  
 
 The goal of this session is to create simple web API with the Go programming language and JSON. We will not bother to follow the REST principles, so it will not be a trully RESTful API.  
 
 
-##2. Setup
+## 2. Setup
 
-###2.1 Booting the machine 
+### 2.1 Booting the machine 
 
 Conventional room: Select a Linux image and login with your credentials.
 
 Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with credentials user=alumne and pwd:=sistemes
 
-###2.2 Prerequisites
+### 2.2 Prerequisites
 
 It's not indispensable but strongly recommended that you have git installed. If not, for a Linux machine just do:
 
     sudo apt-get install git
 
 It would be also good if you have an account in any git-compliant hosting service such as GitHub or Bitbucket.
-
-###2.3 Install Go
+ 
+### 2.3 Install Go
 
 Download Go from https://golang.org/dl/ (>80 MB !)
 
@@ -140,7 +140,7 @@ Let's modify our webserver.go to add some routes:
 
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
    
-##5. JSON 
+## 5. JSON 
 
 Typically an endpoint has to deal with more complex input and output parameters. This is usually solved by formatting the parameters (input and/or output) with JSON. Let's modify our webserver.go to include a JSON response.
 
@@ -221,7 +221,7 @@ Rebuild and run. In order to submit a JSON request we will use curl instead of t
 curl -H "Content-Type: application/json" -d '{"Field1":"Value1", "Field2":"Value2"}' http://localhost:8080/endpoint2/1234
 
    
-##6. Creating your own car rental web API
+## 6. Creating your own car rental web API
 
 As an example web API you will create a simple car rental web API. It will consist in two functionalities:
 

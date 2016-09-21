@@ -1,12 +1,12 @@
 # XML Processing with Java
 
-##1. Introduction
+## 1. Introduction
 
 The purpose of this assignment is to learn how to process XML documents with Java.
 
 ##2. Setup
 
-###2.1 Booting the machine
+### 2.1 Booting the machine
 
 Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
@@ -14,7 +14,7 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
     pwd: sistemes
 
 
-###2.2 Download the examples and libraries
+### 2.2 Download the examples and libraries
 
 First download the 
 
@@ -29,7 +29,7 @@ First download the
     wget http://apache.rediris.es/xalan/xalan-j/binaries/xalan-j_2_7_2-bin-2jars.tar.gz
     tar xzvf xalan-j_2_7_2-bin-2jars.tar.gz
 
-###2.3 Set the Java classpath and run the example
+### 2.3 Set the Java classpath and run the example
 
 Assuming that the JDOM folder is located in your home directory set the Java classpath this way:
 
@@ -49,7 +49,7 @@ And run it:
 
 You have to program an console application with the following behavior:
 
-###3.1 reset
+### 3.1 reset
 
 Command:
 
@@ -63,7 +63,7 @@ The application will create a new XML document (in memory) with the following st
 
 Once created, the application will save it to a file carrental.xml. If the file already exists, its previous contents will be lost.
 
-###3.2 new
+### 3.2 new
 
 Command:
 
@@ -82,7 +82,7 @@ The application will 1) Ask the user (through the console) the data of a new ren
 
 And 4) the application will save new document including the new rental into carrental.xml.
 
-###3.3 list
+### 3.3 list
 
 Command:
 
@@ -90,7 +90,7 @@ Command:
 
 The application will read the carrental.xml XML document into memory and pretty print it to the console.
 
-###3.4 xslt
+### 3.4 xslt
 
 Command:
 
