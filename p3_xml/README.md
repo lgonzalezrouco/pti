@@ -4,7 +4,7 @@
 
 The purpose of this assignment is to learn how to process XML documents with Java.
 
-##2. Setup
+## 2. Setup
 
 ### 2.1 Booting the machine
 
