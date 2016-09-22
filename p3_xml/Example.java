@@ -43,14 +43,14 @@ import org.jdom.output.XMLOutputter;
 public class Example {
 
     /**
-     * Read and parse an xml document from the file at xml/sample.xml.
+     * Read and parse an xml document from the file at example.xml.
      * This method corresponds to the code in Listing 12.
      * @return the JDOM document parsed from the file.
      */
     public static Document readDocument() {
         try {
             SAXBuilder builder = new SAXBuilder();
-            Document anotherDocument = builder.build(new File("xml/sample.xml"));
+            Document anotherDocument = builder.build(new File("example.xml"));
             return anotherDocument;
         } catch(JDOMException e) {
             e.printStackTrace();
@@ -165,7 +165,7 @@ public class Example {
 
     /**
      * This method shows how to use XMLOutputter to output a JDOM document to
-     * a file located at xml/myFile.xml.
+     * a file located at myFile.xml.
      * This method corresponds to Listing 11.
      * @param myDocument the JDOM document built from Listing 2.
      */
@@ -176,7 +176,7 @@ public class Example {
             XMLOutputter outputter = new XMLOutputter();
 
             //output to a file
-            FileWriter writer = new FileWriter("xml/myFile.xml");
+            FileWriter writer = new FileWriter("myFile.xml");
             outputter.output(myDocument, writer);
             writer.close();
 
@@ -186,7 +186,7 @@ public class Example {
     }
 
     /**
-     * This method takes a JDOM document in memory, an xsl file at xml/car.xsl,
+     * This method takes a JDOM document in memory, an xsl file at example.xslt,
      * and outputs the results to stdout.
      * This method corresponds to Listing 14.
      * @param myDocument the JDOM document built from Listing 2.
@@ -198,7 +198,7 @@ public class Example {
             org.jdom.output.DOMOutputter outputter = new org.jdom.output.DOMOutputter();
             org.w3c.dom.Document domDocument = outputter.output(myDocument);
             javax.xml.transform.Source xmlSource = new javax.xml.transform.dom.DOMSource(domDocument);
-            StreamSource xsltSource = new StreamSource(new FileInputStream("xml/car.xsl"));
+            StreamSource xsltSource = new StreamSource(new FileInputStream("example.xslt"));
 			//Make the output result for the finished document
             /*
              * Note that here we are just going to output the results to the
@@ -256,8 +256,8 @@ public class Example {
         System.out.println("  access - access a child element as shown in Listing 8");
         System.out.println("  remove - remove a child element as shown in Listing 9");
         System.out.println("  output - output a document to the console as shown in Listing 10");
-        System.out.println("  file   - output a document to xml/myFile.xml as shown in Listing 11");
-        System.out.println("  read   - parse a document from xml/sample.xml as shown in Listing 12");
+        System.out.println("  file   - output a document to myFile.xml as shown in Listing 11");
+        System.out.println("  read   - parse a document from example.xml as shown in Listing 12");
         System.out.println("  xsl    - transform a document as shown in Listing 14");
     }
 }

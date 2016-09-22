@@ -14,12 +14,9 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
     pwd: sistemes
 
 
-### 2.2 Download the examples and libraries
+### 2.2 Download the example and the libraries
 
-    wget http://docencia.ac.upc.es/FIB/grau/PTI/lab/_xml/lab4.tgz
-    tar xzvf lab4.tgz
-
-    cd JDOM
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_xml/Example.java
 
     wget http://www.jdom.org/dist/binary/archive/jdom-1.0.zip
     unzip jdom-1.0.zip
@@ -29,19 +26,17 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
 ### 2.3 Set the Java classpath and run the example
 
-Assuming that the JDOM folder is located in your home directory set the Java classpath this way:
+Set the Java classpath this way:
 
-    CLASSPATH=~/JDOM/xalan-j_2_7_2/xalan.jar:~/JDOM//xalanj_2_7_2/xercesImpl.jar:~/JDOM/jdom-1.0/build/jdom.jar:.
-    export CLASSPATH
+    export CLASSPATH=./xalan-j_2_7_2/xalan.jar:./xalanj_2_7_2/xercesImpl.jar:./jdom-1.0/build/jdom.jar:.
 
 Now build the example:
 
-    cd JDOM/jdomExamples
-    javac Article.java
+    javac Example.java
 
 And run it:
 
-    java Article
+    java Example
 
 ## 3 Lab assignment 
 
