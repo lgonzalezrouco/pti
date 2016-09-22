@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-While nowadays JSON is replacing XML in many data-interchange scenarios, XML is still a broadly used language, with unique features that still make it the first choice in some situations. The purpose of this assignment is to learn an easy way to process XML documents with Java. We will use JDOM, a library for enabling rapid development of XML applications. 
+While nowadays JSON is replacing XML in many data-interchange scenarios, XML is still a broadly used language, with unique features that still make it the first choice in some situations. The purpose of this assignment is to learn an easy way to process XML documents with Java. We will use JDOM, a library for enabling rapid development of XML applications. Though it's not necessary, you can take a look to [this article](http://unpetitaccident.com/pub/compeng/languages/JAVA/Tutorials/JDOM/simplify%20XML%20programming%20with%20jdom.pdf) to get more information about JDOM. 
 
 NOTE: You can use a different programming language (e.g. Python) and/or different libraries (there are [many for Java](https://en.wikipedia.org/wiki/Java_XML)). In that case, just jump to [Section 3](#3-lab-assignment).
 
@@ -69,15 +69,16 @@ Command:
 
     java CarRental new
 
-The application will 1) Ask the user (through the console) the data of a new rental (car model, etc.); 2) Read the carrental.xml XML document into memory; 3) Add a new element to the document with the following structure :
+The application will 1) Ask the user (through the console) the data of a new rental (car model, etc.); 2) Read the carrental.xml XML document into memory; 3) Add a new "rental" element to the document with the following structure :
     
     <?xml version="1.0" encoding="UTF-8"?>
     <carrental>
-        <car vin="123fhg5869705iop90">
+        <rental id="anyID">
           <make>Toyota</make>
           <model>Celica</model>
-          ...
-        </car>
+          <start>2016-09-24-06:00</start>
+          <end>2016-09-26-06:00</end>
+        </rental>
     </carrental>
 
 And 4) the application will save new document including the new rental into carrental.xml.
