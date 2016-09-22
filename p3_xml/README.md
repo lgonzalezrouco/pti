@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-The purpose of this assignment is to learn how to process XML documents with Java.
+While nowadays JSON is replacing XML in many data-interchange scenarios, XML is still a broadly used language, with unique features that still make it the first choice in some situations. The purpose of this assignment is to learn an easy way to process XML documents with Java. We will use JDOM, a library for enabling rapid development of XML applications. 
 
 ## 2. Setup
 
@@ -16,11 +16,11 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
 ### 2.2 Download the example and the libraries
 
-Install git:
+Install git if necessary:
 
     sudo apt-get install git
 
-Download the sources (if you already have the pti repository, just do a git pull):
+Download the sources (if you already have the pti repository, just do a git pull to update it):
 
     cd $HOME       
     git clone https://gitlab.fib.upc.edu/pti/pti.git
