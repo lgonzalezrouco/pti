@@ -17,6 +17,8 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 ### 2.2 Download the example and the libraries
 
     wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_xml/Example.java
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_xml/example.xml
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_xml/example.xslt
 
     wget http://www.jdom.org/dist/binary/archive/jdom-1.0.zip
     unzip jdom-1.0.zip
