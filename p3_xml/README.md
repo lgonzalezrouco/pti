@@ -46,7 +46,8 @@ And run it:
 
 ## 3 Lab assignment 
 
-You have to program an console application with the following behavior:
+You have to program a console application that keeps information about car rentals in an XML file named carrental.xml. The application will accept just one parameter that will specify the action to be performed. After executing one action the application will finish. These are the actions that the application must provide:
+
 
 ### 3.1 reset
 
@@ -95,7 +96,7 @@ Command:
 
     java CarRental xslt
 
-The application will read the carrental.xml XML document into memory, transform it into HTML with an XSLT stylesheet and print it to the console. You can reuse the stylesheet from the example (car.xsl), but you would need to change it
+The application will read the carrental.xml XML document into memory, transform it into HTML with an XSLT stylesheet and print it to the console. You can reuse the stylesheet from the example (example.xslt), but you would need to change it
 
 
 
