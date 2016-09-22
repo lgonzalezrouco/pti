@@ -16,21 +16,23 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
 ### 2.2 Download the example and the libraries
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_xml/Example.java
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_xml/example.xml
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_xml/example.xslt
+Install git:
 
-    wget http://www.jdom.org/dist/binary/archive/jdom-1.0.zip
-    unzip jdom-1.0.zip
+    sudo apt-get install git
 
-    wget http://apache.rediris.es/xalan/xalan-j/binaries/xalan-j_2_7_2-bin-2jars.tar.gz
-    tar xzvf xalan-j_2_7_2-bin-2jars.tar.gz
+Download the sources (if you already have the pti repository, just do a git pull):
+
+    cd $HOME       
+    git clone https://gitlab.fib.upc.edu/pti/pti.git
+
+    cd pti/p3_xml
+    ls
 
 ### 2.3 Set the Java classpath and run the example
 
 Set the Java classpath this way:
 
-    export CLASSPATH=./xalan-j_2_7_2/xalan.jar:./xalanj_2_7_2/xercesImpl.jar:./jdom-1.0/build/jdom.jar:.
+    export CLASSPATH=./xalan.jar:./xercesImpl.jar:./jdom.jar:.
 
 Now build the example:
 

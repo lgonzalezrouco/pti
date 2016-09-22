@@ -1,13 +1,13 @@
 # Java Servlets
 
-##1. Quick Start
+## 1. Quick Start
 
 NOTE: 
     Official lab description at: http://docencia.ac.upc.es/FIB/grau/PTI/lab/_servlet/servlets.pdf
     Examples at http://docencia.ac.upc.es/FIB/grau/PTI/lab/_servlet/p2codigo.tgz
 
 
-###1.1 Booting the machine
+### 1.1 Booting the machine
 
 Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
@@ -15,7 +15,7 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
     pwd: sistemes
 
 
-###1.2 Install Tomcat 7
+### 1.2 Install Tomcat 7
 
 Open a terminal (CTRL+ALT+T).
 
@@ -57,7 +57,7 @@ Restart Tomcat with:
     sudo service tomcat7 start
 
 
-###1.3 Create and display a simple HTML page
+### 1.3 Create and display a simple HTML page
 
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp
     sudo vi /var/lib/tomcat7/webapps/my_webapp/index.html
@@ -72,7 +72,7 @@ Restart Tomcat with:
 Check: http://localhost:8080/my_webapp
 
 
-###1.4 Create and simple servlet
+### 1.4 Create and simple servlet
 
     sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF
     sudo vi /var/lib/tomcat7/webapps/my_webapp/WEB-INF/web.xml
@@ -121,7 +121,7 @@ Check: http://localhost:8080/my_webapp
 
         http://localhost:8080/my_webapp/my_servlet
 
-##2 Lab assignment 
+## 2 Lab assignment 
 
 You have to program a web application that does exactly the same as in session 1 (CGIs) but this time using Tomcat and servlets.
 
@@ -130,7 +130,7 @@ In order to help you, some files are provided:
 - One index and the two HTML forms
 - Two servlets (partially programmed)
 
-###2.1 Install the provided sources
+### 2.1 Install the provided sources
 
 Install git:
 
@@ -182,7 +182,7 @@ Check the following link and submit:
 
 We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
 
-##3. Advanced Tomcat configuration (not necessary to complete this lab)
+## 3. Advanced Tomcat configuration (not necessary to complete this lab)
 
 Open ports for external access with:
 
