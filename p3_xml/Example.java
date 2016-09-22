@@ -40,7 +40,7 @@ import org.jdom.output.XMLOutputter;
  * 	Manel Guerrero
  */
 
-public class Article {
+public class Example {
 
     /**
      * Read and parse an xml document from the file at xml/sample.xml.
