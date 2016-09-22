@@ -27,7 +27,7 @@ It would be also good if you have an account in any git-compliant hosting servic
 
 Download Go from https://golang.org/dl/ (>80 MB !)
 
-###2.4 Setup a directory hierarchy 
+### 2.4 Setup a directory hierarchy 
 
 (check [this](https://golang.org/doc/code.html) for more info in how to write Go code)
 
