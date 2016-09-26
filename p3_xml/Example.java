@@ -17,6 +17,7 @@ import org.jdom.Element;
 import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
+import org.jdom.output.Format;
 
 public class Example {
 
@@ -119,7 +120,7 @@ public class Example {
     public static void outputDocument(Document myDocument) {
         try {
             // XMLOutputter outputter = new XMLOutputter("  ", true);
-            XMLOutputter outputter = new XMLOutputter();
+            XMLOutputter outputter = new XMLOutputter(Format.getPrettyFormat());
             outputter.output(myDocument, System.out);
         } catch (java.io.IOException e) {
             e.printStackTrace();
