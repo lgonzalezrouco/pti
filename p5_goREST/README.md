@@ -25,7 +25,7 @@ It would be also good if you have an account in any git-compliant hosting servic
  
 ### 2.3 Install Go
 
-Download Go (if the link does not work follow go [here](https://golang.org/dl/))
+Download Go (if the link does not work go [here](https://golang.org/dl/))
     
     wget https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
 
