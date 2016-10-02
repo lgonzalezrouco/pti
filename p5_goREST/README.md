@@ -25,9 +25,19 @@ It would be also good if you have an account in any git-compliant hosting servic
  
 ### 2.3 Install Go
 
-Download Go from https://golang.org/dl/ (>80 MB !)
+Download Go (if the link does not work follow go [here](https://golang.org/dl/)
+    
+    wget https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
 
-### 2.4 Setup a directory hierarchy 
+Extract it into /usr/local:
+
+    tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz
+
+Add /usr/local/go/bin to the PATH environment variable:
+
+    export PATH=$PATH:/usr/local/go/bin
+
+### 2.4 Setup a directory hierarchy for your projects
 
 (check [this](https://golang.org/doc/code.html) for more info in how to write Go code)
 
@@ -41,7 +51,7 @@ Set the GOPATH environment variable to point to that location
 
     export GOPATH=$HOME/go
 
-It is recommended that you create a git repository (e.g. "pti_golang") for the code of this session within $HOME/go/src. If you have a github account you can do it directly from the command line:
+It is recommended (but not necessary) that you create a git repository (e.g. "pti_golang") for the code of this session within $HOME/go/src. If you have a github account you can do it directly from the command line:
 
     curl -u 'YOUR_GITHUB_USER' https://api.github.com/user/repos -d '{"name":"pti_golang"}'
     cd $HOME/go/src
@@ -52,7 +62,7 @@ Let's write and test a first program in golang:
     cd $HOME/go/src/pti_golang
     mkdir hello
     cd hello
-    wget https://raw.githubusercontent.com/rtous/pti/master/goREST/src/hello/hello.go
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p5_goREST/src/hello/hello.go
     go install pti_golang/hello
     $HOME/go/bin/hello
 
