@@ -17,7 +17,11 @@ Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with cr
 
 ### 2.2 Prerequisites
 
-It's not indispensable but strongly recommended that you have git installed. If not, for a Linux machine just do:
+You need 'curl' installed (check it typing 'curl -V' in the terminal). If, for some strange reason, it's not, just do:
+
+    sudo apt-get install curl
+    
+It's not indispensable but strongly recommended that you have git installed. If not, just do:
 
     sudo apt-get install git
 
