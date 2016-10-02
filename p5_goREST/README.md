@@ -230,6 +230,8 @@ Rebuild and run. In order to submit a JSON request we will use curl instead of t
 
 curl -H "Content-Type: application/json" -d '{"Field1":"Value1", "Field2":"Value2"}' http://localhost:8080/endpoint2/1234
 
+(while curl is enough for this session, for your project you could take a look to [POSTMAN](https://www.getpostman.com/))
+
    
 ## 6. Creating your own car rental web API
 
