@@ -170,8 +170,6 @@ Typically an endpoint has to deal with more complex input and output parameters.
         "net/http"
         "github.com/gorilla/mux"
         "encoding/json"
-        "io"
-        "io/ioutil"
     )
 
     type ResponseMessage struct {
@@ -207,6 +205,18 @@ Let's now add a new endpoint that accepts JSON as input. First of all add the fo
         Field1 string
         Field2 string
     }
+
+And "io" and "io/ioutil" to the imports:
+
+	import (
+        	"fmt"
+        	"log"
+        	"net/http"
+        	"github.com/gorilla/mux"
+        	"encoding/json"
+		"io"
+		"io/ioutil"
+    	) 
 
 Then add a new route:
 
