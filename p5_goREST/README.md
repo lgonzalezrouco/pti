@@ -33,9 +33,13 @@ Download Go (if the link does not work go [here](https://golang.org/dl/))
     
     wget https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
 
-Extract it into /usr/local:
+Extract it into /usr/local 
 
-    tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz
+    sudo tar -C /usr/local -xzf go1.7.1.linux-amd64.tar.gz
+
+Change permissions:
+    
+    sudo chmod -R 777 /usr/local/go
 
 Add /usr/local/go/bin to the PATH environment variable:
 
