@@ -262,14 +262,16 @@ As an example web API you will create a simple car rental web API. It will consi
 
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
 
-## ANNEX 1. Writing key-value pairs to a CSV file
+## ANNEX 1. Writing comma-separated values to a CSV file
+
+An easy way to save the list of rentals could be a text file with lines containing comma-separated values (CSV). One rental per line. This way you can save a new rental just adding a line at the end of the file.
 
 	(need to add "encoding/csv" and "os" to imports)
 
-	file, err := os.OpenFile("result.csv", os.O_APPEND|os.O_WRONLY, 0600)
+	file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY, 0600)
     	checkError("Cannot create file", err)
 	writer := csv.NewWriter(file)
-	var data1 = []string{"key", "value"}
+	var data1 = []string{"Toyota", "Celica"}
 	writer.Write(data1)
 	writer.Flush()
 	file.Close()
