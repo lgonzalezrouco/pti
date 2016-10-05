@@ -272,11 +272,15 @@ An easy way to save the list of rentals could be a text file with lines containi
 
 	(need to add "encoding/csv" and "os" to imports)
 
-	file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY, 0600)
-    	checkError("Cannot create file", err)
-	writer := csv.NewWriter(file)
-	var data1 = []string{"Toyota", "Celica"}
-	writer.Write(data1)
-	writer.Flush()
-	file.Close()
+	func writeToFile(w http.ResponseWriter) {
+		file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+		if err := json.NewEncoder(w).Encode(err); err != nil {
+		    panic(err)
+		}
+		writer := csv.NewWriter(file)
+		var data1 = []string{"Toyota", "Celica"}
+		writer.Write(data1)
+		writer.Flush()
+		file.Close()
+	}
 
