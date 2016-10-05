@@ -253,6 +253,7 @@ Rebuild and run. In order to submit a JSON request we will use curl instead of t
 (while curl is enough for this session, for your project you could take a look at [POSTMAN](https://www.getpostman.com/))
 
 **WARNING: The fields of the request and response structs MUST START WITH A CAPITAL LETTER.**
+**WARNING: The fields of the request and response structs MUST ONLY INCLUDE ALPHANUMERIC CHARACTERS (AVOID UNDERSCORES, ETC.).**
 
    
 ## 6. Creating your own car rental web API
