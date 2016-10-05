@@ -78,7 +78,6 @@ Don't forget to commit your changes
 
     cd $HOME/go/src/pti_golang
     git config --local user.name "YOUR_GITHUB_USER"
-    git config --local user.email "YOUR_GITHUB_EMAIL"
     git add .
     git commit -m "first commit"
     git push
