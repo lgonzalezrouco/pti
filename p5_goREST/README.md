@@ -252,7 +252,7 @@ Rebuild and run. In order to submit a JSON request we will use curl instead of t
 
 (while curl is enough for this session, for your project you could take a look at [POSTMAN](https://www.getpostman.com/))
 
-WARNING: The fields of the request and response structs MUST START WITH A CAPITAL LETTER. Reason [here](https://golang.org/pkg/encoding/json/#Marshal)
+**WARNING: The fields of the request and response structs MUST START WITH A CAPITAL LETTER. Reason [here](https://golang.org/pkg/encoding/json/#Marshal)**
 
    
 ## 6. Creating your own car rental web API
