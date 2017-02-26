@@ -99,6 +99,20 @@ Command:
 
 The application will read the carrental.xml XML document into memory, transform it into HTML with an XSLT stylesheet and print it to the console. You can reuse the stylesheet from the example (example.xslt), but you will need to change it.
 
+## ANNEX A. Work from a Docker container
+
+(if you have Docker installed)
+
+Launch the container:
+
+    docker run --name=pti -it ubuntu:16.04
+
+Within the container:
+
+    apt-get update
+    apt-get install git
+    apt-get install default-jdk
+
 
 
 
