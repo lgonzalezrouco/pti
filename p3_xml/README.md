@@ -38,11 +38,7 @@ Check if java is installed (if not you will have to install it):
 
 If not installed do the following:
 
-    sudo add-apt-repository ppa:webupd8team/java
-    sudo apt-get update
-    sudo apt-get install oracle-java8-installer
-    sudo apt-get install oracle-java8-set-default
-    sudo ln -s /usr/lib/jvm/java-8-oracle /usr/lib/jvm/default-java
+    apt-get install default-jdk
 
 Set the Java classpath this way:
 
