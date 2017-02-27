@@ -104,7 +104,7 @@ Command:
 
     java CarRental list
 
-The application will read the carrental.xml XML document into memory and pretty print it to the console.
+The application will read the carrental.xml XML document into memory and print it to the console.
 
 ### 3.4 xslt
 
