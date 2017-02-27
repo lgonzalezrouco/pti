@@ -32,6 +32,18 @@ Download the sources (if you already have the pti repository, just do a git pull
 
 ### 2.3 Set the Java classpath and run the example
 
+Check if java is installed (if not you will have to install it):
+
+    java -version
+
+If not installed do the following:
+
+    sudo add-apt-repository ppa:webupd8team/java
+    sudo apt-get update
+    sudo apt-get install oracle-java8-installer
+    sudo apt-get install oracle-java8-set-default
+    sudo ln -s /usr/lib/jvm/java-8-oracle /usr/lib/jvm/default-java
+
 Set the Java classpath this way:
 
     export CLASSPATH=./xalan.jar:./xercesImpl.jar:./jdom.jar:.
