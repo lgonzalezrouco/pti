@@ -95,6 +95,8 @@ The application will 1) Ask the user (through the console) the data of a new ren
 
 And 4) the application will save new document including the new rental into carrental.xml.
 
+NOTE: ANNEX A contains an example for reading input from the console in Java 
+
 ### 3.3 list
 
 Command:
@@ -111,7 +113,20 @@ Command:
 
 The application will read the carrental.xml XML document into memory, transform it into HTML with an XSLT stylesheet and print it to the console. You can reuse the stylesheet from the example (example.xslt), but you will need to change it.
 
-## ANNEX A. Work from a Docker container
+## ANNEX A. Reading input from console in Java
+
+	public static Element askData() {
+		Element carElement = new Element("rental");
+		System.out.print("Make:");
+		String input = System.console().readLine();
+		Element make = new Element("make");
+		make.addContent(input);
+		carElement.addContent(make);
+		...
+		return carElement;
+   	 }	
+
+## ANNEX B. Work from a Docker container
 
 (if you have Docker installed)
 
