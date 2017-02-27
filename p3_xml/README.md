@@ -69,6 +69,8 @@ The application will create a new XML document (in memory) with the following st
     <carrental>
     </carrental>
 
+NOTE: A sigle tag <carrental/> is an equivalent serialization.
+
 Once created, the application will save it to a file carrental.xml. If the file already exists, its previous contents will be lost.
 
 ### 3.2 new
