@@ -122,7 +122,27 @@ The application will read the carrental.xml XML document into memory, transform 
 		return carElement;
    	 }	
 
-## ANNEX B. Work from a Docker container
+## ANNEX B. XSLT apply-templates
+
+In order to create an XSLT stylesheet that processes N subelements you can use the apply-templates function: 
+	
+	<xsl:template match="/carrental">
+		<html>
+			<head><title>RENTALS</title></head>
+			<body>
+				<xsl:apply-templates select="rental"/>
+			</body>
+		</html>
+	</xsl:template>
+	<xsl:template match="rental">
+		<table border="0">
+			<h1>MAKE=<xsl:value-of select="make"/></h1><br />
+			...
+		</table>		
+	</xsl:template>
+
+
+## ANNEX C. Work from a Docker container
 
 (if you have Docker installed)
 
