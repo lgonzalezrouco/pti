@@ -144,11 +144,13 @@ In order to create an XSLT stylesheet that processes N subelements you can use t
 
 ## ANNEX C. Work from a Docker container
 
-(if you have Docker installed)
+Install Docker 
+
+    sudo apt install docker.io
 
 Launch the container:
 
-    docker run --name=pti -it ubuntu:16.04
+    sudo docker run --name=pti -it ubuntu:16.04
 
 Within the container:
 
