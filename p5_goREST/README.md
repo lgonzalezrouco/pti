@@ -279,7 +279,7 @@ An easy way to save the list of rentals could be a text file with lines containi
 
 	(need to add "encoding/csv" and "os" to imports)
 
-	func writeToFile() {
+	func writeToFile(w http.ResponseWriter) {
 		file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
 		if err!=nil {
 			json.NewEncoder(w).Encode(err)
