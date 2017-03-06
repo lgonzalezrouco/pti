@@ -274,9 +274,7 @@ An easy way to save the list of rentals could be a text file with lines containi
 
 	func writeToFile() {
 		file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
-		if err := json.NewEncoder(w).Encode(err); err != nil {
-		    panic(err)
-		}
+		if err!=nil {fmt.Printf("error opening rentals file\n")}
 		writer := csv.NewWriter(file)
 		var data1 = []string{"Toyota", "Celica"}
 		writer.Write(data1)
@@ -291,6 +289,7 @@ In order to read the list of rentals from the CSV file you can do:
 	(need to add "bufio" to imports)
 
 	file, err := os.Open("rentals.csv")
+        if err!=nil {fmt.Printf("error opening rentals file\n")}
     	reader := csv.NewReader(bufio.NewReader(file))
     	for {
         	record, err := reader.Read()
