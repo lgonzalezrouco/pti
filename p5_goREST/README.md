@@ -272,7 +272,7 @@ An easy way to save the list of rentals could be a text file with lines containi
 
 	(need to add "encoding/csv" and "os" to imports)
 
-	func writeToFile(w http.ResponseWriter) {
+	func writeToFile() {
 		file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
 		if err := json.NewEncoder(w).Encode(err); err != nil {
 		    panic(err)
@@ -283,4 +283,17 @@ An easy way to save the list of rentals could be a text file with lines containi
 		writer.Flush()
 		file.Close()
 	}
+
+## ANNEX 2. Dynamic growing arrays in Go: Slices
+
+If you need reading the rentals file into an array, whose initial size is unknown, you can use a  [Go slice](https://blog.golang.org/go-slices-usage-and-internals) and the "append" function this way: 
+
+    var lines []ResponseMessage
+    for {
+        ...
+	lines = append(lines, ResponseMessage{Field1: "Text1", Field2: "Text2"})
+        
+    }
+    ...
+
 
