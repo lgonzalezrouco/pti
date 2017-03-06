@@ -267,7 +267,7 @@ Rebuild and run. In order to submit a JSON request we will use curl instead of t
 
 As an example web API you will create a simple car rental web API. It will consist in two functionalities:
 
-- Request a new rental: An endpoint to register a new rental order. Input fields will include the car maker, car model, number of days and number of units. If all data is correct the total price of the rental will be returned to the user along with the data of the requested rental.
+- Request a new rental: An endpoint to register a new rental order. Input fields will include the car maker, car model, number of days and number of units. The total price of the rental will be returned to the user along with the data of the requested rental.
  
 - Request the list of all rentals: An endpoint that will return the list of all saved rental orders (in JSON format). 
 
