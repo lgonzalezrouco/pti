@@ -284,7 +284,24 @@ An easy way to save the list of rentals could be a text file with lines containi
 		file.Close()
 	}
 
-## ANNEX 2. Dynamic growing arrays in Go: Slices
+## ANNEX 2. Reading a CSV file
+
+In order to read the list of rentals from the CSV file you can do:
+
+	(need to add "bufio" to imports)
+
+	file, err := os.Open("rentals.csv")
+    	reader := csv.NewReader(bufio.NewReader(file))
+    	for {
+        	record, err := reader.Read()
+        	if err == io.EOF {
+            		break
+                }
+                fmt.Fprintf(w, "The first value is %q", record[0])
+        }
+	
+     
+## ANNEX 3. Dynamic growing arrays in Go: Slices
 
 If you need reading the rentals file into an array, whose initial size is unknown, you can use a  [Go slice](https://blog.golang.org/go-slices-usage-and-internals) and the "append" function this way: 
 
