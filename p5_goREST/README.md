@@ -11,7 +11,7 @@ The goal of this session is to create simple web API with the Go programming lan
 
 ### 2.1 Booting the machine 
 
-Conventional room: Select a Linux image and login with your credentials.
+Conventional room: Select a 64-bit Linux image and login with your credentials.
 
 Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with credentials user=alumne and pwd:=sistemes
 
@@ -26,12 +26,19 @@ It's not indispensable but strongly recommended that you have git installed. If 
     sudo apt-get install git
 
 It would be also good if you have an account in any git-compliant hosting service such as GitHub or Bitbucket.
- 
+
+NOTE: If you encounter lock errors with apt-get commands try killing the blocking process:
+
+	ps aux | grep apt
+	sudo kill PROCNUM
+
 ### 2.3 Install Go
 
 Download Go (if the link does not work go [here](https://golang.org/dl/))
     
     wget https://storage.googleapis.com/golang/go1.7.1.linux-amd64.tar.gz
+
+(IMPORTANT: The executable will not work if you are working on a 32-bit Linux!)
 
 Extract it into /usr/local 
 
@@ -262,7 +269,7 @@ As an example web API you will create a simple car rental web API. It will consi
 
 - Request a new rental: An endpoint to register a new rental order. Input fields will include the car maker, car model, number of days and number of units. If all data is correct the total price of the rental will be returned to the user along with the data of the requested rental.
  
-- Request the list of all rentals: An endpoint that will return the list of all saved rental orders. 
+- Request the list of all rentals: An endpoint that will return the list of all saved rental orders (in JSON format). 
 
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
 
@@ -274,7 +281,10 @@ An easy way to save the list of rentals could be a text file with lines containi
 
 	func writeToFile() {
 		file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
-		if err!=nil {fmt.Printf("error opening rentals file\n")}
+		if err!=nil {
+			json.NewEncoder(w).Encode(err)
+			return
+   		}
 		writer := csv.NewWriter(file)
 		var data1 = []string{"Toyota", "Celica"}
 		writer.Write(data1)
@@ -289,7 +299,10 @@ In order to read the list of rentals from the CSV file you can do:
 	(need to add "bufio" to imports)
 
 	file, err := os.Open("rentals.csv")
-        if err!=nil {fmt.Printf("error opening rentals file\n")}
+        if err!=nil {
+		json.NewEncoder(w).Encode(err)
+		return
+    	}
     	reader := csv.NewReader(bufio.NewReader(file))
     	for {
         	record, err := reader.Read()
