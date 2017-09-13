@@ -78,6 +78,7 @@ test in browser: http://localhost:80/p1/formulari.html and submit. The script th
 ### 2.6 Troubleshooting
 
 Check errors with:
+
     cat /var/log/apache2/error.log
 
 Check config at:
@@ -90,6 +91,8 @@ NOTE: Restart apache after changing the configuration with:
     sudo service apache2 restart
 
 Apache documentation at http://httpd.apache.org/docs/2.2/
+
+Error "end of script output before headers": Did you change file permissions? Is Python installed? 
 
     
 ## 3. Creating your own car rental web page 
@@ -118,7 +121,7 @@ Each one will:
 	1) If there's no input data just generate the form.
 	2) If there's input data validate it and return the result (some info or a message error plus the form again)
 
-You don't need to program the CGIs from scratch, you replicate template_cgi.py.
+You don't need to program the CGIs from scratch, you can replicate template_cgi.py.
 
 In order to write/read the orders to a disk file you can use a comma-separated values format (CSV) and the csv python module. Take a look to ANNEX2 for an example.
 
