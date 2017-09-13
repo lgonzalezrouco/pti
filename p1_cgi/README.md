@@ -24,6 +24,10 @@ Open a terminal (CTRL+ALT+T) and type:
     sudo apt-get update
     sudo apt-get install apache2 #password = sistemes
 
+Install python (if necessary):
+
+    sudo apt-get install python
+
 Check with version is installed:
 
     apachectl -V
