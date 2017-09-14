@@ -41,7 +41,6 @@ Install git (if necessary):
 
     sudo apt-get install git
 
-
 Download the examples:
 
     cd $HOME       
@@ -185,6 +184,85 @@ Reading:
     cr = csv.reader(open("MYFILE.csv","rb"))
     for row in cr:    
         print row[0], row[1]
+
+## ANNEX 3: With Docker
+
+You may find it more convenient to do the work within a Docker container. This way you can replicate the work in other platforms (OSX, Windows, etc.) without the pain of running a virtual machine. 
+
+Check if docker is installed:
+
+    docker -v
+
+If not, let's install it:
+
+    sudo apt-get update
+    wget -qO- https://get.docker.com/ | sh
+    sudo usermod -aG docker $(whoami)
+
+Build the PTI image:
+
+    docker build -t pti - < Dockerfile_pti
+
+Run a container:
+
+    docker run -it --name pti \
+       -v /YOUR_WORKING_DIRECTORY:/userVolume \
+       -p 80:80 \
+       pti bash 
+
+(within the container) Run apache:
+
+    service apache2 start
+
+(within the container) Move to the shared space:
+
+    cd /userVolume/
+
+/userVolume maps to your /YOUR_WORKING_DIRECTORY, so you can edit the files there with your usual tools.
+
+Perform steps starting from Section 2.3 without using "sudo" and using /userVolume instead of $HOME.
+
+## ANNEX 3.1: Useful docker commands
+
+Exit a container shell:
+
+    CTRL+P+Q
+
+Reenter a conteiner shell:
+
+    docker exec -it pti bash
+
+List docker images in the machine:
+
+    docker images
+
+List running/stopped containers:
+
+    docker ps -a
+
+Stop a container:
+
+    docker stop pti
+
+Start a stopped container:
+
+    docker start pti
+
+Remove a container:
+
+    docker rm pti
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
