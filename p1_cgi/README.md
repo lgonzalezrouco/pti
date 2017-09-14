@@ -199,6 +199,25 @@ If not, let's install it:
     wget -qO- https://get.docker.com/ | sh
     sudo usermod -aG docker $(whoami)
 
+Within the FIB's teaching lab need to fix a problem with the DNS (Docker replicates the nameservers from /etc/resolv.conf but ignores the localhost entries, the public nameservers do not work because of the firewall).  
+    
+    nmcli dev show | grep 'IP4.DNS'
+    sudo vi /etc/docker/daemon.json
+        {
+            "dns": ["147.83.30.71", "8.8.8.8"]
+        }
+    sudo service docker restart
+
+Install git (if necessary):
+
+    sudo apt-get install git
+
+Download the PTI required files:
+
+    cd $HOME       
+    git clone https://gitlab.fib.upc.edu/pti/pti.git
+    cd pti/p1_cgi
+
 Build the PTI image:
 
     docker build -t pti - < Dockerfile_pti
@@ -206,7 +225,7 @@ Build the PTI image:
 Run a container:
 
     docker run -it --name pti \
-       -v /YOUR_WORKING_DIRECTORY:/userVolume \
+       -v $HOME/pti/p1_cgi:/userVolume \
        -p 80:80 \
        pti bash 
 
@@ -218,9 +237,9 @@ Run a container:
 
     cd /userVolume/
 
-/userVolume maps to your /YOUR_WORKING_DIRECTORY, so you can edit the files there with your usual tools.
+/userVolume maps to your $HOME/pti/p1_cgi, so you can edit the files there with your usual tools.
 
-Perform steps starting from Section 2.3 without using "sudo" and using /userVolume instead of $HOME.
+Perform steps starting from Section 2.3.1 without using "sudo".
 
 ## ANNEX 3.1: Useful docker commands
 
