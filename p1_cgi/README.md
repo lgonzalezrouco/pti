@@ -199,6 +199,8 @@ If not, let's install it:
     wget -qO- https://get.docker.com/ | sh
     sudo usermod -aG docker $(whoami)
 
+It's necessary to LOGOUT to let the usermod command have effect.
+
 Within the FIB's teaching lab need to fix a problem with the DNS (Docker replicates the nameservers from /etc/resolv.conf but ignores the localhost entries, the public nameservers do not work because of the firewall).  
     
     nmcli dev show | grep 'IP4.DNS'
