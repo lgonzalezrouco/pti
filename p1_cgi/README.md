@@ -68,11 +68,15 @@ copy examples:
     sudo cp *.py /usr/lib/cgi-bin
     sudo chmod 055 /usr/lib/cgi-bin/*
 
-test in browser: http://localhost/cgi-bin/example_cgi.py
+test in browser: http://localhost/cgi-bin/example_cgi.py?NOM=Bruce
+
+Take a look at the code of example_cgi.py. You can use this file as a template for the two CGIs that you will need to program in Section 3.
 
 ### 2.5 Form+CGI template
 
 test in browser: http://localhost:80/p1/formulari.html and submit. The script that is processing the request is /usr/lib/cgi-bin/template_cgi.py. 
+
+This is a more sophisticated example from which you can get some ideas for the CGIs that you will need to program in Section 3.
 
 ### 2.6 Troubleshooting
 
@@ -93,7 +97,8 @@ Apache documentation at http://httpd.apache.org/docs/2.2/
 
 Error "end of script output before headers": Did you change file permissions? Is Python installed? 
 
-    
+Error "Failed to flush CGI output to client": A python cgi handling a POST (e.g. list.py) need to do "form = cgi.FieldStorage()
+
 ## 3. Creating your own car rental web page 
 
 As an example CGI you will create a simple car rental web page. It will consist in two functionalities:
