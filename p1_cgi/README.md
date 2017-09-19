@@ -97,7 +97,7 @@ Apache documentation at http://httpd.apache.org/docs/2.2/
 
 Error "end of script output before headers": Did you change file permissions? Is Python installed? 
 
-Error "Failed to flush CGI output to client": A python cgi handling a POST (e.g. list.py) need to do "form = cgi.FieldStorage()
+Error "Failed to flush CGI output to client": A python cgi handling a POST (e.g. list.py) need to do "form = cgi.FieldStorage()""
 
 ## 3. Creating your own car rental web page 
 
