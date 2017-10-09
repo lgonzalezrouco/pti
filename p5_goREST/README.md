@@ -21,13 +21,13 @@ You need 'curl' installed (check it typing 'curl -V' in the terminal). If, for s
 
     sudo apt-get install curl
     
-It's not indispensable but strongly recommended that you have git installed. If not, just do:
+(OPTIONAL) It's not indispensable but strongly recommended that you have git installed. If not, just do:
 
     sudo apt-get install git
 
-It would be also good if you have an account in any git-compliant hosting service such as GitHub or Bitbucket.
+(OPTIONAL) It would be also good if you have an account in any git-compliant hosting service such as GitHub or Bitbucket.
 
-NOTE: If you encounter lock errors with apt-get commands try killing the blocking process:
+(OPTIONAL) NOTE: If you encounter lock errors with apt-get commands try killing the blocking process:
 
 	ps aux | grep apt
 	sudo kill PROCNUM
@@ -60,28 +60,40 @@ Create a directory to contain your golang workspace (e.g. $HOME/go):
 
     cd
     mkdir $HOME/go
+
+Create a directory to contain source files: 
+
     mkdir $HOME/go/src
 
 Set the GOPATH environment variable to point to that location
 
     export GOPATH=$HOME/go
 
-It is recommended (but not necessary) that you create a git repository (e.g. "pti_golang") for the code of this session within $HOME/go/src. If you have a github account you can do it directly from the command line:
+(OPTIONAL) It is recommended (but not necessary) that you create a git repository (e.g. "pti_golang") for the code of this session within $HOME/go/src. If you have a github account you can do it directly from the command line:
 
     curl -u 'YOUR_GITHUB_USER' https://api.github.com/user/repos -d '{"name":"pti_golang"}'
     cd $HOME/go/src
     git clone https://github.com/YOUR_GITHUB_USER/pti_golang.git
 
-Let's write and test a first program in golang:
+Now we will create a package directory (pti_golang/hello) where we will place our first program (create) $HOME/go/src/pti_golang if you did not create the git repository):
 
     cd $HOME/go/src/pti_golang
     mkdir hello
     cd hello
+
+Now we download a source file:
+
     wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p5_goREST/src/hello/hello.go
+
+Then we run the "go install" command. This command (1) builds the package pti_golang/hello, producing an executable binary (using the last name of the package path as name of the command), and (2) copies it to the workspace's bin directory (it is created if it does not exists). 
+
     go install pti_golang/hello
+
+Now we can execute the binary:
+
     $HOME/go/bin/hello
 
-Don't forget to commit your changes
+(OPTIONAL) Don't forget to commit your changes
 
     cd $HOME/go/src/pti_golang
     git config --local user.name "YOUR_GITHUB_USER"
@@ -127,12 +139,16 @@ Run:
     $HOME/go/bin/webserver
 
 test in browser: http://localhost:8080
+
+Kill the process before going through the next steps.
     
 ## 4 URL routing
     
 An web API exposes different functionalities. These functionalities are accessed through different URL routes or endpoints. We need a mechanism that let us map URL routes into calls to different functions in our code. The standard golang library offers a [too complex routing mechanism](https://husobee.github.io/golang/url-router/2015/06/15/why-do-all-golang-url-routers-suck.html), so we will use an external library for that (mux router from the Gorilla Web Toolkit):
 
     go get "github.com/gorilla/mux"
+
+(check that a new package object has been created within $HOME/go/pkg).
 
 Let's modify our webserver.go to add some routes:
 
