@@ -1,4 +1,4 @@
-# Making a JSON API in Go
+# Making a Web API in Go
 
 ## 1. Introduction
 
