@@ -75,7 +75,7 @@ Set the GOPATH environment variable to point to that location
     cd $HOME/go/src
     git clone https://github.com/YOUR_GITHUB_USER/pti_golang.git
 
-Now we will create a package directory (pti_golang/hello) where we will place our first program (create) $HOME/go/src/pti_golang if you did not create the git repository):
+Now we will create a package directory (pti_golang/hello) where we will place our first program (create $HOME/go/src/pti_golang if you did not create the git repository):
 
     cd $HOME/go/src/pti_golang
     mkdir hello
