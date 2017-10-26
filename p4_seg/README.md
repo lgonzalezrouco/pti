@@ -6,28 +6,74 @@ Note: This file only contains some clarifications about the .pdf document.
 
 ## 2. Tasks
 
-## 2.1 Basic Authentication
+### 2.1 HTTPServer
 
-It is necessary to add to the processGetRequest(...) method from the HTTPServer class the following logic:
+Download the HTTPServer code and execute it:
 
-	1) Check if the browser has sent the line "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==": You can do this by reading the class variable "lines" from the HTTPRequest object (first parameter of processGetRequest). 
+	mkdir p4
+	d p4
+	wget http://docencia.ac.upc.es/FIB/grau/PTI/lab/_seg/pti-p6-codigo.tar.gz
+	tar xzvf pti-p6-codigo.tar.gz
+	javac *.java
+	java -cp . HTTPServer &
 
-	for(String line : request.lines){
-		if(line.equalsIgnoreCase("Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")) {
-			//found it!
-			break;
-		}
-	}
+    [1] 13795
+    HTTPServer version 1.0
+    HTTPServer is listening on port 8000.
 
-	
-	2) If not, send to the browser the basic authentication challenge:
+Test with your browser: http://localhost:8000. The server sends the file index.html to the browser.
 
-	   out.write("HTTP/1.1 401 Unauthorized\n".getBytes());
-	   out.write("WWW-Authenticate: Basic realm= WallyWorld\n".getBytes());
-	   out.write("Content-Type: text/html\r\n\r\n".getBytes());
-	   out.flush();
-	   out.close();
+Test with your own client: 
 
+	java -cp . Browser http://localhost:8000
+
+### 2.1 Basic Authentication without SSL (only with a commercial browser as client)
+
+1. Modify the processGetRequest method within HTTPServer.java: 
+ 
+	 void processGetRequest(HTTPRequest request,BufferedOutputStream outStream)
+	   throws IOException {  
+	    if (!request.checkBasicAuthentication())
+	        sendBasicAuthenticationUnauthorized(outStream);
+	    else {
+	      ...the previous code...
+	    }
+	 }
+
+2. Update the following within the HTTPRequest class within HTTPServer.java: 
+
+    Vector<String> lines = new Vector<String>(); 
+ 
+3. Add to the HTTPRequest class within HTTPServer.java: 
+
+    public boolean checkBasicAuthentication() {    
+        for(String line : lines){        
+            if(line.equalsIgnoreCase("Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")) 
+                return true;        
+        }
+        return false;    
+
+4. Add to the HTTPRequest class within HTTPServer.java:         
+               
+     void sendBasicAuthenticationUnauthorized(BufferedOutputStream out) {
+      try {   
+       out.write("HTTP/1.1 401 Unauthorized\n".getBytes());
+       out.write("WWW-Authenticate: Basic realm= WallyWorld\n".getBytes());    
+       out.write("Content-Type: text/html\r\n\r\n".getBytes());
+       out.flush();
+       out.close();
+       System.out.println("Response sent");   
+      }catch(Exception e){   
+       e.printStackTrace();
+      }
+     }
+      
+5 Test it   
+
+Open with a browser http://localhost:8000 and type: username="Aladdin", pwd="open sesame" 
+
+COMMENT: Don't need to apply basic authentication to Browser.java.
+   
 
 
 
