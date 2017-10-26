@@ -34,7 +34,7 @@ Test with your own client:
 	 void processGetRequest(HTTPRequest request,BufferedOutputStream outStream)
 	   throws IOException {  
 	    if (!request.checkBasicAuthentication())
-	        sendBasicAuthenticationUnauthorized(outStream);
+	        request.sendBasicAuthenticationUnauthorized(outStream);
 	    else {
 	      ...the previous code...
 	    }
@@ -51,7 +51,8 @@ Test with your own client:
             if(line.equalsIgnoreCase("Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")) 
                 return true;        
         }
-        return false;    
+        return false;   
+    } 
 
 4. Add to the HTTPRequest class within HTTPServer.java:         
                
@@ -78,22 +79,40 @@ COMMENT: Don't need to apply basic authentication to Browser.java.
 
 #### 2.3.1 Access from a web browser (SecureServer)
 
-COMMENT: SecureServer inherits from the modified HTTPServer (with basic authentication). 
+IMPORTANT: SecureServer inherits from the modified HTTPServer (with basic authentication). 
 (You may try to use the original version for an incremental debugging (only if in trouble).)
 
+Let's generate a new private key (with alias "servidor" and keypass "serverkspw") and store it within a file (a keystore) named "certs":
+
 	keytool -genkey -alias servidor -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs
-	java -cp . SecureServer
+
+Let's now execute SecureServer, that will first load the "certs" keystore:
+
+	java -cp . SecureServer &
 
 Test it with your web browser https://localhost:4430/ (don't miss the httpS!)
 
+COMMENT: The browser will not trust the certificate as you didn't install the cert. Just add a security exception (don't need to install the cert).
+
 #### 2.3.2 Access from a java class (SecureBrowser)
 
-COMMENT: Disable basic authentication for this!
+IMPORTANT: Disable basic authentication for this!
 
-In a new terminal (assume that SecureServer is running):
+Export the public key certificate to a file named "server.cer".
 
 	keytool -export -alias servidor -storepass serverkspw -file server.cer -keystore certs
+
+Import the public key certificate as a trusted certificate into a new truststore, cacerts.jks.
+
 	keytool -import -v -trustcacerts -alias servidor -file server.cer -keystore cacerts.jks -keypass serverkspw -storepass serverkspw
+
+Now add the following two lines of code at the beginning of the main() of SecureBrowser:
+
+	System.setProperty("javax.net.ssl.trustStore", "cacerts.jks");
+	System.setProperty("javax.net.ssl.trustStorePassword", "serverkspw");
+
+Now, assuming that SecureServer is running, let's execute the SecureBrowser:
+
 	java -cp . SecureBrowser https://localhost:4430
 
 ### 2.4 +Client-side authentication (mutal authentication)
