@@ -11,7 +11,7 @@ Note: This file only contains some clarifications about the .pdf document.
 Download the HTTPServer code and execute it:
 
 	mkdir p4
-	d p4
+	cd p4
 	wget http://docencia.ac.upc.es/FIB/grau/PTI/lab/_seg/pti-p6-codigo.tar.gz
 	tar xzvf pti-p6-codigo.tar.gz
 	javac *.java
@@ -82,9 +82,10 @@ COMMENT: Don't need to apply basic authentication to Browser.java.
 IMPORTANT: SecureServer inherits from the modified HTTPServer (with basic authentication). 
 (You may try to use the original version for an incremental debugging (only if in trouble).)
 
-Let's generate a new private key (with alias "servidor" and keypass "serverkspw") and store it within a file (a keystore) named "certs":
+Let's generate a new private key (with alias "server" and keypass "serverkspw") and store it within a file (a keystore) named "certs":
 
-	keytool -genkey -alias servidor -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs
+	keytool -genkey -alias server -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs
+	(answer RETURN to all questions before the last one, then answer "s" or "y")
 
 Let's now execute SecureServer, that will first load the "certs" keystore:
 
@@ -100,26 +101,43 @@ IMPORTANT: Disable basic authentication for this!
 
 Export the public key certificate to a file named "server.cer".
 
-	keytool -export -alias servidor -storepass serverkspw -file server.cer -keystore certs
+	keytool -export -alias server -storepass serverkspw -file server.cer -keystore certs
 
 Import the public key certificate as a trusted certificate into a new truststore, cacerts.jks.
 
-	keytool -import -v -trustcacerts -alias servidor -file server.cer -keystore cacerts.jks -keypass serverkspw -storepass serverkspw
-
-Now add the following two lines of code at the beginning of the main() of SecureBrowser:
-
-	System.setProperty("javax.net.ssl.trustStore", "cacerts.jks");
-	System.setProperty("javax.net.ssl.trustStorePassword", "serverkspw");
+	keytool -import -v -trustcacerts -alias server -file server.cer -keystore cacerts.jks -keypass serverkspw -storepass serverkspw
 
 Now, assuming that SecureServer is running, let's execute the SecureBrowser:
 
-	java -cp . SecureBrowser https://localhost:4430
+	java -cp . -Djavax.net.ssl.trustStore=cacerts.jks -Djavax.net.ssl.trustStorePassword=serverkspw SecureBrowser https://localhost:4430
 
 ### 2.4 +Client-side authentication (mutal authentication)
 
-COMMENT: First disable basic authentication from HTTPServer.java
+IMPORTANT: Discard the changes you made in HTTPServer.java (the basic authentication)
+COMMENT: You can keep the changes done in 2.3 
 
-No tips for this, do it yourself.
+Let's create a certificate for the client and store it within the keystore of the client (certs_client):
+
+	keytool -genkey -alias client -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs
+
+Now let's add the certificate into the truststore of the server (cacerts_server.jks):
+
+	keytool -export -alias client -storepass serverkspw -file client.cer -keystore certs
+	keytool -import -v -trustcacerts -alias client -file client.cer -keystore cacerts.jks -keypass serverkspw -storepass serverkspw
+
+Now we need to modify SecureServer.java to make it ask for a client certificate:
+
+	this("SecureServer", "1.0", 4430, true);
+
+When relaunching the server, it is necessary to specify where is the trustore where the client certificate will be checked:
+
+	javac *.java
+	java -cp . -Djavax.net.ssl.trustStore=cacerts.jks -Djavax.net.ssl.trustStorePassword=serverkspw SecureServer &
+
+When executing the client, it is necessary to specify where is the keystore which contains the client certificate:
+
+	java -cp . -Djavax.net.ssl.trustStore=cacerts.jks -Djavax.net.ssl.trustStorePassword=serverkspw -Djavax.net.ssl.keyStore=certs -Djavax.net.ssl.keyStorePassword=serverkspw SecureBrowser https://localhost:4430
+
 
 ### 5. Troubleshooting
 
