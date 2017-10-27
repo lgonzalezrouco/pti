@@ -103,7 +103,7 @@ Export the public key certificate to a file named "server.cer".
 
 	keytool -export -alias server -storepass serverkspw -file server.cer -keystore certs
 
-Import the public key certificate as a trusted certificate into a new truststore, cacerts.jks.
+Import the public key certificate as a trusted certificate into a truststore, cacerts.jks.
 
 	keytool -import -v -trustcacerts -alias server -file server.cer -keystore cacerts.jks -keypass serverkspw -storepass serverkspw
 
@@ -116,11 +116,11 @@ Now, assuming that SecureServer is running, let's execute the SecureBrowser:
 IMPORTANT: Discard the changes you made in HTTPServer.java (the basic authentication)
 COMMENT: You can keep the changes done in 2.3 
 
-Let's create a certificate for the client and store it within the keystore of the client (certs_client):
+Let's create a certificate for the client and store it within the keystore:
 
 	keytool -genkey -alias client -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs
 
-Now let's add the certificate into the truststore of the server (cacerts_server.jks):
+Now let's add the certificate into the truststore:
 
 	keytool -export -alias client -storepass serverkspw -file client.cer -keystore certs
 	keytool -import -v -trustcacerts -alias client -file client.cer -keystore cacerts.jks -keypass serverkspw -storepass serverkspw
