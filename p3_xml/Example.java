@@ -10,14 +10,14 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-import org.jdom.Attribute;
-import org.jdom.Comment;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.XMLOutputter;
-import org.jdom.output.Format;
+import org.jdom2.Attribute;
+import org.jdom2.Comment;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.JDOMException;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.XMLOutputter;
+import org.jdom2.output.Format;
 
 public class Example {
 
@@ -157,7 +157,7 @@ public class Example {
 		try {
 			TransformerFactory tFactory = TransformerFactory.newInstance();
             // Make the input sources for the XML and XSLT documents
-            org.jdom.output.DOMOutputter outputter = new org.jdom.output.DOMOutputter();
+            org.jdom2.output.DOMOutputter outputter = new org.jdom2.output.DOMOutputter();
             org.w3c.dom.Document domDocument = outputter.output(myDocument);
             javax.xml.transform.Source xmlSource = new javax.xml.transform.dom.DOMSource(domDocument);
             StreamSource xsltSource = new StreamSource(new FileInputStream("example.xslt"));
@@ -173,7 +173,7 @@ public class Example {
             e.printStackTrace();
 		} catch(TransformerException e) {
             e.printStackTrace();
-        } catch(org.jdom.JDOMException e) {
+        } catch(org.jdom2.JDOMException e) {
             e.printStackTrace();
         }
 	}
