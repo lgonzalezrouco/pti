@@ -148,7 +148,33 @@ In order to create an XSLT stylesheet that processes N subelements you can use t
 	</xsl:template>
 
 
-## ANNEX C. Work from a Docker container
+## ANNEX C. XSD schema
+
+An XSD Schema can be used to validate an XML document. The XSD describes the elements, attributes and types, which are allowed in the XML and in which order.
+	
+	<?xml version="1.0" encoding="utf-8"?>
+    <xs:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="carrental">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" name="rental">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="make" type="xs:string" />
+                            ...
+                            <xs:element name="nofdays" type="xs:unsignedByte" />
+                            ...
+                        </xs:sequence>
+                        <xs:attribute name="id" type="xs:unsignedInt" use="required" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+         </xs:complexType>
+        </xs:element>
+    </xs:schema>
+  
+
+## ANNEX D. Work from a Docker container
 
 Install Docker 
 
