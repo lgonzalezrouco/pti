@@ -89,8 +89,9 @@ The application will 1) Ask the user (through the console) the data of a new ren
         <rental id="anyID">
           <make>Toyota</make>
           <model>Celica</model>
-          <start>2016-09-24-06:00</start>
-          <end>2016-09-26-06:00</end>
+          <nofdays>3</nofdays>
+          <nofunits>1</nofunits>
+          <discount>15</discount>
         </rental>
     </carrental>
 
