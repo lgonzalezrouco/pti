@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerConfigurationException;
@@ -18,6 +19,7 @@ import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
 import org.jdom2.output.XMLOutputter;
 import org.jdom2.output.Format;
+import org.jdom2.input.sax.XMLReaders;
 
 public class Example {
 
