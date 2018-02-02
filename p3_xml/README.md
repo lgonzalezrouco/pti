@@ -115,6 +115,28 @@ Command:
 
 The application will read the carrental.xml XML document into memory, transform it into HTML with an XSLT stylesheet and print it to the console. You can reuse the stylesheet from the example (example.xslt), but you will need to change it.
 
+### 3.5 validate
+
+Command:
+
+    java CarRental validate
+
+The application will read the carrental.xml XML document into memory and validate it againt carrental.xsd.
+We will consider the case where the XML document (carrental.xml) contains a reference to the XSD schema. For this we will add the XSD schema reference to the root element of carrental.xml. 
+The carrental.xsd file (see annex C) needs to be present in the same folder
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <carrental xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="carrental.xsd">
+    </carrental>
+
+We create a SAXBuilder with the arguments XMLReaders.XSDVALIDATING. With the SAXBuilder#build() method, carrental.xml is validated against the internal XSD schema.
+Successful validation should show the root element, while if the carrental.xml is not valid, an exception is thrown. 
+
+    SAXBuilder builder = new SAXBuilder(XMLReaders.XSDVALIDATING);
+    Document anotherDocument = builder.build(new File("carrental.xml"));
+    System.out.println("Root: " + anotherDocument.getRootElement().getName());
+
+
 ## ANNEX A. Reading input from console in Java
 
 	public static Element askData() {
