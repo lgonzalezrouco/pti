@@ -101,7 +101,7 @@ IMPORTANT: Disable basic authentication for this!
 
 Export the public key certificate to a file named "server.cer".
 
-	keytool -export -alias server -storepass serverkspw -file server.cer -keystore certs
+	keytool -export -alias server -storepass serverkspw -file server.cer -keystore certs -deststoretype pkcs12
 
 Import the public key certificate as a trusted certificate into a truststore, cacerts.jks.
 
