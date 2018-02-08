@@ -84,7 +84,7 @@ IMPORTANT: SecureServer inherits from the modified HTTPServer (with basic authen
 
 Let's generate a new private key (with alias "server" and keypass "serverkspw") and store it within a file (a keystore) named "certs":
 
-	keytool -genkey -alias server -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs
+	keytool -genkey -alias server -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs  -deststoretype pkcs12
 	(answer RETURN to all questions before the last one, then answer "s" or "y")
 
 Let's now execute SecureServer, that will first load the "certs" keystore:
@@ -101,7 +101,7 @@ IMPORTANT: Disable basic authentication for this!
 
 Export the public key certificate to a file named "server.cer".
 
-	keytool -export -alias server -storepass serverkspw -file server.cer -keystore certs -deststoretype pkcs12
+	keytool -export -alias server -storepass serverkspw -file server.cer -keystore certs 
 
 Import the public key certificate as a trusted certificate into a truststore, cacerts.jks.
 
