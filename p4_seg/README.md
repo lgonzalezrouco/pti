@@ -47,7 +47,7 @@ Test with your own client:
 3. Add to the HTTPRequest class within HTTPServer.java: 
 
     public boolean checkBasicAuthentication() {    
-        for(String line : lines){        
+        for(String line : (Vector<String>) lines){        
             if(line.equalsIgnoreCase("Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==")) 
                 return true;        
         }
@@ -71,7 +71,7 @@ Test with your own client:
       
 5 Test it   
 
-Open with a browser http://localhost:8000 and type: username="Aladdin", pwd="open sesame" 
+Open with a browser http://localhost:8000 and type: username="Aladdin", pwd="open sesame" or curl -v --user Aladdin:"open sesame" http://localhost:8000
 
 COMMENT: Don't need to apply basic authentication to Browser.java.
 
