@@ -118,7 +118,7 @@ COMMENT: You can keep the changes done in 2.3
 
 Let's create a certificate for the client and store it within the keystore:
 
-	keytool -genkey -alias client -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs
+	keytool -genkey -alias client -keyalg RSA -keypass serverkspw -storepass serverkspw  -keystore certs -deststoretype pkcs12
 
 Now let's add the certificate into the truststore:
 
