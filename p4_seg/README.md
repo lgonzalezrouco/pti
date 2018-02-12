@@ -267,4 +267,7 @@ Test the new operations with your client.
 You may think of an alternative to the used proof-of-work. 
 You may add a method which allows to apply this alternative and test it.
 
+### 2.5 Documenting
+
+Document the results and interpret the operations that you tested with the code.
 
