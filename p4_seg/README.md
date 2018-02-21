@@ -2,11 +2,21 @@
 
 ## 1. Introduction
 
-Note: This file only contains some clarifications about the .pdf document. 
+This lab exercise consists of two parts: Security in http and blockchain.
 
 ## 2. Tasks
 
-### 2.1 HTTPServer
+Regarding security in http, you should do the exercise on basic authentication (3.1).
+You can do the excercise on authentication with SSL (3.2), which is an optional part.
+Note: The following steps in section 3 summarize what is detailed in the .pdf document.
+
+Regarding blockchain, you should do the exercise in section 4.
+
+## 3. Security in HTTP
+
+### 3.1 Basic Authentication without SSL (only with a commercial browser as client) 
+
+#### 3.1.1 HTTPServer
 
 Download the HTTPServer code and execute it:
 
@@ -27,7 +37,7 @@ Test with your own client:
 
 	java -cp . Browser http://localhost:8000
 
-### 2.2 Basic Authentication without SSL (only with a commercial browser as client)
+#### 3.1.2 Extending with Basic Authentication 
 
 1. Modify the processGetRequest method within HTTPServer.java: 
  
@@ -75,9 +85,9 @@ Open with a browser http://localhost:8000 and type: username="Aladdin", pwd="ope
 
 COMMENT: Don't need to apply basic authentication to Browser.java.
 
-### 2.3 HTTPS server-side authentication (with two different clients: browser and Java class)
+### 3.2 - OPTIONAL PART - HTTPS server-side authentication (with two different clients: browser and Java class) 
 
-#### 2.3.1 Access from a web browser (SecureServer)
+#### 3.2.1 Access from a web browser (SecureServer)
 
 IMPORTANT: SecureServer inherits from the modified HTTPServer (with basic authentication). 
 (You may try to use the original version for an incremental debugging (only if in trouble).)
@@ -95,7 +105,7 @@ Test it with your web browser https://localhost:4430/ (don't miss the httpS!)
 
 COMMENT: The browser will not trust the certificate as you didn't install the cert. Just add a security exception (don't need to install the cert).
 
-#### 2.3.2 Access from a java class (SecureBrowser)
+#### 3.2.2 Access from a java class (SecureBrowser)
 
 IMPORTANT: Disable basic authentication for this!
 
@@ -111,7 +121,7 @@ Now, assuming that SecureServer is running, let's execute the SecureBrowser:
 
 	java -cp . -Djavax.net.ssl.trustStore=cacerts.jks -Djavax.net.ssl.trustStorePassword=serverkspw SecureBrowser https://localhost:4430
 
-### 2.4 +Client-side authentication (mutal authentication)
+### 3.2.3 Client-side authentication (mutal authentication)
 
 IMPORTANT: Discard the changes you made in HTTPServer.java (the basic authentication)
 COMMENT: You can keep the changes done in 2.3 
@@ -139,7 +149,7 @@ When executing the client, it is necessary to specify where is the keystore whic
 	java -cp . -Djavax.net.ssl.trustStore=cacerts.jks -Djavax.net.ssl.trustStorePassword=serverkspw -Djavax.net.ssl.keyStore=certs -Djavax.net.ssl.keyStorePassword=serverkspw SecureBrowser https://localhost:4430
 
 
-### 5. Troubleshooting
+### 3.2.4 Troubleshooting
 
 To check if the necessary ports are open (you must be root):
 
@@ -152,19 +162,20 @@ To open the necessary ports if closed (you must be root):
 	sudo iptables -A INPUT -p tcp --dport 4430 -j ACCEPT
    
 
-# Blockchain (optional part)
+ 
+## 4. Blockchain 
 
-## 1. Introduction
+### 4.1 Introduction
 
 Note: taken from: [Learn Blockchains by Building One](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46) 
 
 In this part we will explore some concepts of a blockchain with a simplifed implementation in Python.
 
-The blockcain is operated through a Web API. We need therefore an HTTP client to perform the operations. We will use curl (or alternatively you may use Postman).
+The blockchain is operated through a Web API. We need therefore an HTTP client to perform the operations. We will use curl (or alternatively you may use Postman).
 
-## 2. Tasks
+### 4.2 Tasks
 
-### 2.1 Install the environment
+#### 4.2.1 Install the environment
 
 You will need python3.6. Check if it is installed and install it if needed.
 
@@ -178,7 +189,7 @@ Open the blockchain.zip and test if it runs correctly.
 
     python blockchain.py -p 5000
 
-### 2.2 Test the blockchain
+#### 4.2.2  Test the blockchain
 
 In our experiment we will use two nodes (node 1 runs at port 5000 and node 2 runs at port 5001) to participate in the blockchain. 
 With an HTTP client, we will make the operations on the two nodes. 
@@ -245,7 +256,7 @@ When these steps work correctly, we will finally add a few more funtions to the 
     #node 2 will synchronize its chain 
     curl http://localhost:5001/nodes/resolve
 
-### 2.3 Add functions to the blockchain
+#### 4.2.3  Add functions to the blockchain
 
 After having done he above steps, we will add a few more functions to the Web API of the code:
 
@@ -262,12 +273,12 @@ This method should manipulate the chain of a node, so when validated, it will be
 
 Test the new operations with your client.
 
-### 2.4 Optional task
+#### 4.2.4 Optional task
 
 You may think of an alternative to the used proof-of-work. 
 You may add a method which allows to apply this alternative and test it.
 
-### 2.5 Documenting
+#### 4.2.5 Documenting
 
-Document the results and interpret the operations that you tested with the code.
+In your report, document the results and interpret the operations that you tested with the code.
 
