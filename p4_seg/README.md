@@ -167,7 +167,7 @@ To open the necessary ports if closed (you must be root):
 
 ### 4.1 Introduction
 
-Note: taken from: [Learn Blockchains by Building One](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46) 
+Note: taken from: [Learn Blockchains by Building One](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46). Check the corresponding [github repository](https://github.com/dvf/blockchain) for the installation of the Python environment.
 
 In this part we will explore some concepts of a blockchain with a simplifed implementation in Python.
 
