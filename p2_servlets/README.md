@@ -108,21 +108,18 @@ Check: http://localhost:8080/my_webapp
     sudo service tomcat7 stop
     sudo service tomcat7 start
 
-Check errors: 
-
-         sudo tail -n 200 /var/lib/tomcat7/logs/catalina.out
-
-I'ts useful to open a dedicated terminal and check errors continuously:
-
-        sudo tail -f 200 /var/lib/tomcat7/logs/catalina.out
-
 Check browser:
 
         http://localhost:8080/my_webapp/my_servlet
 
-Troubleshooting: If it doesn't work check the log:
+Check errors: 
+        
+        sudo tail -n 200 /var/lib/tomcat7/logs/localhost.2018-XX-XX.log
+        sudo tail -n 200 /var/lib/tomcat7/logs/catalina.out
 
-    tail -n 200 /var/lib/tomcat7/logs/localhost.2018-02-28.log
+I'ts useful to open a dedicated terminal and check errors continuously:
+
+        sudo tail -f 200 /var/lib/tomcat7/logs/catalina.out
 
 Troubleshooting: Sometimes you get a java.lang.ClassNotFoundException: mypackage.MyServlet because Tomcat wasn't properly restarted. Ensure that Tomcat really stopped before starting it again (stop it again and do a ps -aux | grep tomcat) and kill the process otherwise. 
 
