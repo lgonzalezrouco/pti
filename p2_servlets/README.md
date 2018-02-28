@@ -182,7 +182,15 @@ Check the following link and submit:
 
 We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
 
-## 3. Advanced Tomcat configuration (not necessary to complete this lab)
+## ANNEX 1. With Docker (in your laptop)
+
+If you have Docker installed in your laptop you can perform the previous steps over a clean Ubuntu container this way:
+
+    docker run -it --name pti_p2 -v $HOME/WORKING_DIR:/my_volume -p 8080:8080 ubuntu bash
+
+If you want to use Docker at the FIB's teaching lab take a look to the ANNEX 3 of the first lab session (CGIs).
+
+## ANNEX 2. Advanced Tomcat configuration (not necessary to complete this lab)
 
 Open ports for external access with:
 
