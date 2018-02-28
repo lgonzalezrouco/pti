@@ -71,6 +71,11 @@ Restart Tomcat with:
 
 Check: http://localhost:8080/my_webapp
 
+Troubleshooting: If it doesn't work check the log:
+
+    tail -n 200 /var/lib/tomcat7/logs/localhost.2018-02-28.log
+
+Troubleshooting: Sometimes you get a java.lang.ClassNotFoundException: mypackage.MyServlet because Tomcat wasn't properly restarted. Ensure that Tomcat really stopped before starting it again (stop it again and do a ps -aux | grep tomcat) and kill the process otherwise. 
 
 ### 1.4 Create and simple servlet
 
