@@ -123,16 +123,31 @@ I'ts useful to open a dedicated terminal and check errors continuously:
 
 Troubleshooting: Sometimes you get a java.lang.ClassNotFoundException: mypackage.MyServlet because Tomcat wasn't properly restarted. Ensure that Tomcat really stopped before starting it again (stop it again and do a ps -aux | grep tomcat) and kill the process otherwise. 
 
-## 2 Lab assignment 
 
-You have to program a web application that does exactly the same as in session 1 (CGIs) but this time using Tomcat and servlets.
+## 2 Lab assignment: Creating your own car rental web page (this time with servlets).
 
-In order to help you, some files are provided:
+You have to program a web application that does exactly the same as in session 1 (CGIs) but this time using Tomcat and servlets. You will create a simple car rental web page. It will consist in two functionalities:
 
-- One index and the two HTML forms
-- Two servlets (partially programmed)
+- Request a new rental: A form to enter a new rental order. Input fields will include the car maker, car model, number of days and number of units. If all data is correct the total price of the rental will be returned to the user along with the data of the requested rental.
+ 
+- Request the list of all rentals: A form asking a password (as only the administrator can see this information) that will return the list of all saved rental orders. 
+
+Both functionalities will consist in a request form plus a response page. To make it simple it's recommended that the request forms are static HTML pages and the responses are HTML dynamically generated from the servlets. For simplicity, in case of invalid input we will not show the request form again (though you can do it if you want).
+
+In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
+
 
 ### 2.1 Install the provided sources
+In order to help you, some files are provided:
+
+- An HTML index file: carrental_home.html
+- A rental request HTML form: carrental_form_new.html (it calls CarRentalNew.java)
+- A rentals list request HTML form: carrental_form_list.html (it calls CarRentalList.java)
+- Two servlets (partially programmed): CarRentalNew.java and CarRentalList.java.
+
+NOTE: It's not compulsory to use these files within the solution (you may, for instance, prefer to generate the forms dynamically from the servlets).
+
+In order to install the provided files perform the following steps:
 
 Install git:
 
@@ -177,18 +192,24 @@ Add two new servlet definitions to web.xml:
         sudo service tomcat7 stop
         sudo service tomcat7 start
 
-Check the following link and submit:
+Check the following link and its sublinks:
 	
-	http://localhost:8080/my_webapp/carrental_form_list.html
+	http://localhost:8080/my_webapp/carrental_home.html
 
-
-We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
+Now add the necessary code to CarRentalNew.java and CarRentalList.java to make the application work properly.
 
 ## ANNEX 1. With Docker (in your laptop)
 
 If you have Docker installed in your laptop you can perform the previous steps over a clean Ubuntu container this way:
 
     docker run -it --name pti_p2 -v $HOME/WORKING_DIR:/my_volume -p 8080:8080 ubuntu bash
+
+Within the container you will do some things in a different way:
+
+    - Don't use 'sudo'. 
+    - Install vim and git.
+    - Install default-jdk (apt-get install default-jdk) instead of Oracle's Java. 
+    - service tomcat7 stop may not work properly within the container. Kill the process manually.
 
 If you want to use Docker at the FIB's teaching lab take a look to the ANNEX 3 of the first lab session (CGIs).
 
