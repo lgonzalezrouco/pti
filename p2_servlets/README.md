@@ -145,27 +145,31 @@ In order to help you, some files are provided:
 - A rental request HTML form: carrental_form_new.html (it calls CarRentalNew.java)
 - A rentals list request HTML form: carrental_form_list.html (it calls CarRentalList.java)
 - Two servlets (partially programmed): CarRentalNew.java and CarRentalList.java.
+- A JSON library: json-simple-1.1.1.jar.
 
 NOTE: It's not compulsory to use these files within the solution (you may, for instance, prefer to generate the forms dynamically from the servlets).
 
 In order to install the provided files perform the following steps:
 
-Install git:
+Download the files:
 
-    sudo apt-get install git
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/carrental_home.html
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/carrental_form_new.html
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/carrental_form_list.html
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/CarRentalNew.java
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/CarRentalList.java
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/json-simple-1.1.1.jar
 
-Download the sources (if you already have the pti repository, just do a git pull):
-
-    cd $HOME       
-    git clone https://gitlab.fib.upc.edu/pti/pti.git
-
-Copy the sources to Tomcat and compile the servlets:
+Copy the files to Tomcat and compile the servlets:
     
-        sudo cp ./pti/p2_servlets/*.html /var/lib/tomcat7/webapps/my_webapp/
-        sudo cp ./pti/p2_servlets/*.java /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage
-        sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib
-        sudo cp ./pti/p2_servlets/*.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib        
-        sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar:/var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib/json-simple-1.1.1.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*.java
+    sudo cp carrental_home.html /var/lib/tomcat7/webapps/my_webapp/
+    sudo cp carrental_form_new.html /var/lib/tomcat7/webapps/my_webapp/
+    sudo cp carrental_form_list.html /var/lib/tomcat7/webapps/my_webapp/
+    sudo cp CarRentalNew.java /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage
+    sudo cp CarRentalList.java /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage
+    sudo mkdir /var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib
+    sudo cp json-simple-1.1.1.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib        
+    sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar:/var/lib/tomcat7/webapps/my_webapp/WEB-INF/lib/json-simple-1.1.1.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*.java
 
 Add two new servlet definitions to web.xml:
 
