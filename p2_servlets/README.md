@@ -40,11 +40,14 @@ Start the service:
 
     	sudo service tomcat7 start
 
+(Note: We will work with a system-wide Tomcat instance (as a service). It is also possible to work with a user-oriented instance (without the need of root rights). https://help.ubuntu.com/lts/serverguide/tomcat.html))
+
 Check if it's running (with the browser): http://localhost:8080/ 
 
 Tomcat files can be found in the following locations:
 
-    Configuration at: /etc/tomcat7/ and /var/lib/tomcat7/conf
+    Configuration at: /etc/tomcat7/ 
+    (Note: configuration files in /var/lib/tomcat7/conf are just the defaults)
     Webapps at: /var/lib/tomcat7/webapps
     Logs at: /var/lib/tomcat7/logs
 
@@ -62,9 +65,6 @@ You can restart Tomcat with:
         <html>
             <h1>Hello World!</h1>
         </html>
-
-    sudo service tomcat7 stop
-    sudo service tomcat7 start
 
 Check: http://localhost:8080/my_webapp
 
@@ -102,23 +102,27 @@ Check: http://localhost:8080/my_webapp
         }
 
     sudo javac -cp /usr/share/tomcat7/lib/servlet-api.jar /var/lib/tomcat7/webapps/my_webapp/WEB-INF/classes/mypackage/*.java
+
+It's necessary to restart Tomcat after changing .class files:
+
     sudo service tomcat7 stop
+    ps -aux | grep tomcat       (to ensure that the service has really stopped)
     sudo service tomcat7 start
 
 Check browser:
 
         http://localhost:8080/my_webapp/my_servlet
 
-Check errors: 
+Check errors (replace XX-XX by the current date): 
         
         sudo tail -n 200 /var/lib/tomcat7/logs/localhost.2018-XX-XX.log
         sudo tail -n 200 /var/lib/tomcat7/logs/catalina.out
 
-I'ts useful to open a dedicated terminal and check errors continuously:
+It'ss useful to open a dedicated terminal and check errors continuously:
 
-        sudo tail -f 200 /var/lib/tomcat7/logs/catalina.out
+        sudo tail -f 200 /var/lib/tomcat7/logs/localhost.2018-XX-XX.log
 
-Troubleshooting: Sometimes you get a java.lang.ClassNotFoundException: mypackage.MyServlet because Tomcat wasn't properly restarted. Ensure that Tomcat really stopped before starting it again (stop it again and do a ps -aux | grep tomcat) and kill the process otherwise. 
+Troubleshooting: Sometimes you get a "java.lang.ClassNotFoundException: mypackage.MyServlet" because Tomcat wasn't properly restarted. Ensure that Tomcat really stopped before starting it again (stop it again and do a ps -aux | grep tomcat) and kill the process otherwise. 
 
 
 ## 2 Lab assignment: Creating your own car rental web page (this time with servlets).
@@ -199,7 +203,7 @@ Now add the necessary code to CarRentalNew.java and CarRentalList.java to make t
 
 If you have Docker installed in your laptop you can perform the previous steps over a clean Ubuntu container this way:
 
-    docker run -it --name pti_p2 -v $HOME/WORKING_DIR:/my_volume -p 8080:8080 ubuntu bash
+    docker run -it --name pti_p2 -p 8080:8080 ubuntu bash
 
 Within the container you will do some things in a different way:
 
