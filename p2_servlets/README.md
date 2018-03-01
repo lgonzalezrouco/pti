@@ -2,18 +2,12 @@
 
 ## 1. Quick Start
 
-NOTE: 
-    Old lab description at: http://docencia.ac.upc.es/FIB/grau/PTI/lab/_servlet/servlets.pdf
-    Examples at http://docencia.ac.upc.es/FIB/grau/PTI/lab/_servlet/p2codigo.tgz
-
-
 ### 1.1 Booting the machine
 
 Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
     user: alumne
     pwd: sistemes
-
 
 ### 1.2 Install Tomcat 9
 
