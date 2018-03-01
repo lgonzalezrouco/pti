@@ -19,39 +19,36 @@ Select the latest Ubuntu imatge (e.g. Ubuntu 14)
 
 Open a terminal (CTRL+ALT+T).
 
-Check if java is installed (if not you will have to install it):
+Let's start by updating the Ubuntu's Package Index:
 
-    java -version
-
-If not installed do the following:
-
-    sudo add-apt-repository ppa:webupd8team/java
     sudo apt-get update
-    sudo apt-get install oracle-java8-installer
-    sudo apt-get install oracle-java8-set-default
-    sudo ln -s /usr/lib/jvm/java-8-oracle /usr/lib/jvm/default-java    
-	
+
+Check if a Java SDK is installed:
+
+    javac -version
+
+If not installed do the following to install OpenJDK:
+
+    sudo apt-get install default-jdk
 
 Install Tomcat 7:
 
-    sudo apt-get update
     sudo apt-get install tomcat7 
     sudo apt-get install tomcat7-docs tomcat7-admin
 
-    (this should be enough but if it cannot find Java try:
-    	sudo gedit /etc/default/tomcat7
- 
-		JAVA_HOME=/usr/lib/jvm/java-8-oracle
+Start the service:
 
     	sudo service tomcat7 start
 
-Check if it's running (with the browser): http://localhost:8080/   
+Check if it's running (with the browser): http://localhost:8080/ 
 
-See configuration at: /etc/tomcat7/
+Tomcat files can be found in the following locations:
 
-Webapps at: /var/lib/tomcat7
+    Configuration at: /etc/tomcat7/ and /var/lib/tomcat7/conf
+    Webapps at: /var/lib/tomcat7/webapps
+    Logs at: /var/lib/tomcat7/logs
 
-Restart Tomcat with:
+You can restart Tomcat with:
 
     sudo service tomcat7 stop
     sudo service tomcat7 start
