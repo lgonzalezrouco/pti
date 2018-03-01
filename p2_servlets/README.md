@@ -87,7 +87,10 @@ Check: http://localhost:8080/my_webapp
 
     javac -cp lib/servlet-api.jar webapps/my_webapp/WEB-INF/classes/mypackage/*.java
 
-In this version it is not necessary to restart Tomcat after changing .class files.
+After changing the .class files, it may be necessary to restart Tomcat. You can do it this way:
+
+    ./bin/startup.sh &
+    ./bin/shutdown.sh &
 
 Check browser:
 
