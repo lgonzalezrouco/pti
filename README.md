@@ -7,6 +7,8 @@
 
 [Session 3 (XML Processing with Java)](./p3_xml/README.md)
 
-[Session 4 (HTTP Security)](./p4_seg/README.md)
+[Session 4 (JSON API in Go)](./p4_goREST/README.md)
 
-[Session 5 (JSON API in Go)](./p5_goREST/README.md)
+[Session 5 (HTTP Security)](./p5_seg/README.md)
+
+
