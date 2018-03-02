@@ -20,8 +20,8 @@ Regarding blockchain, you should do the exercise in section 4.
 
 Download the HTTPServer code and execute it:
 
-	mkdir p4
-	cd p4
+	mkdir p5
+	cd p5
 	wget http://docencia.ac.upc.es/FIB/grau/PTI/lab/_seg/pti-p6-codigo.tar.gz
 	tar xzvf pti-p6-codigo.tar.gz
 	javac *.java
