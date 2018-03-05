@@ -59,20 +59,18 @@ Create a directory to contain your golang workspace (e.g. $HOME/go):
     cd
     mkdir $HOME/go
 
-Create a directory to contain source files: 
-
-    mkdir $HOME/go/src
-
 Set the GOPATH environment variable to point to that location
 
     export GOPATH=$HOME/go
 
+Create a directory to contain source files: 
+
+    mkdir $HOME/go/src
+
 Now we will create a package directory (pti_golang/hello) where we will place our first program:
 
-    mkdir $HOME/go/src/pti_golang
-    cd $HOME/go/src/pti_golang
-    mkdir hello
-    cd hello
+    mkdir -p $HOME/go/src/pti_golang/hello
+    cd $HOME/go/src/pti_golang/hello
 
 Now we download a source file:
 
