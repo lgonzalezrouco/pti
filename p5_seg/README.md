@@ -181,11 +181,20 @@ You will need python3.6. Check if it is installed and install it if needed.
 
     python3 --version
 
-Install with the Python package manager the following packages.
+Depending on your environment, you may need to apply the following steps:
 
-    pip install Flask==0.12.2 requests==2.18.4 
+    sudo add-apt-repository ppa:deadsnakes/ppa
+    sudo apt-get update
+    sudo apt-get install python3.6
+    sudo apt-get install python3-pip
 
-Open the blockchain.zip and test if it runs correctly.
+And to install the packages
+
+    python3.6 -m pip install Flask==0.12.2 requests==2.18.4
+
+To run python programms: python3.6 programa.py
+
+Open the blockchain.tar.gz and test if it runs correctly (or with python3.6 explicitely)
 
     python blockchain.py -p 5000
 
