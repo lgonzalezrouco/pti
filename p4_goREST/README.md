@@ -17,15 +17,13 @@ Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with cr
 
 ### 2.2 Prerequisites
 
+Let's start by updating the Ubuntu's Package Index:
+
+    sudo apt-get update
+
 You need 'curl' installed (check it typing 'curl -V' in the terminal). If, for some strange reason, it's not, just do:
 
     sudo apt-get install curl
-    
-(OPTIONAL) It's not indispensable but strongly recommended that you have git installed. If not, just do:
-
-    sudo apt-get install git
-
-(OPTIONAL) It would be also good if you have an account in any git-compliant hosting service such as GitHub or Bitbucket.
 
 (OPTIONAL) NOTE: If you encounter lock errors with apt-get commands try killing the blocking process:
 
@@ -69,21 +67,16 @@ Set the GOPATH environment variable to point to that location
 
     export GOPATH=$HOME/go
 
-(OPTIONAL) It is recommended (but not necessary) that you create a git repository (e.g. "pti_golang") for the code of this session within $HOME/go/src. If you have a github account you can do it directly from the command line:
+Now we will create a package directory (pti_golang/hello) where we will place our first program:
 
-    curl -u 'YOUR_GITHUB_USER' https://api.github.com/user/repos -d '{"name":"pti_golang"}'
-    cd $HOME/go/src
-    git clone https://github.com/YOUR_GITHUB_USER/pti_golang.git
-
-Now we will create a package directory (pti_golang/hello) where we will place our first program (create $HOME/go/src/pti_golang if you did not create the git repository):
-
+    mkdir $HOME/go/src/pti_golang
     cd $HOME/go/src/pti_golang
     mkdir hello
     cd hello
 
 Now we download a source file:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p5_goREST/src/hello/hello.go
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p4_goREST/src/hello/hello.go
 
 Then we run the "go install" command. This command (1) builds the package pti_golang/hello, producing an executable binary (using the last name of the package path as name of the command), and (2) copies it to the workspace's bin directory (it is created if it does not exists). 
 
@@ -92,15 +85,6 @@ Then we run the "go install" command. This command (1) builds the package pti_go
 Now we can execute the binary:
 
     $HOME/go/bin/hello
-
-(OPTIONAL) Don't forget to commit your changes
-
-    cd $HOME/go/src/pti_golang
-    git config --local user.name "YOUR_GITHUB_USER"
-    git add .
-    git commit -m "first commit"
-    git push
-
   
 ## 3 A simple web server
     
@@ -136,7 +120,7 @@ Build (will create an executable within $HOME/go/bin/webserver):
 
 Run:
 
-    $HOME/go/bin/webserver
+    $HOME/go/bin/webserver &
 
 test in browser: http://localhost:8080
 
@@ -276,6 +260,7 @@ Rebuild and run. In order to submit a JSON request we will use curl instead of t
 (while curl is enough for this session, for your project you could take a look at [POSTMAN](https://www.getpostman.com/))
 
 **WARNING: The fields of the request and response structs MUST START WITH A CAPITAL LETTER.**
+
 **WARNING: The fields of the request and response structs MUST ONLY INCLUDE ALPHANUMERIC CHARACTERS (AVOID UNDERSCORES, ETC.).**
 
    
