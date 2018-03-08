@@ -25,6 +25,10 @@ You need 'curl' installed (check it typing 'curl -V' in the terminal). If, for s
 
     sudo apt-get install curl
 
+You need 'git' installed (in order to be able to run 'go get' commands):
+
+    sudo apt-get install git
+
 (OPTIONAL) NOTE: If you encounter lock errors with apt-get commands try killing the blocking process:
 
 	ps aux | grep apt
