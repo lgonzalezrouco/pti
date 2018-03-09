@@ -192,7 +192,13 @@ And to install the packages
 
     python3.6 -m pip install Flask==0.12.2 requests==2.18.4
 
-To run python programms: python3.6 programa.py
+To run python programms: 
+    
+    python3.6 programa.py
+
+Download the code:
+
+    wget http://docencia.ac.upc.es/FIB/grau/PTI/lab/_seg/blockchain.tar.gz
 
 Open the blockchain.tar.gz and test if it runs correctly (or with python3.6 explicitely)
 
