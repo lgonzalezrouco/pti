@@ -196,9 +196,10 @@ To run python programms:
     
     python3.6 programa.py
 
-Download the code:
+Download the code.
+Click on blockchain.tar.gz in the repositorie's folder or download the repository with
 
-    wget http://docencia.ac.upc.es/FIB/grau/PTI/lab/_seg/blockchain.tar.gz
+    git clone https://gitlab.fib.upc.edu/pti/pti.git
 
 Open the blockchain.tar.gz and test if it runs correctly (or with python3.6 explicitely)
 
