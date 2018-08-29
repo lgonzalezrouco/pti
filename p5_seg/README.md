@@ -8,7 +8,7 @@ This lab exercise consists of two parts: Security in http and blockchain.
 
 Regarding security in http, you should do the exercise on basic authentication (3.1).
 You can do the excercise on authentication with SSL (3.2), which is an optional part.
-Note: The following steps in section 3 summarize what is detailed in the .pdf document.
+Note: The following steps in section 3 summarize what is detailed in the seguretat_http.pdf document.
 
 Regarding blockchain, you should do the exercise in section 4.
 
