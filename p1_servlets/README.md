@@ -89,8 +89,8 @@ Check: http://localhost:8080/my_webapp
 
 After changing the .class files, it may be necessary to restart Tomcat. You can do it this way:
 
+    ./bin/shutdown.sh
     ./bin/startup.sh &
-    ./bin/shutdown.sh &
 
 Check browser:
 
@@ -107,7 +107,7 @@ It'ss useful to open a dedicated terminal and check errors continuously:
 
 ## 2 Lab assignment: Creating your own car rental web page (this time with servlets).
 
-You have to program a web application that does exactly the same as in session 1 (CGIs) but this time using Tomcat and servlets. You will create a simple car rental web page. It will consist in two functionalities:
+You have to program a simple car rental web application using Tomcat and servlets. It will consist in two functionalities:
 
 - Request a new rental: A form to enter a new rental order. Input fields will include the car maker, car model, number of days and number of units. If all data is correct the total price of the rental will be returned to the user along with the data of the requested rental.
  
