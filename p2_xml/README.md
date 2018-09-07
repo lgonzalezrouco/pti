@@ -27,7 +27,7 @@ Download the sources (if you already have the pti repository, just do a git pull
     cd $HOME       
     git clone https://gitlab.fib.upc.edu/pti/pti.git
 
-    cd pti/p3_xml
+    cd pti/p2_xml
     ls
 
 ### 2.3 Set the Java classpath and run the example

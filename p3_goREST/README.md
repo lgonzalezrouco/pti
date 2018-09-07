@@ -78,7 +78,7 @@ Now we will create a package directory (pti_golang/hello) where we will place ou
 
 Now we download a source file:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p4_goREST/src/hello/hello.go
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_goREST/src/hello/hello.go
 
 Then we run the "go install" command. This command (1) builds the package pti_golang/hello, producing an executable binary (using the last name of the package path as name of the command), and (2) copies it to the workspace's bin directory (it is created if it does not exists). 
 

@@ -27,7 +27,7 @@ If not installed do the following to install OpenJDK:
 
 Install Tomcat 9:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/apache-tomcat-9.0.5.tar.gz
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p1_servlets/apache-tomcat-9.0.5.tar.gz
     tar -xvzf apache-tomcat-9.0.5.tar.gz
 
 Enter the Tomcat 9 directory (we will work from here from now on):
@@ -133,7 +133,7 @@ In order to install the provided files perform the following steps:
 
 Download the files:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p2_servlets/carrental.tar.gz
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p1_servlets/carrental.tar.gz
     tar -xvzf carrental.tar.gz 
 
 Move the files to Tomcat and compile the servlets:
