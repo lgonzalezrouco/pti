@@ -2,7 +2,9 @@
 
 ## Introduction
 
-In this session we will learn to develop a web application with Java servlets, a simple mechanism to program the back end of a distributed application with Java. The objectives of this assignment are to:
+In this session we will learn to develop a web application with Java servlets, a convenient mechanism of programming the back end of a web application (or any other kind of client-server distributed application) in Java without the programmer having to deal with the HTTP protocol (or any other protocol) directly. 
+
+The objectives of this assignment are to:
 
 * Understand the context for servlets by setting up Tomcat, a simple servlet-capable web server.
 * Understand what a servlet is.
@@ -205,3 +207,7 @@ Completing the basic part of the assigment will let you obtain a maximum of 8 po
 * Configure HTTPS in Tomcat.
 * Dockerize your web application.
 * Save the data within a database (e.g. MySQL) instead of a file.
+
+## 5. Further reading
+
+* [Java Servlet Technology section](https://javaee.github.io/tutorial/servlets.html) of the "Java Platform, Enterprise Edition (Java EE) 8. The Java EE Tutorial".
