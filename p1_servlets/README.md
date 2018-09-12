@@ -105,7 +105,7 @@ It'ss useful to open a dedicated terminal and check errors continuously:
 
         tail -f 200 logs/localhost.2018-XX-XX.log
 
-## 2 Lab assignment (basic part): Creating your own car rental web page (this time with servlets).
+## 2 Lab assignment (basic part): Creating your own car rental web page
 
 You have to program a simple car rental web application using Tomcat and servlets. It will consist in two functionalities:
 
