@@ -105,7 +105,7 @@ It'ss useful to open a dedicated terminal and check errors continuously:
 
         tail -f 200 logs/localhost.2018-XX-XX.log
 
-## 2 Lab assignment: Creating your own car rental web page (this time with servlets).
+## 2 Lab assignment (basic part): Creating your own car rental web page (this time with servlets).
 
 You have to program a simple car rental web application using Tomcat and servlets. It will consist in two functionalities:
 
@@ -174,3 +174,18 @@ Check the following link and its sublinks:
 	http://localhost:8080/my_webapp/carrental_home.html
 
 Now add the necessary code to CarRentalNew.java and CarRentalList.java to make the application work properly.
+
+## 3.  Submission
+
+You need to upload the following files to your BSCW's lab group folder before the next lab session:
+
+* A tarball containing the source files.
+* A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   
+
+## 4. Grading and bonus points
+
+Completing the basic part of the assigment will let you obtain a maximum of 8 points over 10. In order to obtain tha maximum grade you can complete any of the following extensions: 
+
+* Configure HTTPS in Tomcat.
+* Dockerize your web application.
+* Save the data within a database (e.g. MySQL) instead of a file.
