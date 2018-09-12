@@ -1,6 +1,22 @@
 # Java Servlets
 
-## 1. Quick Start
+## Introduction
+
+In this session we will learn to develop a web application with Java servlets, a simple mechanism to program the back end of a distributed application with Java. The objectives of this assignment are to:
+
+* Understand the context for servlets by setting up Tomcat, a simple servlet-capable web server.
+* Understand what a servlet is.
+* Learn the basic servlet APIs.
+* Implement a simple servlet-based web application.
+
+Each group will have to:
+
+1. Tutorial: Follow a brief tutorial about how to develop the back end (server side) of a web applications with servlets and Tomcat 9.  
+2. Assignment (basic part): Complete the lab assignment consisting on developing a simple car rental web application. 
+3. Extensions: Optionally complete one of the suggested extensions.
+4. Write a .pdf report describing the steps taken to complete the assignment, including screenshots of the application output.
+
+## 1. Java Servlets with Tomcat 9, a quick tutorial
 
 ### 1.1 Booting the machine
 
@@ -182,7 +198,7 @@ You need to upload the following files to your BSCW's lab group folder before th
 * A tarball containing the source files.
 * A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   
 
-## 4. Grading and bonus points
+## 4. Grading. Basic part and extensions. 
 
 Completing the basic part of the assigment will let you obtain a maximum of 8 points over 10. In order to obtain the maximum grade you can complete any of the following extensions: 
 
