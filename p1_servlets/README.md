@@ -184,7 +184,7 @@ You need to upload the following files to your BSCW's lab group folder before th
 
 ## 4. Grading and bonus points
 
-Completing the basic part of the assigment will let you obtain a maximum of 8 points over 10. In order to obtain tha maximum grade you can complete any of the following extensions: 
+Completing the basic part of the assigment will let you obtain a maximum of 8 points over 10. In order to obtain the maximum grade you can complete any of the following extensions: 
 
 * Configure HTTPS in Tomcat.
 * Dockerize your web application.
