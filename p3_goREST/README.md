@@ -276,6 +276,8 @@ As an example web API you will create a simple car rental web API. It will consi
 
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
 
+**WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables). If you don't fix them the binaries will not be updated.**
+
 ## ANNEX 1. Writing comma-separated values to a CSV file
 
 An easy way to save the list of rentals could be a text file with lines containing comma-separated values (CSV). One rental per line. This way you can save a new rental just adding a line at the end of the file.
@@ -294,6 +296,8 @@ An easy way to save the list of rentals could be a text file with lines containi
 		writer.Flush()
 		file.Close()
 	}
+
+If you don't specify a file path the file will be saved in the directory from which you launch the command. 
 
 ## ANNEX 2. Reading a CSV file
 
@@ -328,4 +332,6 @@ If you need reading the rentals file into an array, whose initial size is unknow
     }
     ...
 
+NOTE: The JSON encoder is able to encode an array just by doing:
 
+    json.NewEncoder(w).Encode(lines)
