@@ -20,6 +20,8 @@ Each group will have to:
 
 ## 1. Java Servlets with Tomcat 9, a quick tutorial
 
+[(help for those wanting to use their own computers (through Docker))](./../docker.md)
+
 ### 1.1 Booting the machine
 
 Select the latest Ubuntu imatge (e.g. Ubuntu 14)
