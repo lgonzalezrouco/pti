@@ -10,3 +10,7 @@
 [Session 4 (HTTP Security)](./p4_seg/README.md)
 
 
+
+[(help for those wanting to use their own computers (through Docker)](./docker.md)
+
+
