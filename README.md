@@ -11,6 +11,6 @@
 
 
 
-[(help for those wanting to use their own computers (through Docker)](./docker.md)
+[(help for those wanting to use their own computers (through Docker))](./docker.md)
 
 
