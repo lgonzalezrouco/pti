@@ -230,6 +230,8 @@ If you get the "connection is not private" warning then your SSL/TLS configurati
 
      tail -n 200 logs/catalina.out
 
+You can find more information about the Tomcat's SSL/TLS configuration [here](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html).
+
 ### 2.3 Extension (1 point)
 
 In order to obtain the maximum grade you can complete any of the following extensions: 
