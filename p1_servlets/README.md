@@ -123,7 +123,12 @@ It'ss useful to open a dedicated terminal and check errors continuously:
 
         tail -f 200 logs/localhost.2018-XX-XX.log
 
-## 2 Lab assignment (basic part): Creating your own car rental web page
+
+## 2 Lab assignment 
+
+### 2.1 Creating your own car rental web page (8 points)
+
+#### 2.1.1 Description
 
 You have to program a simple car rental web application using Tomcat and servlets. It will consist in two functionalities:
 
@@ -137,8 +142,8 @@ Both functionalities will consist in a request form plus a response page. To mak
 
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). We recommend you using JSON for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
 
+#### 2.1.2 Install the provided sources
 
-### 2.1 Install the provided sources
 In order to help you, some files are provided:
 
 - An HTML index file: carrental_home.html
@@ -193,6 +198,46 @@ Check the following link and its sublinks:
 
 Now add the necessary code to CarRentalNew.java and CarRentalList.java to make the application work properly.
 
+### 2.2 SSL/TLS configuration (1 point)
+
+Create a keystore file (JKS format, Java KeyStore standard) to store the server's private key and self-signed certificate by executing the following command:
+ 
+    keytool -genkey -alias tomcat -keyalg RSA #specify a password value of "changeit".
+
+Next, you will be prompted for the keystore password. Specify "changeit". Next, you will be prompted for general information about this Certificate, such as company, contact name, and so on. You can type the RETURN key (UNKNOWN) for all the fields but be sure to answer "yes" to the last question. Finally, you will be prompted for the key password, which is the password specifically for this Certificate. Type the ENTER key to automatically use the same password that you specified for the keystore. The command will create a new file, in the home directory of the user under which you run it, named ".keystore". This file is a Java KeyStore with the Java's JKS standard. 
+
+Now add the following entry in conf/server.xml:
+
+    vi conf/server.xml
+
+    <Connector
+           protocol="org.apache.coyote.http11.Http11NioProtocol"
+           port="8443" maxThreads="200"
+           scheme="https" secure="true" SSLEnabled="true"
+           keystoreFile="${user.home}/.keystore" keystorePass="changeit"
+           clientAuth="false" sslProtocol="TLS"/>
+
+Restart Tomcat:
+
+    ./bin/shutdown.sh
+    ./bin/startup.sh &
+
+Check your browser:
+    
+    https://localhost:8443
+
+If you get the "connection is not private" warning then your SSL/TLS configuration is ready. Otherwise check for errors:
+
+     tail -n 200 logs/catalina.out
+
+### 2.3 Extension (1 point)
+
+In order to obtain the maximum grade you can complete any of the following extensions: 
+
+* Add to the report a 1-page explanation of the pros and cons of using Java servlets compared to another alternative (e.g. Node.js).
+* Dockerize your web application.
+* Save the data within a database (e.g. MySQL) instead of a file.
+
 ## 3.  Submission
 
 You need to upload the following files to your BSCW's lab group folder before the next lab session:
@@ -200,14 +245,6 @@ You need to upload the following files to your BSCW's lab group folder before th
 * A tarball containing the source files.
 * A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   
 
-## 4. Grading. Basic part and extensions. 
-
-Completing the basic part of the assigment will let you obtain a maximum of 8 points over 10. In order to obtain the maximum grade you can complete any of the following extensions: 
-
-* Configure HTTPS in Tomcat.
-* Dockerize your web application.
-* Save the data within a database (e.g. MySQL) instead of a file.
-
-## 5. Further reading
+## 4. Further reading
 
 * [Java Servlet Technology section](https://javaee.github.io/tutorial/servlets.html) of the "Java Platform, Enterprise Edition (Java EE) 8. The Java EE Tutorial".
