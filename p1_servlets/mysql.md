@@ -4,14 +4,14 @@
 
 Run the following commands:
 
-  sudo apt-get install mysql-server 
-  sudo service mysql start
-  mysql -u root -p
-  mysql> GRANT ALL PRIVILEGES ON *.* TO javauser@localhost IDENTIFIED BY 'javadude' WITH GRANT OPTION;
-  mysql> create database javatest;
-  mysql> use javatest;
-  mysql> create table testdata (id int not null auto_increment primary key, foo varchar(25), bar int);
-  mysql> exit
+    sudo apt-get install mysql-server 
+    sudo service mysql start
+    mysql -u root -p
+    mysql> GRANT ALL PRIVILEGES ON *.* TO javauser@localhost IDENTIFIED BY 'javadude' WITH GRANT OPTION;
+    mysql> create database javatest;
+    mysql> use javatest;
+    mysql> create table testdata (id int not null auto_increment primary key, foo varchar(25), bar int);
+    mysql> exit
 
 ## 1.2 Download the driver and configure Tomcat
 
