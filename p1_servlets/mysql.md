@@ -32,15 +32,15 @@ Add the following to the file conf/context.xml:
 
 Add the following to the web.xml of your application:
 
-  <web-app>
-   <!-- .... keep previous entries ... -->
-    <resource-ref>
-        <description>DB Connection</description>
-        <res-ref-name>jdbc/TestDB</res-ref-name>
-        <res-type>javax.sql.DataSource</res-type>
-        <res-auth>Container</res-auth>
-    </resource-ref>
-  </web-app>
+      <web-app>
+       <!-- .... keep previous entries ... -->
+        <resource-ref>
+            <description>DB Connection</description>
+            <res-ref-name>jdbc/TestDB</res-ref-name>
+            <res-type>javax.sql.DataSource</res-type>
+            <res-auth>Container</res-auth>
+        </resource-ref>
+      </web-app>
 
 ## 1.3 Access the DB from your code
 
