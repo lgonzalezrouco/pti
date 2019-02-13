@@ -1,6 +1,6 @@
-# ANNEX 1. Enable MYSQL access (through JNDI)
+# ANNEX. Enable MYSQL access (through JNDI)
 
-## 1.1 Install MySQL and create a database
+## 1 Install MySQL and create a database
 
 Run the following commands:
 
@@ -13,7 +13,7 @@ Run the following commands:
     mysql> create table testdata (id int not null auto_increment primary key, foo varchar(25), bar int);
     mysql> exit
 
-## 1.2 Download the driver and configure Tomcat
+## 2 Download the driver and configure Tomcat
 
 From the apache-tomcat-9.0.5 folder type:
 
@@ -42,7 +42,7 @@ Add the following to the web.xml of your application:
         </resource-ref>
       </web-app>
 
-## 1.3 Access the DB from your code
+## 3 Access the DB from your code
 
 For example:
 

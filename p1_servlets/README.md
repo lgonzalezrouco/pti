@@ -239,7 +239,7 @@ You can find more information about the Tomcat's SSL/TLS configuration [here](ht
 In order to obtain the maximum grade you can complete any of the following extensions: 
 
 * Add to the report a 1-page explanation of the pros and cons of using Java servlets compared to another alternative (e.g. Node.js).
-* Dockerize your web application.
+* Dockerize your web application. Some help [here](./dockerize.md).
 * Save the data within a database (e.g. MySQL) instead of a file. Some help [here](./mysql.md).
 
 ## 3.  Submission
