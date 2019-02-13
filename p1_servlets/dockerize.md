@@ -27,19 +27,20 @@ NOTE: If for any reason you want to try Docker at the PTI lab classroom you woul
 
 ## 2. Dockerize your application
 
-First go into the Tomcat's webapps folder (where you have your my_webapp folder with your application):
+First go into the Tomcat's folder:
 
-    cd webapps
+    cd apache-tomcat-9.0.5
 
 Then edit there a file named "Dockerfile" with the following contents:
 
     FROM tomcat:9
-	RUN apt-get update && apt-get install -y default-jdk
-	COPY my_webapp /my_webapp
+	COPY webapps/my_webapp /my_webapp
 	WORKDIR /
 	RUN cp -r my_webapp /usr/local/tomcat/webapps
 
 ### 2.1 Building the image from the Dockerfile
+
+From the Tomcat folder run:
 
 	docker build -f Dockerfile -t carrental .
 
