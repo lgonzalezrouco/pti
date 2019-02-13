@@ -1,7 +1,7 @@
 # ANNEX 1. Enable MYSQL access (through JNDI)
 
 ## 1.1 Install MySQL and create a database
-
+''
   sudo apt-get install mysql-server 
   sudo service mysql start
   mysql -u root -p
@@ -10,7 +10,7 @@
   mysql> use javatest;
   mysql> create table testdata (id int not null auto_increment primary key, foo varchar(25), bar int);
   mysql> exit
-
+''
 ## 1.2 Download the driver and configure Tomcat
 
 From the apache-tomcat-9.0.5 folder type:
