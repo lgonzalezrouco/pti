@@ -22,13 +22,13 @@ From the apache-tomcat-9.0.5 folder type:
 
 Add the following to the file conf/context.xml:
 
-  <Context>
-      <!-- .... keep previous entries ... -->
-      <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
-                 maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-                 username="javauser" password="javadude" driverClassName="com.mysql.jdbc.Driver"
-                 url="jdbc:mysql://localhost:3306/javatest"/>
-  </Context>
+    <Context>
+        <!-- .... keep previous entries ... -->
+        <Resource name="jdbc/TestDB" auth="Container" type="javax.sql.DataSource"
+                   maxTotal="100" maxIdle="30" maxWaitMillis="10000"
+                   username="javauser" password="javadude" driverClassName="com.mysql.jdbc.Driver"
+                   url="jdbc:mysql://localhost:3306/javatest"/>
+    </Context>
 
 Add the following to the web.xml of your application:
 
