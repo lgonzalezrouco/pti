@@ -252,3 +252,12 @@ You need to upload the following files to your BSCW's lab group folder before th
 ## 4. Further reading
 
 * [Java Servlet Technology section](https://javaee.github.io/tutorial/servlets.html) of the "Java Platform, Enterprise Edition (Java EE) 8. The Java EE Tutorial".
+
+## ANNEX 1. Enable MYSQL access
+
+From the apache-tomcat-9.0.5 type:
+
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p1_servlets/mysql-connector-java-8.0.15.jar
+    cp mysql-connector-java-8.0.15.jar lib
+
+

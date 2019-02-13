@@ -29,7 +29,7 @@ NOTE: If for any reason you want to try Docker at the PTI lab classroom you woul
 
 Once Docker is installed you can launch a clean Ubuntu container this way:
 
-    docker run -it --name pti -v $HOME/WORKING_DIR:/my_volume -p 8080:8080 ubuntu bash
+    docker run -it --name pti -v $HOME/WORKING_DIR:/my_volume -p 8080:8080 -p 8443:8443 ubuntu bash
 
 Within the container you will do some things in a different way:
 
