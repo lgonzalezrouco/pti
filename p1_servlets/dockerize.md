@@ -27,11 +27,17 @@ NOTE: If for any reason you want to try Docker at the PTI lab classroom you woul
 
 ## 2. Dockerize your application
 
-First go into the Tomcat's folder:
+Dockerizing (or containerizing) an application is the process of making it able to run and deploy under Docker containers. Usually the final step of a containerization process is to push a Docker image containg the application to a Docker Registry such as Docker Hub. However, for the PTI lab you need to provide the sources necessaries to build the image, i.e. a Dockerfile and the application. It's not necessary that you push the image to Docker Hub as the teacher will build the image himself.
+
+*NOTE: A Docker volume can be used to access an application in your filesystem from within a Docker container. This is a convenient way to proceed during the development of the application. However, when moving to production, having a Docker image with everything inside makes things easier (e.g. deployment automation). So, for the containerization we will not need a Docker volume. However, we could still need one for persisting application data (not required for the PTI lab).*
+
+First go into the Tomcat's root folder:
 
     cd apache-tomcat-9.0.5
 
 Then edit there a file named "Dockerfile" with the following contents:
+
+	vi Dockerfile
 
     FROM tomcat:9
 	COPY webapps/my_webapp /my_webapp
@@ -40,13 +46,19 @@ Then edit there a file named "Dockerfile" with the following contents:
 
 ### 2.1 Building the image from the Dockerfile
 
+You will not deliver the image, and it's not necessary to push it to Docker Hub, so in theory it's not necessary to perform this step. However, you will need to do it, at least one time, to ensure that the Dockerfile that you are delivering to the teacher will work.
+
 From the Tomcat folder run:
 
 	docker build -f Dockerfile -t carrental .
 
 ### 2.2 Run a container
 
+Run the container this way:
+
 	docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
+
+Now check with your browser if the application is running. The teacher will get your Dockerfile and your my_webapp folder and will run the previous docker build and docker run commands.
 
 ## 3 Deliver
 
