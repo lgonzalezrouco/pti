@@ -33,7 +33,7 @@ Once Docker is installed you can launch a clean Ubuntu container this way:
 
 *NOTE 1: This example defines a Docker volume for the local directory $HOME/WORKING_DIR, mapped into the container directory /my_volume. This way the files within that local directory will be accessible from the container. On the one hand, during development it's useful to have the source code outside the container, this way you can edit it directly. On the other hand, a Docker volume may be necessary if the application keeps persistent data (data within the container gets lost when the conainer is removed).*
 
-*NOTE 2: This example defines a Docker volume for the local directory $HOME/WORKING_DIR, mapped into the container directory /my_volume. This way the files within that local directory will be accessible from the container. 
+*NOTE 2: This example maps the ports 8080 and 8443 of the container to the same ports on the host machine.*
 
 Within the container you will do some things in a different way:
 
