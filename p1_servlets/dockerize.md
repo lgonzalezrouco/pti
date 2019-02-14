@@ -31,7 +31,7 @@ Dockerizing (or containerizing) an application is the process of making it able 
 
 *NOTE: A Docker volume can be used to access an application in your filesystem from within a Docker container. This is a convenient way to proceed during the development of the application. However, when moving to production, having a Docker image with everything inside makes things easier (e.g. deployment automation). So, for the containerization we will not need a Docker volume. However, we could still need one for persisting application data (not required for the PTI lab).*
 
-First go into the folder that contains the "my_webapp" subfolder. If followed the recommended steps, this folder will be the Tomcat's root folder (apache-tomcat-9.0.5):
+First go into the folder that contains the "my_webapp" subfolder. If you followed the recommended steps, this folder will be the Tomcat's root folder (apache-tomcat-9.0.5):
 
     cd $USER_HOME/apache-tomcat-9.0.5
 
