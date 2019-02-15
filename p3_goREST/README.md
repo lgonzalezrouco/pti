@@ -9,6 +9,8 @@ The goal of this session is to create simple web API with the Go programming lan
 
 ## 2. Setup
 
+(help for those wanting to use their own computers (through Docker))](./../docker.md)
+
 ### 2.1 Booting the machine 
 
 Conventional room: Select a 64-bit Linux image and login with your credentials.
