@@ -9,7 +9,7 @@ The goal of this session is to create simple web API with the Go programming lan
 
 ## 2. Setup
 
-(help for those wanting to use their own computers (through Docker))](./../docker.md)
+[(help for those wanting to use their own computers (through Docker))](./../docker.md)
 
 ### 2.1 Booting the machine 
 
