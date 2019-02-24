@@ -136,6 +136,14 @@ Successful validation should show the root element, while if the carrental.xml i
     Document anotherDocument = builder.build(new File("carrental.xml"));
     System.out.println("Root: " + anotherDocument.getRootElement().getName());
 
+### 3.6 xml to json
+
+After you have added the data of a few rentals to your carrental.xml, transform your xml into json.
+
+For this you can leverage the support of an online tool that you may find in Internet to obtain the json for your xml.
+
+In the report that you write about your lab exercise, include the json you obtain, e.g. by taking a sceenshot, and indicate the tool you used (if any).
+
 
 ## ANNEX A. Reading input from console in Java
 
