@@ -128,10 +128,14 @@ Test the new operations with your client.
 
 #### 1.2.4 Additional task
 
-Think of an alternative to the used proof-of-work. 
+1) Think of an alternative to the used proof-of-work. 
 What options have found/considered?
 If possible, add a method which allows to apply this alternative and test it.
 Evaluate the method and assess the obtained results.
+
+2) In our exercise, "everybody" can write a new transaction. Think about mechanisms that to protect the execution of the transaction method (to answer in the report)
+
+3) Does our excercise store a state of something in the blockchain? (to answer in the report)
 
 #### 1.2.5 Documenting
 
