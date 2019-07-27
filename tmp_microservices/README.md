@@ -271,7 +271,7 @@ The management of data in a microservices-based architecture is a very complex a
 
 However, this may be difficult to accomplish in reality as usually companies store their data into dedicated systems or cloud services. But let's skip these issues here and just mention some options that Kubernetes offers regarding data storage. Regarding persistent data that can be directly stored in the filesystem (i.e. files), we cannot directly store them within a Pod's container as Pods are ephimeral. Kubernetes provides tools to deal with that such as PersistentVolumes. It's relativelly easy to use a PersistentVolume if we don't need it to scale along with our Pods (static). Otherwise, the thing becomes more complex and we will need to deal with Kubernetes' StatefulSets. Here, we are not going to experiment with none of those situations. Regarding structured data that we typically store within a database, some popular DBMS such as MongoDB provide help for running them, in a scalable way, them within Kubernetes. But doing this can be quite complex, and we will not address that option either. 
 
-The microservice in this tutorial is stateless, so we don't have to deal with data. However, [here](./mongodb.md) we have extended the tutorial to make it use a MongoDB database running in a second container within the same Pod. It's not a real solution, but can be a simple shortcut in case you plan to use Kubernetes in your project. This is not part of this lab session.     
+The microservice in this tutorial is stateless, so we don't have to deal with data. However, [here](mongodb.md) we have extended the tutorial to make it use a MongoDB database running in a second container within the same Pod. It's not a real solution, but can be a simple shortcut in case you plan to use Kubernetes in your project. This is not part of this lab session.     
 
 ## 3. Lab assignment 
 
@@ -285,7 +285,7 @@ As an example microservices-based application you will create and deploy a simpl
  
 - Request the list of all rentals: An endpoint that will return the list of all saved rental orders (in JSON format). 
 
-Regarding the DATA, you can directly store it within a JSON file into the disk, as if you were working locally. These data can be lost anytime, as the Pods are ephimeral, but it will be ok for this lab session. If you are interested in knowing how to do that better, you can use a Kubernete's PersistentVolume as explained [here](./persistentvolume.md) (optional).
+Regarding the DATA, you can directly store it within a JSON file into the disk, as if you were working locally. These data can be lost anytime, as the Pods are ephimeral, but it will be ok for this lab session. If you are interested in knowing how to do that better, you can use a Kubernete's PersistentVolume as explained [here](persistentvolume.md) (optional).
 
 ## 4.  Submission
 
