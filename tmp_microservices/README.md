@@ -145,7 +145,7 @@ Now check with your browser (localhost:8080) if the microservice is running.
 
 Finally, stop the container (this is important as later we will need to use port 8080 from Kubernetes):
 
-	Docker stop helloworld
+	docker stop helloworld
 
 ### 2.4. Deploy your microservice
 
