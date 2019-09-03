@@ -22,13 +22,37 @@ Each group will have to:
 
 ## 2. Kubernetes tutorial
 
+NOTE: This tutorial has been tested in macOS 10.13.6 and Ubuntu 18.04.3 but, in theory, you should be able to do it over Windows too. It's even possible to do the tutorial inside a virtual machine (e.g. VirtualBox) running Ubuntu, but in that case you should configure the VM with at least 2 cores and 3GB of memory.
+
+
 ### 2.1. Install a toy Kubernetes cluster with Minikube
 
 In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster within a virtual machine (VM) . 
 
 #### Prerequisites
 
-The next installation steps assume that Docker is installed on your machine.
+It's recommended (and required if you're working over Linux) to have Docker installed on your machine. You can check if it's already installed this way:
+
+    docker -v
+
+If not, you would need to install it. In Ubuntu you can do it this way:
+
+    sudo apt-get update
+    wget -qO- https://get.docker.com/ | sh
+    sudo usermod -aG docker $(whoami)
+
+It's necessary to LOGOUT to let the usermod command have effect.
+
+Windows and macOS installation procedures can be found [here](https://docs.docker.com/install/).
+
+NOTE: If for any reason you want to try Docker at the PTI lab classroom you would need to fix a problem with the DNS (Docker replicates the nameservers from /etc/resolv.conf but ignores the localhost entries, the public nameservers do not work because of the firewall).  
+    
+    nmcli dev show | grep 'IP4.DNS'
+    sudo vi /etc/docker/daemon.json
+        {
+            "dns": ["147.83.30.71", "8.8.8.8"]
+        }
+    sudo service docker restart
 
 #### Install kubectl 
 
@@ -44,6 +68,11 @@ On both:
 
 	chmod +x ./kubectl
 	sudo mv ./kubectl /usr/local/bin/kubectl
+
+In order to avoid the need of using "sudo" all the time, let's do the following:
+
+	sudo chown -R $USER $HOME/.kube
+	sudo chgrp -R $USER $HOME/.kube
 
 #### Install Minikube 
 
@@ -65,14 +94,17 @@ On both:
 
 On Linux (bare-metal execution, without a VM):
 
-	minikube --vm-driver=none start
+	sudo minikube --vm-driver=none start
 
 On MacOS (using the hypervisor that comes with Docker):
 
 	brew install docker-machine-driver-hyperkit
 	sudo minikube start --vm-driver=hyperkit
 
-	Note: In MacOS you will need root privileges all the time, so it's better to start with a "sudo -s".
+In order to avoid the need of using "sudo" all the time, let's do the following:
+
+	sudo chown -R $USER $HOME/.minikube
+	sudo chgrp -R $USER $HOME/.minikube
 
 We can see the IP address of the Minikube VM with the following command:
 
@@ -123,13 +155,17 @@ EXPOSE 8080
 COPY server.js .
 CMD node server.js
 ```
-#### Use Minikube’s built-in Docker daemon
+#### Making Docker images accessible to Minikube
 
-Usually you would build your image locally and upload it to Docker Hub or any other registry. However, to accelerate things a little bit we will build the image within Minikube. If you do the following:
+In a real scenario you would build your images locally and upload them to Docker Hub or any other registry. In that case, you will have an image's URL to pass to Kubernetes. However, to accelerate things a little bit, here we will skip the usage of a Docker regisry and we will tell Kubernetes to get the images from our local Docker registry.
+
+On Ubuntu, as we used vm-driver=none, we don't need to do anything, as our single-node Kubernetes cluster it's running directly on the host machine. Your local Docker registry will be directly accessible by the Kubernetes commands.
+
+On macOS, Minikube uses it's own built-in Docker daemon. So, if you build your images with your local Docker environment, they will not be directly accessible to Minikube. In order to overcome that problem in an easy way, we will address our Docker commands directly to the Minikube built-in Docker daemon, building our images and there, making them directly accessible to Minikube. To accomplish that do the following (only on macOS!):
 
 	eval $(minikube docker-env)
 
-Now your local Docker environment is pointing to the Minikube’s built-in Docker daemon. 
+Now the local Docker environment is pointing to the Minikube’s built-in Docker daemon. 
 
 #### Build the container image 
 
