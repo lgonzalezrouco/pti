@@ -161,7 +161,7 @@ In a real scenario you would build your images locally and upload them to Docker
 
 On Ubuntu, as we used vm-driver=none, we don't need to do anything, as our single-node Kubernetes cluster it's running directly on the host machine. Your local Docker registry will be directly accessible by the Kubernetes commands.
 
-On macOS, Minikube uses it's own built-in Docker daemon. So, if you build your images with your local Docker environment, they will not be directly accessible to Minikube. In order to overcome that problem in an easy way, we will address our Docker commands directly to the Minikube built-in Docker daemon, building our images and there, making them directly accessible to Minikube. To accomplish that do the following (only on macOS!):
+On macOS, Minikube uses it's own built-in Docker daemon. So, if you build your images with your local Docker environment, they will not be directly accessible to Minikube. In order to overcome that problem, we will point our Docker commands directly to the Minikube built-in Docker daemon, building our images there, and making them directly accessible to Minikube. To accomplish that just do the following (only on macOS!):
 
 	eval $(minikube docker-env)
 
