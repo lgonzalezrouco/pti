@@ -40,9 +40,11 @@ If not, you would need to install it. In Ubuntu you can do it this way:
     sudo apt-get update
     wget -qO- https://get.docker.com/ | sh
     sudo usermod -aG docker $(whoami)
-    sudo setfacl -m user:$(whoami):rw /var/run/docker.sock
+    newgrp docker
 
-It's necessary to LOGOUT to let the usermod command have effect.
+Check that Docker is installed and that you can run it without sudo executing:
+
+    docker run hello-world
 
 Windows and macOS installation procedures can be found [here](https://docs.docker.com/install/).
 
