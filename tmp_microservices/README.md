@@ -40,19 +40,11 @@ If not, you would need to install it. In Ubuntu you can do it this way:
     sudo apt-get update
     wget -qO- https://get.docker.com/ | sh
     sudo usermod -aG docker $(whoami)
+    sudo setfacl -m user:$(whoami):rw /var/run/docker.sock
 
 It's necessary to LOGOUT to let the usermod command have effect.
 
 Windows and macOS installation procedures can be found [here](https://docs.docker.com/install/).
-
-NOTE: If for any reason you want to try Docker at the PTI lab classroom you would need to fix a problem with the DNS (Docker replicates the nameservers from /etc/resolv.conf but ignores the localhost entries, the public nameservers do not work because of the firewall).  
-    
-    nmcli dev show | grep 'IP4.DNS'
-    sudo vi /etc/docker/daemon.json
-        {
-            "dns": ["147.83.30.71", "8.8.8.8"]
-        }
-    sudo service docker restart
 
 #### Install kubectl 
 
@@ -68,11 +60,6 @@ On both:
 
 	chmod +x ./kubectl
 	sudo mv ./kubectl /usr/local/bin/kubectl
-
-In order to avoid the need of using "sudo" all the time, let's do the following:
-
-	sudo chown -R $USER $HOME/.kube
-	sudo chgrp -R $USER $HOME/.kube
 
 #### Install Minikube 
 
@@ -105,6 +92,8 @@ In order to avoid the need of using "sudo" all the time, let's do the following:
 
 	sudo chown -R $USER $HOME/.minikube
 	sudo chgrp -R $USER $HOME/.minikube
+	sudo chown -R $USER $HOME/.kube
+	sudo chgrp -R $USER $HOME/.kube
 
 We can see the IP address of the Minikube VM with the following command:
 
@@ -120,7 +109,6 @@ You can delete an existing minikube setup with:
 Or, in case that fails:
 
 	rm -rf ~/.minikube
-
 
 ### 2.3. Containerized Hello World microservice
 
