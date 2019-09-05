@@ -1,4 +1,4 @@
-# Session 1. Java Servlets
+# Java Servlets
 
 ## Introduction
 

@@ -1,8 +1,7 @@
-# Lab 4
+# Blockchain
 
-## 1. Blockchain 
 
-### 1.1 Introduction
+## 1 Introduction
 
 Note: taken from: [Learn Blockchains by Building One](https://hackernoon.com/learn-blockchains-by-building-one-117428612f46). Check the corresponding [github repository](https://github.com/dvf/blockchain) for the installation of the Python environment.
 
@@ -10,9 +9,9 @@ In this part we will explore some concepts of a blockchain with a simplifed impl
 
 The blockchain is operated through a Web API. We need therefore an HTTP client to perform the operations. We will use curl (or alternatively you may use Postman).
 
-### 1.2 Tasks
+## 2 Tasks
 
-#### 1.2.1 Install the environment
+### 2.1 Install the environment
 
 You will need python3.6. Check if it is installed and install it if needed.
 
@@ -42,7 +41,7 @@ Open the blockchain.tar.gz and test if it runs correctly (or with python3.6 expl
 
     python blockchain.py -p 5000
 
-#### 1.2.2  Test the blockchain
+### 2.2  Test the blockchain
 
 In our experiment we will use two nodes (node 1 runs at port 5000 and node 2 runs at port 5001) to participate in the blockchain. 
 With an HTTP client, we will make the operations on the two nodes. 
@@ -109,7 +108,7 @@ When these steps work correctly, we will finally add a few more funtions to the 
     #node 2 will synchronize its chain 
     curl http://localhost:5001/nodes/resolve
 
-#### 1.2.3  Add functions to the blockchain
+### 2.3  Add functions to the blockchain
 
 After having done he above steps, we will add a few more functions to the Web API of the code:
 
@@ -126,7 +125,7 @@ This method should manipulate the chain of a node, so when validated, it will be
 
 Test the new operations with your client.
 
-#### 1.2.4 Additional task
+### 2.4 Additional task
 
 1) Think of an alternative to the used proof-of-work. 
 What options have found/considered?
@@ -137,7 +136,7 @@ Evaluate the method and assess the obtained results.
 
 3) Does our excercise store a state in the blockchain, e.g the amounts A and B have after having done a transaction? If not, how would you add it to the code (to answer in the report what you did).
 
-#### 1.2.5 Documenting
+### 2.5 Documenting
 
 In your report, document the results and interpret the operations that you tested with the code.
 
