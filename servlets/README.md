@@ -160,7 +160,7 @@ In order to install the provided files perform the following steps:
 
 Download the files:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p1_servlets/carrental.tar.gz
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/carrental.tar.gz
     tar -xvzf carrental.tar.gz 
 
 Move the files to Tomcat and compile the servlets:
