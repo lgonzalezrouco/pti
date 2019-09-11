@@ -24,7 +24,7 @@ Each group will have to:
 
 ### 1.1 Booting the machine
 
-Select the latest Ubuntu imatge (e.g. Ubuntu 14)
+Select the latest Ubuntu imatge and type your username and password:
 
     user: alumne
     pwd: sistemes
@@ -47,7 +47,7 @@ If not installed do the following to install OpenJDK:
 
 Install Tomcat 9:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p1_servlets/apache-tomcat-9.0.5.tar.gz
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/apache-tomcat-9.0.5.tar.gz
     tar -xvzf apache-tomcat-9.0.5.tar.gz
 
 Enter the Tomcat 9 directory (we will work from here from now on):
