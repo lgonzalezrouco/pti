@@ -260,3 +260,24 @@ You need to upload the following files to your BSCW's lab group folder before th
 
 * [Java Servlet Technology section](https://javaee.github.io/tutorial/servlets.html) of the "Java Platform, Enterprise Edition (Java EE) 8. The Java EE Tutorial".
 
+## ANNEX 1. Help with the JSON file
+
+One possible way of saving the rentals within a JSON file would be the following (in pseudo-code):
+
+	JSONObject root = null;
+	If file "/home/alumne/apache-tomcat-9.0.5/rentals.json" exists: 
+		Parse file into root object.
+	
+	Else: 
+		Create new JSON object into root object. 
+		Create new (empty) JSONArray object.
+		Put the JSONArray object into the root object.
+	
+	Create a new JSON object for the new rental with the value of the received params.
+	Get the array object from the root.
+	Add the new rental JSON object to the array object.
+	
+	Write the root JSON object to the file. 
+		
+
+
