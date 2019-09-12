@@ -21,13 +21,19 @@ Check that Docker is installed and that you can run it without sudo executing:
 
 Windows and OSX installation procedures can be found [here](https://docs.docker.com/install/).
 
-Once Docker is installed you can launch a clean Ubuntu container this way:
+We will create a local directory to be shared between the host and the container (a bind volume):   
 
-    docker run -it --name pti -v $HOME/WORKING_DIR:/my_volume -p 8080:8080 -p 8443:8443 ubuntu bash
+	mkdir $HOME/pti
 
-*NOTE 1: This example defines a Docker volume for the local directory $HOME/WORKING_DIR, mapped into the container directory /my_volume. This way the files within that local directory will be accessible from the container. On the one hand, during development it's useful to have the source code outside the container, this way you can edit it directly. On the other hand, a Docker volume may be necessary if the application keeps persistent data (data within the container gets lost when the conainer is removed).*
+Launch a clean Ubuntu container this way:
+ 
+	docker run -it --name pti -v $HOME/pti:/pti -p 8080:8080 -p 8443:8443 ubuntu bash
 
-*NOTE 2: This example maps the ports 8080 and 8443 of the container to the same ports on the host machine.*
+The command defines a Docker volume for the local directory $HOME/pti, mapped into the container directory /pti. This way the files within that local directory will be accessible from the container. During development it's useful to have the source code outside the container, this way you can edit it directly with your local tools. If you're working on one of the lab assignments, run the container and enter the /pti directory (create it if necessary) from the beginning, performing all the steps from there. 
+
+*NOTE 1: A Docker volume may be necessary if the application keeps persistent data (data within the container gets lost when the conainer is removed).*
+
+*NOTE 2: This example also maps the ports 8080 and 8443 of the container to the same ports on the host machine.*
 
 Within the container you will do some things in a different way:
 
