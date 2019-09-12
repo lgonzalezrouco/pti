@@ -40,7 +40,7 @@ You need 'git' installed (in order to be able to run 'go get' commands):
 
 Download Go (if the link does not work go [here](https://golang.org/dl/))
     
-	wget https://gitlab.fib.upc.edu/pti/pti/raw/master/p3_goREST/go1.7.1.linux-amd64.tar.gz
+	wget https://gitlab.fib.upc.edu/pti/pti/raw/master/goREST/go1.7.1.linux-amd64.tar.gz
 
 (IMPORTANT: The executable will not work if you are working on a 32-bit Linux!)
 
