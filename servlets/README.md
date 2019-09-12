@@ -124,7 +124,7 @@ Check errors or the things you write to stdout:
 
 It's useful to open a dedicated terminal and check errors continuously:
 
-        tail -f 200 logs/logs/catalina.out
+        tail -f 200 logs/catalina.out
 
 In order to avoid restarting Tomcat every time you recompile your servlets it's VERY USEFUL editing the conf/context.xml file this way (and restarting Tomcat):
 
