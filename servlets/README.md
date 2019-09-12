@@ -116,17 +116,17 @@ Check browser:
 
         http://localhost:8080/my_webapp/my_servlet
 
-Check errors (replace XX-XX by the current date): 
+Check errors or the things you write to stdout: 
         
         tail -n 200 logs/catalina.out
-        tail -n 200 logs/localhost.2018-XX-XX.log
+        tail -n 200 logs/localhost.20XX-XX-XX.log
 
 
 It's useful to open a dedicated terminal and check errors continuously:
 
         tail -f 200 logs/logs/catalina.out
 
-In order to avoid restarting Tomcat every time you recompile your servlets it's VERY USEFUL editing the conf/Context.xml file this way (and restarting Tomcat):
+In order to avoid restarting Tomcat every time you recompile your servlets it's VERY USEFUL editing the conf/context.xml file this way (and restarting Tomcat):
 
 	...
 	<Context reloadable="true">
