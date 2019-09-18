@@ -192,6 +192,7 @@ Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
 ## 5. JSON 
 
 Typically an endpoint has to deal with more complex input and output parameters. This is usually solved by formatting the parameters (input and/or output) with JSON. Let's modify our webserver.go to include a JSON response.
+
 ```go
 package main
 
@@ -231,50 +232,51 @@ func endpointFunc(w http.ResponseWriter, r *http.Request) {
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
 
 Let's now add a new endpoint that accepts JSON as input. First of all add the following struct:
-
-    type RequestMessage struct {
-        Field1 string
-        Field2 string
-    }
-
+```go
+type RequestMessage struct {
+    Field1 string
+    Field2 string
+}
+```
 And "io" and "io/ioutil" to the imports:
-
-	import (
-        	"fmt"
-        	"log"
-        	"net/http"
-        	"github.com/gorilla/mux"
-        	"encoding/json"
-		"io"
-		"io/ioutil"
-    	) 
-
+```go
+import (
+    	"fmt"
+    	"log"
+    	"net/http"
+    	"github.com/gorilla/mux"
+    	"encoding/json"
+	"io"
+	"io/ioutil"
+	) 
+```
 Then add a new route:
-
-    router.HandleFunc("/endpoint2/{param}", endpointFunc2JSONInput)
-
+```go
+router.HandleFunc("/endpoint2/{param}", endpointFunc2JSONInput)
+```
 And its related code:
-
-    func endpointFunc2JSONInput(w http.ResponseWriter, r *http.Request) {
-        var requestMessage RequestMessage
-        body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
-        if err != nil {
-            panic(err)
-        }
-        if err := r.Body.Close(); err != nil {
-            panic(err)
-        }
-        if err := json.Unmarshal(body, &requestMessage); err != nil {
-            w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-            w.WriteHeader(422) // unprocessable entity
-            if err := json.NewEncoder(w).Encode(err); err != nil {
-                panic(err)
-            }
-        } else {
-            fmt.Fprintln(w, "Successfully received request with Field1 =", requestMessage.Field1)
-            fmt.Println(r.FormValue("queryparam1"))
-        }
+```go
+func endpointFunc2JSONInput(w http.ResponseWriter, r *http.Request) {
+    var requestMessage RequestMessage
+    body, err := ioutil.ReadAll(io.LimitReader(r.Body, 1048576))
+    if err != nil {
+        panic(err)
     }
+    if err := r.Body.Close(); err != nil {
+        panic(err)
+    }
+    if err := json.Unmarshal(body, &requestMessage); err != nil {
+        w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+        w.WriteHeader(422) // unprocessable entity
+        if err := json.NewEncoder(w).Encode(err); err != nil {
+            panic(err)
+        }
+    } else {
+        fmt.Fprintln(w, "Successfully received request with Field1 =", requestMessage.Field1)
+        fmt.Println(r.FormValue("queryparam1"))
+    }
+}
+```
 
 *This code involves some tricky error handling. [Go’s approach to error handling](https://blog.golang.org/error-handling-and-go) is one of its most controversial features. Go functions support multiple return values, and by convention, this ability is commonly used to return the function’s result along with an error variable. By convention, returning an error signals the caller there was a problem, and returning nil represents no error. The panic built-in function stops the execution of the function and, in a cascading way, of the chain of caller functions, thus stopping the program.*
 
@@ -304,20 +306,20 @@ In order to keep the rentals data (to be able to list them) you will need to sav
 An easy way to save the list of rentals could be a text file with lines containing comma-separated values (CSV). One rental per line. This way you can save a new rental just adding a line at the end of the file.
 
 	(need to add "encoding/csv" and "os" to imports)
-
-	func writeToFile(w http.ResponseWriter) {
-		file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
-		if err!=nil {
-			json.NewEncoder(w).Encode(err)
-			return
-   		}
-		writer := csv.NewWriter(file)
-		var data1 = []string{"Toyota", "Celica"}
-		writer.Write(data1)
-		writer.Flush()
-		file.Close()
-	}
-
+```go
+func writeToFile(w http.ResponseWriter) {
+	file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if err!=nil {
+		json.NewEncoder(w).Encode(err)
+		return
+		}
+	writer := csv.NewWriter(file)
+	var data1 = []string{"Toyota", "Celica"}
+	writer.Write(data1)
+	writer.Flush()
+	file.Close()
+}
+```
 If you don't specify a file path the file will be saved in the directory from which you launch the command. 
 
 ## ANNEX 2. Reading a CSV file
@@ -325,21 +327,21 @@ If you don't specify a file path the file will be saved in the directory from wh
 In order to read the list of rentals from the CSV file you can do:
 
 	(need to add "bufio" to imports)
-
-	file, err := os.Open("rentals.csv")
-        if err!=nil {
-		json.NewEncoder(w).Encode(err)
-		return
-    	}
-    	reader := csv.NewReader(bufio.NewReader(file))
-    	for {
-        	record, err := reader.Read()
-        	if err == io.EOF {
-            		break
-                }
-                fmt.Fprintf(w, "The first value is %q", record[0])
-        }
-	
+```go
+file, err := os.Open("rentals.csv")
+    if err!=nil {
+	json.NewEncoder(w).Encode(err)
+	return
+	}
+	reader := csv.NewReader(bufio.NewReader(file))
+	for {
+    	record, err := reader.Read()
+    	if err == io.EOF {
+        		break
+            }
+            fmt.Fprintf(w, "The first value is %q", record[0])
+    }
+```	
      
 ## ANNEX 3. Dynamic growing arrays in Go: Slices
 
@@ -354,5 +356,6 @@ If you need reading the rentals file into an array, whose initial size is unknow
     ...
 
 NOTE: The JSON encoder is able to encode an array just by doing:
-
-    json.NewEncoder(w).Encode(lines)
+```go
+json.NewEncoder(w).Encode(lines)
+```
