@@ -307,19 +307,25 @@ An easy way to save the list of rentals could be a text file with lines containi
 
 	(need to add "encoding/csv" and "os" to imports)
 ```go
-func writeToFile(w http.ResponseWriter) {
-	file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
-	if err!=nil {
-		json.NewEncoder(w).Encode(err)
-		return
-		}
-	writer := csv.NewWriter(file)
-	var data1 = []string{"Toyota", "Celica"}
-	writer.Write(data1)
-	writer.Flush()
-	file.Close()
+func writeToFile(w http.ResponseWriter, values []string) {
+    file, err := os.OpenFile("rentals.csv", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+    if err!=nil {
+        json.NewEncoder(w).Encode(err)
+        return
+        }
+    writer := csv.NewWriter(file)
+    writer.Write(values)
+    writer.Flush()
+    file.Close()
 }
 ```
+
+Yoy may call your function from endpointFunc2JSONInput this way:
+
+```go
+writeToFile(w, []string{requestMessage.Field1, requestMessage.Field2})
+```
+
 If you don't specify a file path the file will be saved in the directory from which you launch the command. 
 
 ## ANNEX 2. Reading a CSV file
