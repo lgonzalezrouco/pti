@@ -336,20 +336,20 @@ In order to read all the lines from a CSV file and to put them within a JSON res
 var rentalsArray []ResponseMessage
 file, err := os.Open("rentals.csv", )
 if err != nil {
-    json.NewEncoder(w).Encode(err)
-} else {
-    reader := csv.NewReader(file)
-    for {
-        line, err := reader.Read()
-        if err != nil {
-            if err == io.EOF {
-                break
-            }
-            log.Fatal(err)
+    log.Fatal(err)
+} 
+reader := csv.NewReader(file)
+for {
+    line, err := reader.Read()
+    if err != nil {
+        if err == io.EOF {
+            break
         }
-        rentalsArray = append(rentalsArray, ResponseMessage{Field1: line[0], Field2: line[1]})
+        log.Fatal(err)
     }
-    json.NewEncoder(w).Encode(rentalsArray)
+    rentalsArray = append(rentalsArray, ResponseMessage{Field1: line[0], Field2: line[1]})
 }
+json.NewEncoder(w).Encode(rentalsArray)
+
 ```
      
