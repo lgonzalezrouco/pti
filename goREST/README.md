@@ -84,15 +84,15 @@ Now we download a source file:
 
 Let's take a look to the content of hello.go:
 
-    cat hello.go
+```go
+package main
 
-        package main
+import "fmt"
 
-        import "fmt"
-
-        func main() {
-            fmt.Printf("hello, world\n")
-        }
+func main() {
+    fmt.Printf("hello, world\n")
+}
+```
 
 *NOTE: A Go program consists on source files organized into a tree of directories called "packages". There's a root package, "pti_golang/hello" in the example, but there may be nested packages too. A package declaration is required at the start of every Go source file. Its main purpose is to determine the default identifier for that package (called the package name) when it is imported by another package. By convention, the package name is the same as the last element of the import path. However, there is an execption when a source file contains the entry point of an executable program such as the example hello.go. In that case, you declare the "package main", regardless of the packages' path, to signal that the package should be compiled as an executable program instead of a shared library. 
 
