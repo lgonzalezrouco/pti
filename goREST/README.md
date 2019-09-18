@@ -133,9 +133,7 @@ func main() {
 }
 ```
 
-*The package http is a standard Go package that provides HTTP client and server implementations. The function ListenAndServe starts an HTTP server with a given address and a HTTP request router, a ServeMux. A ServeMux is a multiplexor that compares incoming requests against a list of predefined URL paths, and calls the associated handler for the path whenever a match is found. When the ServeMux is nil, the DefaultServeMux it's used. HandleFunc adds handlers to DefaultServeMux.*
-
-
+*The package http is a standard Go package that provides HTTP client and server implementations. The function ListenAndServe starts an HTTP server with a given address and a HTTP request router, a ServeMux. A ServeMux is a multiplexor that compares incoming requests against a list of predefined URL paths, and calls the associated handler for the path whenever a match is found. When the ServeMux is nil, the DefaultServeMux it's used. HandleFunc adds handlers to DefaultServeMux. ListenAndServe opens the server port and blocks forever waiting for clients. If it fails to open the port, the log.Fatal call will report the problem and exit the program.*
 
 Let's build it (will create an executable within $HOME/go/bin/webserver):
 
