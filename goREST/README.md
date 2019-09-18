@@ -156,77 +156,79 @@ An web API exposes different functionalities. These functionalities are accessed
 (check that a new package object has been created within $HOME/go/pkg).
 
 Let's modify our webserver.go to add some routes:
+```go
+package main
 
-    package main
+import (
+    "fmt"
+    "log"
+    "net/http"
+    "github.com/gorilla/mux"
+)
 
-    import (
-        "fmt"
-        "log"
-        "net/http"
-        "github.com/gorilla/mux"
-    )
+func main() {
 
-    func main() {
+router := mux.NewRouter().StrictSlash(true)
+router.HandleFunc("/", Index)
+router.HandleFunc("/endpoint/{param}", endpointFunc)
 
-    router := mux.NewRouter().StrictSlash(true)
-    router.HandleFunc("/", Index)
-    router.HandleFunc("/endpoint/{param}", endpointFunc)
+log.Fatal(http.ListenAndServe(":8080", router))
+}
 
-    log.Fatal(http.ListenAndServe(":8080", router))
-    }
+func Index(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintln(w, "Service OK")
+}
 
-    func Index(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintln(w, "Service OK")
-    }
-
-    func endpointFunc(w http.ResponseWriter, r *http.Request) {
-        vars := mux.Vars(r)
-        param := vars["param"]
-        fmt.Fprintln(w, "You are calling with param:", param)
-    }
-
+func endpointFunc(w http.ResponseWriter, r *http.Request) {
+    vars := mux.Vars(r)
+    param := vars["param"]
+    fmt.Fprintln(w, "You are calling with param:", param)
+}
+```
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
    
 ## 5. JSON 
 
 Typically an endpoint has to deal with more complex input and output parameters. This is usually solved by formatting the parameters (input and/or output) with JSON. Let's modify our webserver.go to include a JSON response.
+```go
+package main
 
-    package main
+import (
+    "fmt"
+    "log"
+    "net/http"
+    "github.com/gorilla/mux"
+    "encoding/json"
+)
 
-    import (
-        "fmt"
-        "log"
-        "net/http"
-        "github.com/gorilla/mux"
-        "encoding/json"
-    )
+type ResponseMessage struct {
+    Field1 string
+    Field2 string
+}
 
-    type ResponseMessage struct {
-        Field1 string
-        Field2 string
-    }
+func main() {
 
-    func main() {
+router := mux.NewRouter().StrictSlash(true)
+router.HandleFunc("/", Index)
+router.HandleFunc("/endpoint/{param}", endpointFunc)
 
-    router := mux.NewRouter().StrictSlash(true)
-    router.HandleFunc("/", Index)
-    router.HandleFunc("/endpoint/{param}", endpointFunc)
+log.Fatal(http.ListenAndServe(":8080", router))
+}
 
-    log.Fatal(http.ListenAndServe(":8080", router))
-    }
+func Index(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintln(w, "Service OK")
+}
 
-    func Index(w http.ResponseWriter, r *http.Request) {
-        fmt.Fprintln(w, "Service OK")
-    }
-
-    func endpointFunc(w http.ResponseWriter, r *http.Request) {
-        vars := mux.Vars(r)
-        param := vars["param"]
-        res := ResponseMessage{Field1: "Text1", Field2: param}
-        json.NewEncoder(w).Encode(res)
-    }
-
+func endpointFunc(w http.ResponseWriter, r *http.Request) {
+    vars := mux.Vars(r)
+    param := vars["param"]
+    res := ResponseMessage{Field1: "Text1", Field2: param}
+    json.NewEncoder(w).Encode(res)
+}
+```
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
+
+**WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables). If you don't fix them the binaries will not be updated.**
 
 Let's now add a new endpoint that accepts JSON as input. First of all add the following struct:
 
@@ -294,8 +296,6 @@ As an example web API you will create a simple car rental web API. It will consi
 - Request the list of all rentals: An endpoint that will return the list of all saved rental orders (in JSON format). 
 
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
-
-**WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables). If you don't fix them the binaries will not be updated.**
 
 ## ANNEX 1. Writing comma-separated values to a CSV file
 
