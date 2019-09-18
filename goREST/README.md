@@ -330,38 +330,26 @@ If you don't specify a file path the file will be saved in the directory from wh
 
 ## ANNEX 2. Reading a CSV file
 
-In order to read the list of rentals from the CSV file you can do:
+In order to read all the lines from a CSV file and to put them within a JSON response you can do:
 
-	(need to add "bufio" to imports)
 ```go
-file, err := os.Open("rentals.csv")
-    if err!=nil {
-	json.NewEncoder(w).Encode(err)
-	return
-	}
-	reader := csv.NewReader(bufio.NewReader(file))
-	for {
-    	record, err := reader.Read()
-    	if err == io.EOF {
-        		break
-            }
-            fmt.Fprintf(w, "The first value is %q", record[0])
-    }
-```	
-     
-## ANNEX 3. Dynamic growing arrays in Go: Slices
-
-If you need reading the rentals file into an array, whose initial size is unknown, you can use a  [Go slice](https://blog.golang.org/go-slices-usage-and-internals) and the "append" function this way: 
-
-    var lines []ResponseMessage
+var rentalsArray []ResponseMessage
+file, err := os.Open("rentals.csv", )
+if err != nil {
+    json.NewEncoder(w).Encode(err)
+} else {
+    reader := csv.NewReader(file)
     for {
-        ...
-	lines = append(lines, ResponseMessage{Field1: "Text1", Field2: "Text2"})
-        
+        line, err := reader.Read()
+        if err != nil {
+            if err == io.EOF {
+                break
+            }
+            log.Fatal(err)
+        }
+        rentalsArray = append(rentalsArray, ResponseMessage{Field1: line[0], Field2: line[1]})
     }
-    ...
-
-NOTE: The JSON encoder is able to encode an array just by doing:
-```go
-json.NewEncoder(w).Encode(lines)
+    json.NewEncoder(w).Encode(rentalsArray)
+}
 ```
+     
