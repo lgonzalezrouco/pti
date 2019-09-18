@@ -186,6 +186,8 @@ func endpointFunc(w http.ResponseWriter, r *http.Request) {
 }
 ```
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
+
+**WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables). If you don't fix them the binaries will not be updated.**
    
 ## 5. JSON 
 
@@ -227,8 +229,6 @@ func endpointFunc(w http.ResponseWriter, r *http.Request) {
 }
 ```
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
-
-**WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables). If you don't fix them the binaries will not be updated.**
 
 Let's now add a new endpoint that accepts JSON as input. First of all add the following struct:
 
