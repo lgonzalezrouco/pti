@@ -187,7 +187,7 @@ func endpointFunc(w http.ResponseWriter, r *http.Request) {
 ```
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
 
-**WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables). If you don't fix them the binaries will not be updated.**
+**WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables or package imports). If you don't fix them the binaries will not be updated.**
    
 ## 5. JSON 
 
@@ -275,6 +275,8 @@ And its related code:
             fmt.Println(r.FormValue("queryparam1"))
         }
     }
+
+*This code involves some tricky error handling. [Go’s approach to error handling](https://blog.golang.org/error-handling-and-go) is one of its most controversial features. Go functions support multiple return values, and by convention, this ability is commonly used to return the function’s result along with an error variable. By convention, returning an error signals the caller there was a problem, and returning nil represents no error. The panic built-in function stops the execution of the function and, in a cascading way, of the chain of caller functions, thus stopping the program.*
 
 Rebuild and run. In order to submit a JSON request we will use curl instead of the browser. Open a new terminal and type:
 
