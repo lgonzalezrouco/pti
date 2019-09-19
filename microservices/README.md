@@ -94,10 +94,7 @@ On MacOS (using the hypervisor that comes with Docker):
 
 In order to avoid the need of using "sudo" all the time, let's do the following:
 
-	sudo chown -R $USER $HOME/.minikube
-	sudo chgrp -R $USER $HOME/.minikube
-	sudo chown -R $USER $HOME/.kube
-	sudo chgrp -R $USER $HOME/.kube
+	sudo chown -R $USER $HOME/.kube $HOME/.minikube
 
 We can see the IP address of the Minikube VM with the following command:
 
@@ -211,30 +208,35 @@ Note: You can delete a deployment with "kubectl delete deployment NAME"
 
 A Pod is a single instantiation of your microservice. You can execute multiple Pods (replicas) to scale a microservice. 
 
-When we deployed our microservice before, Kubernetes executed one Pod. We can find the name of the pod (POD_NAME) that instantiates our microservice with:
+When we deployed our microservice before, Kubernetes executed one Pod. We can find the name of the pod (POD_NAME) that instantiates our microservice and save it within an environment variable this way:
 
-	kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}'
+	export MYPOD=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+
+	echo $MYPOD
 
 You can obtain information about the Pod with 
 	
-	kubectl describe pod POD_NAME
+	kubectl describe pod $MYPOD
 
 To see the logs relatd to the Pod:
 
-	kubectl logs pods/POD_NAME
+	kubectl logs pods/$MYPOD
 
 If there would be more than one container in the Pod, you should use this:
 
-	kubectl logs pods/POD_NAME helloworld
+	kubectl logs pods/$MYPOD helloworld
 
 Kubernetes creates an endpoint for each pod, based and the pod name. However, these endpoints are not directly visible from outside (the Kubernetes cluster is running on a private network). The kubectl command can create a proxy that will forward communications to the local port 8001 into the private network: 
 
-	kubectl proxy
+	kubectl proxy &
 
-The proxy can be terminated by pressing control-C and won't show any output while its running. Now, in a different terminal we can do:
+Now, in a different terminal we can do:
 
-	curl http://localhost:8001/api/v1/namespaces/default/pods/POD_NAME/proxy/
+	curl http://localhost:8001/api/v1/namespaces/default/pods/$MYPOD/proxy/
 
+Kill the proxy this way:
+
+	pkill kubectl
 
 #### Services
 
