@@ -42,6 +42,8 @@ If not, you would need to install it. In Ubuntu you can do it this way:
     sudo usermod -aG docker $(whoami)
     newgrp docker
 
+**WARNING: the newgrp is a trick to avoid the need to log out and log back in order to let the usermod command take effect. However, newgrp runs a new shell and the trick only works within that shell (you won't be able to run docker commands in a different shell).**
+
 Check that Docker is installed and that you can run it without sudo executing:
 
     docker run hello-world
