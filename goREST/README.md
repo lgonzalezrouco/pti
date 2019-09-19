@@ -46,7 +46,9 @@ If you encounter lock errors with apt-get commands try killing the blocking proc
 	ps aux | grep apt
 	sudo kill PROCNUM
 
-If that didn't solve the error try changing the default Ubuntu package repository in /etc/apt/sources.list. Replace http://es.archive.ubuntu.com/ubuntu/ by http://en.archive.ubuntu.com/ubuntu/.
+If that didn't solve the error try changing the default Ubuntu package repository in /etc/apt/sources.list. Replace http://es.archive.ubuntu.com/ubuntu/ by http://en.archive.ubuntu.com/ubuntu/. You can use this command:
+
+	sudo sed -i 's|http://es.|http://en.|g' /etc/apt/sources.list
 
 #### 1.1.3 Install Go
 
