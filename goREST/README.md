@@ -1,23 +1,31 @@
 # Making a Web API in Go
 
-## 1. Introduction
+## Introduction
 
 A web service is a generic term for a software function that is accessible through HTTP. Traditional web services usually relied in support protocols for data exchange (e.g. SOAP) and service definition (WSDL). However, nowadays the paradigm has evolved to a simplified form, usually called web APIs. Web APIs normally rely only in plain HTTP (plus JSON for serializing the messages). Their design is usually influenced by the [REST architectural style](https://en.wikipedia.org/wiki/Representational_state_transfer), though the most part of existing web APIs do not really comply with REST principles. Nowadays, the most part of client-server systems (e.g. web applications and mobile apps) design their back end as a combination of web APIs.  
 
-The goal of this session is to create simple web API with the Go programming language and JSON. We will not bother to follow the REST principles, so it will not be a trully RESTful API.  
+The goal of this session is to create a simple web API with the Go programming language and JSON. We will not bother to follow the REST principles, so it will not be a trully RESTful API.  
 
+Each group will have to:
 
-## 2. Setup
+1. Tutorial: Follow a brief tutorial about how to create a simple web API with the Go programming language and JSON.
+2. Assignment (basic part): Complete the lab assignment consisting on developing a simple car rental web API. 
+3. Extensions: Optionally complete one of the suggested extensions.
+4. Write a .pdf report describing the steps taken to complete the assignment, including screenshots of the application output.
+
+## 1 Making a Web API in Go, a quick tutorial
+
+### 1.1 Setup
 
 [(help for those wanting to use their own computers (through Docker))](./../docker.md)
 
-### 2.1 Booting the machine 
+#### 1.1.1 Booting the machine 
 
 Conventional room: Select a 64-bit Linux image and login with your credentials.
 
 Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with credentials user=alumne and pwd:=sistemes
 
-### 2.2 Prerequisites
+#### 1.1.2 Prerequisites
 
 Let's start by updating the Ubuntu's Package Index:
 
@@ -36,7 +44,7 @@ You need 'git' installed (in order to be able to run 'go get' commands):
 	ps aux | grep apt
 	sudo kill PROCNUM
 
-### 2.3 Install Go
+#### 1.1.3 Install Go
 
 Download Go (if the link does not work go [here](https://golang.org/dl/))
     
@@ -56,7 +64,7 @@ Add /usr/local/go/bin to the PATH environment variable:
 
     export PATH=$PATH:/usr/local/go/bin
 
-### 2.4 Setup a directory hierarchy for your projects
+#### 1.1.4 Setup a directory hierarchy for your projects
 
 (check [this](https://golang.org/doc/code.html) for more info in how to write Go code)
 
@@ -104,7 +112,7 @@ Now we can execute the binary:
 
     $HOME/go/bin/hello
   
-## 3 A simple web server
+### 1.2 A simple web server
     
 A web API is a specific type of web (HTTP-based) service. Let's start by programming a basic web server with Go:   
 
@@ -147,7 +155,7 @@ test in browser: http://localhost:8080
 
 Kill the process before going through the next steps.
     
-## 4 URL routing
+### 1.3 URL routing
     
 An web API exposes different functionalities. These functionalities are accessed through different URL routes or endpoints. We need a mechanism that let us map URL routes into calls to different functions in our code. The standard golang library offers a [too complex routing mechanism](https://husobee.github.io/golang/url-router/2015/06/15/why-do-all-golang-url-routers-suck.html), so we will use an external library for that (mux router from the Gorilla Web Toolkit):
 
@@ -189,11 +197,11 @@ Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
 
 **WARNING: The Go compiler does not report warnings, only errors that prevent compilation (e.g. for unused variables or package imports). If you don't fix them the binaries will not be updated.**
    
-## 5. JSON 
+### 1.4. JSON 
 
 Typically an endpoint has to deal with more complex input and output parameters. This is usually solved by formatting the parameters (input and/or output) with JSON. 
 
-### 5.1 A JSON response
+#### 1.4.1 A JSON response
 
 Let's modify our webserver.go to include a JSON response.
 
@@ -239,7 +247,7 @@ Let's try also to call the server with curl:
 
 	curl -H "Content-Type: application/json" http://localhost:8080/endpoint/1234
 
-### 5.2 A JSON request
+#### 1.4.2 A JSON request
 
 Let's now add a new endpoint that accepts JSON as input. First of all add the following struct:
 ```go
@@ -300,8 +308,12 @@ Rebuild and run. In order to submit a JSON request we will use curl instead of t
 
 **WARNING: The fields of the request and response structs MUST ONLY INCLUDE ALPHANUMERIC CHARACTERS (AVOID UNDERSCORES, ETC.).**
 
-   
-## 6. Creating your own car rental web API
+
+## 2 Lab assignment 
+
+### 2.1 Creating your own car rental web API (9 points)
+
+#### 2.1.1 Description
 
 As an example web API you will create a simple car rental web API. It will consist in two functionalities:
 
@@ -309,7 +321,23 @@ As an example web API you will create a simple car rental web API. It will consi
  
 - Request the list of all rentals: An endpoint that will return the list of all saved rental orders (in JSON format). 
 
-In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). 
+In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). ANNEX 1 and ANNEX 2 provide help for witing and reading comma-separated values to/from a CSV file.
+
+
+### 2.2 Extension (1 point)
+
+In order to obtain the maximum grade you can complete any of the following extensions: 
+
+* Add to the report a 1-page explanation of the pros and cons of Go compared to another alternative (e.g. C++, Java, Rust, etc.).
+* Dockerize your web application. 
+
+## 3.  Submission
+
+You need to upload the following files to your BSCW's lab group folder before the next lab session:
+
+* A tarball containing the source files.
+* A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   
+
 
 ## ANNEX 1. Writing comma-separated values to a CSV file
 
