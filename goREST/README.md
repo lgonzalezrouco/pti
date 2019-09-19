@@ -231,6 +231,10 @@ func endpointFunc(w http.ResponseWriter, r *http.Request) {
 ```
 Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
 
+Let's try also to call the server with curl:
+
+	curl -H "Content-Type: application/json" http://localhost:8080/endpoint/1234
+
 Let's now add a new endpoint that accepts JSON as input. First of all add the following struct:
 ```go
 type RequestMessage struct {
