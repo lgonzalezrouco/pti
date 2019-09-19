@@ -39,7 +39,7 @@ You need 'git' installed (in order to be able to run 'go get' commands):
 
     sudo apt-get install git
 
-#### 1.1.3 Troubleshooting
+##### Troubleshooting
 
 If you encounter lock errors with apt-get commands try killing the blocking process:
 
