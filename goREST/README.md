@@ -191,7 +191,11 @@ Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
    
 ## 5. JSON 
 
-Typically an endpoint has to deal with more complex input and output parameters. This is usually solved by formatting the parameters (input and/or output) with JSON. Let's modify our webserver.go to include a JSON response.
+Typically an endpoint has to deal with more complex input and output parameters. This is usually solved by formatting the parameters (input and/or output) with JSON. 
+
+### 5.1 A JSON response
+
+Let's modify our webserver.go to include a JSON response.
 
 ```go
 package main
@@ -234,6 +238,8 @@ Rebuild, run and open http://localhost:8080/endpoint/1234 in your browser.
 Let's try also to call the server with curl:
 
 	curl -H "Content-Type: application/json" http://localhost:8080/endpoint/1234
+
+### 5.2 A JSON request
 
 Let's now add a new endpoint that accepts JSON as input. First of all add the following struct:
 ```go
