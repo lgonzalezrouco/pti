@@ -39,10 +39,14 @@ You need 'git' installed (in order to be able to run 'go get' commands):
 
     sudo apt-get install git
 
-(OPTIONAL) NOTE: If you encounter lock errors with apt-get commands try killing the blocking process:
+1.1.3 Troubleshooting
+
+If you encounter lock errors with apt-get commands try killing the blocking process:
 
 	ps aux | grep apt
 	sudo kill PROCNUM
+
+If that didn't solve the error try changing the default Ubuntu package repository in /etc/apt/sources.list. Replace http://es.archive.ubuntu.com/ubuntu/ by http://en.archive.ubuntu.com/ubuntu/.
 
 #### 1.1.3 Install Go
 
