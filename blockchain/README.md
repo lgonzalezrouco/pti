@@ -39,7 +39,7 @@ Click on blockchain.tar.gz in the repositorie's folder or download the repositor
 
 Open the blockchain.tar.gz and test if it runs correctly (or with python3.6 explicitely)
 
-    python blockchain.py -p 5000
+    python blockchain.py -p 5000   /    python3.6 blockchain.py -p 5000
 
 ### 2.2  Test the blockchain
 
