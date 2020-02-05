@@ -125,7 +125,7 @@ This method should manipulate the chain of a node, so when validated, it will be
 
 Test the new operations with your client.
 
-### 2.4 Additional task
+### 2.4 Additional tasks to be answered in the report
 
 1) Think of an alternative to the used proof-of-work. 
 What options have found/considered?
