@@ -149,11 +149,11 @@ In the report that you write about your lab exercise, include the json you obtai
 
 	public static Element askData() {
 		Element carElement = new Element("rental");
-		System.out.print("Make:");
+		System.out.print("Model:");
 		String input = System.console().readLine();
-		Element make = new Element("make");
+		Element model = new Element("model");
 		make.addContent(input);
-		carElement.addContent(make);
+		carElement.addContent(model);
 		...
 		return carElement;
    	 }	
@@ -172,7 +172,7 @@ In order to create an XSLT stylesheet that processes N subelements you can use t
 	</xsl:template>
 	<xsl:template match="rental">
 		<table border="0">
-			<h1>MAKE=<xsl:value-of select="make"/></h1><br />
+			<h1>MAKE=<xsl:value-of select="model"/></h1><br />
 			...
 		</table>		
 	</xsl:template>
@@ -190,7 +190,7 @@ An XSD Schema can be used to validate an XML document. The XSD describes the ele
                 <xs:element maxOccurs="unbounded" name="rental">
                     <xs:complexType>
                         <xs:sequence>
-                            <xs:element name="make" type="xs:string" />
+                            <xs:element name="model" type="xs:string" />
                             ...
                             <xs:element name="nofdays" type="xs:unsignedByte" />
                             ...
@@ -212,7 +212,7 @@ Install Docker
 
 Launch the container:
 
-    sudo docker run --name=pti -it ubuntu:16.04
+    sudo docker run --name=pti -it ubuntu:18.04
 
 Within the container:
 
