@@ -87,8 +87,8 @@ The application will 1) Ask the user (through the console) the data of a new ren
     <?xml version="1.0" encoding="UTF-8"?>
     <carrental>
         <rental id="anyID">
-          <make>Toyota</make>
-          <model>Celica</model>
+          <model>Basic</model>
+          <engine>Electric</engine>
           <nofdays>3</nofdays>
           <nofunits>1</nofunits>
           <discount>15</discount>
