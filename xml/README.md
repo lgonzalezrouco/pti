@@ -2,10 +2,10 @@
 
 ## 1. Introduction
 
-While nowadays JSON is replacing XML in many data-interchange scenarios, XML is still a broadly used language, with unique features that still make it the first choice in some situations. The purpose of this assignment is to learn an easy way to process XML documents with Java. We will use JDOM, a library for enabling rapid development of XML applications. Though it's not necessary, you can take a look to [this article](http://unpetitaccident.com/pub/compeng/languages/JAVA/Tutorials/JDOM/simplify%20XML%20programming%20with%20jdom.pdf) to get more information about JDOM. 
+While nowadays JSON is replacing XML in many data-interchange scenarios, XML is still a broadly used language, with unique features that make it the first choice in some situations. The purpose of this assignment is to learn an easy way to process XML documents with Java. We will use JDOM, a library for enabling rapid development of XML applications. Though it's not necessary, you can take a look to [this article](http://unpetitaccident.com/pub/compeng/languages/JAVA/Tutorials/JDOM/simplify%20XML%20programming%20with%20jdom.pdf) to get more information about JDOM. 
 
-*NOTE: You can use a different programming language (e.g. Python) and/or different libraries (there are [many for Java](https://en.wikipedia.org/wiki/Java_XML)). In that case, just jump to [Section 3](#3-lab-assignment).*
-
+<!-- *NOTE: You can use a different programming language (e.g. Python) and/or different libraries (there are [many for Java](https://en.wikipedia.org/wiki/Java_XML)). In that case, just jump to [Section 3](#3-lab-assignment).*
+-->
 ## 2. Setup
 
 ### 2.1 Booting the machine
