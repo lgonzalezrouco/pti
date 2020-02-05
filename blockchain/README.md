@@ -60,8 +60,8 @@ When these steps work correctly, we will finally add a few more funtions to the 
     sleep 3
 
     #Write two transactions into node 1
-    curl -X POST -H "Content-Type: application/json" -d '{"sender": "A","recipient": "B", "amount": 8 }' http://localhost:5000/transactions/new
-    curl -X POST -H "Content-Type: application/json" -d '{"sender": "B","recipient": "C", "amount": 5 }' http://localhost:5000/transactions/new
+    curl -X POST -H "Content-Type: application/json" -d '{"sender": "A","recipient": "B", "amount": 8, "order": 1  }' http://localhost:5000/transactions/new
+    curl -X POST -H "Content-Type: application/json" -d '{"sender": "B","recipient": "C", "amount": 5, "order": 2  }' http://localhost:5000/transactions/new
 
     #Mine block at node 1 
     curl http://localhost:5000/mine
