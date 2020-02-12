@@ -161,7 +161,7 @@ In order to help you, some files are provided:
 - Two servlets (partially programmed): CarRentalNew.java and CarRentalList.java.
 - A JSON library: json-simple-1.1.1.jar.
 
-NOTE: It's not compulsory to use these files within the solution (you may, for instance, prefer to generate the forms dynamically from the servlets).
+<!--- NOTE: It's not compulsory to use these files within the solution (you may, for instance, prefer to generate the forms dynamically from the servlets).---> 
 
 In order to install the provided files perform the following steps:
 
