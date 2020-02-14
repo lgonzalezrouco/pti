@@ -238,6 +238,8 @@ Restart Tomcat:
 Check your browser:
     
     https://localhost:8443
+    
+![alt text](https.png "https" )    
 
 If you get the "connection is not private" warning then your SSL/TLS configuration is ready. Otherwise check for errors:
 
