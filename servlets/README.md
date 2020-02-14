@@ -141,7 +141,7 @@ In order to avoid restarting Tomcat every time you recompile your servlets it's 
 
 You have to program a simple car rental web application using Tomcat and servlets. It will consist in two functionalities:
 
-- Request a new rental: A form to enter a new rental order. Input fields will include the car maker, car model, number of days and number of units. If all data is correct the total price of the rental will be returned to the user along with the data of the requested rental.
+- Request a new rental: A form to enter a new rental order. Input fields will include the car model, engine, number of days, number of units and discount. If all data is correct, the data of the requested rental will be returned.
 
 ![alt text](RentalNew.png "New car rental" )
 
