@@ -12,6 +12,8 @@
 [Session (opcional) XML Processing with Java](./xml/README.md)
 
 
-[(help for those wanting to use their own computers (through Docker))](./docker.md)
+[ANNEX 1. Docker](./docker.md)
+
+[ANNEX 2. Dockerization](./dockerization.md)
 
 
