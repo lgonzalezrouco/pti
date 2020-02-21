@@ -2,9 +2,9 @@
 
 ## 1. Docker and dockerization
 
-*If you don't have Docker installed or if you've never used it let's read [this](./../../docker.md) first.
+* If you don't have Docker installed or if you've never used it let's read [this](./../../docker.md) first.
 
-*If you've never dockerized an application let's read [this](./../../dockerization.md) first.
+* If you've never dockerized an application let's read [this](./../../dockerization.md) first.
 
 ## 2. Dockerize your Go web API
 

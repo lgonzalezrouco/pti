@@ -335,7 +335,7 @@ In order to keep the rentals data (to be able to list them) you will need to sav
 In order to obtain the maximum grade you can complete any of the following extensions: 
 
 * Add to the report a 1-page explanation of the pros and cons of Go compared to another alternative (e.g. C++, Java, Rust, etc.).
-* Dockerize your web application. 
+* Dockerize your web application. Some help [here](./dockerize.md).
 
 ## 3.  Submission
 
