@@ -60,7 +60,7 @@ The last step is to write the command that will be executed when anybody will ru
 
 If your application is just an executable file you can just do
 
-	CMD .myapplication
+	CMD ./myapplication
 
 ### 2.2 Building the image from the Dockerfile
 

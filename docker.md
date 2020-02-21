@@ -1,8 +1,8 @@
-# Doing the PTI lab assignments with Docker
+# Docker
 
-It's not necessary that you do the PTI lab assignments at the PTI lab classroom, you can do them with your personal computer. However, if you don't have a Linux OS or you just don't want to mess up your Linux OS you may find convenient to work over Docker. 
+In the context of PTI Docker can be useful to share development setups, to deploy applications or just to install stuff into your laptops without messing up your OS.
 
-## Working with Docker 
+## Installing Docker 
 
 First you need to install Docker. In Linux you can check if it's already installed this way:
 
@@ -19,9 +19,11 @@ Check that Docker is installed and that you can run it without sudo executing:
 
     docker run hello-world
 
-Windows and OSX installation procedures can be found [here](https://docs.docker.com/install/).
+Windows and OSX installation procedures can be found [here](https://docs.docker.com/install/). Unfortunatelly, users of Windows 10 Home edition can only install Docker Toolbox, which is not very convenient.
 
-We will create a local directory to be shared between the host and the container (a bind volume):   
+## Launch an Ubuntu container to work on the PTI lab assignments
+
+If you want to use Docker to do the PTI lab assignments you should first create a local directory to be shared between the host and the container (a bind volume):   
 
 	mkdir $HOME/pti
 
