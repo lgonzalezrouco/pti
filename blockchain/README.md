@@ -25,8 +25,9 @@ Depending on your environment, you may need to apply the following steps:
     sudo apt-get install python3-pip
 
 And to install the packages
+<!-- python3.6 -m pip install Flask==0.12.2 requests==2.18.4 -->
 
-    python3.6 -m pip install Flask==0.12.2 requests==2.18.4
+    python3.6 -m pip install Flask requests 
 
 To run python programms: 
     
@@ -90,7 +91,7 @@ When these steps work correctly, we will finally add a few more funtions to the 
     curl http://localhost:5001/mine
 
     #See chain at node 2 
-    curl http://localhost:5000/chain
+    curl http://localhost:5001/chain
 
     # At this point, node 2 should have two blocks.
     # We will now register the nodes to each other: Node 1 will know node 2 and node 2 will know node 1.
