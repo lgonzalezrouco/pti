@@ -85,7 +85,8 @@ On both:
 
 On Linux (bare-metal execution, without a VM):
 
-	minikube --vm-driver=none start
+	sudo minikube --vm-driver=none start
+	sudo chown -R $USER $HOME/.kube $HOME/.minikube
 
 On MacOS (using the hypervisor that comes with Docker):
 
