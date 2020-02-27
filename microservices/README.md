@@ -85,16 +85,15 @@ On both:
 
 On Linux (bare-metal execution, without a VM):
 
-	sudo minikube --vm-driver=none start
+	minikube --vm-driver=none start
 
 On MacOS (using the hypervisor that comes with Docker):
 
 	brew install docker-machine-driver-hyperkit
-	sudo minikube start --vm-driver=hyperkit
-
-In order to avoid the need of using "sudo" all the time, let's do the following:
-
-	sudo chown -R $USER $HOME/.kube $HOME/.minikube
+	sudo chown root:wheel /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit
+	sudo chmod u+s /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit
+	
+	minikube start --vm-driver=hyperkit
 
 We can see the IP address of the Minikube VM with the following command:
 
