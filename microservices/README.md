@@ -27,7 +27,7 @@ NOTE: This tutorial has been tested in macOS 10.13.6 and Ubuntu 18.04.3 but, in 
 
 ### 2.1. Install a toy Kubernetes cluster with Minikube
 
-In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster within a virtual machine (VM). 
+In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster. 
 
 *NOTE: Nowadays there are some alternatives to Minikube that may be more convenient if you want to setup a single node Kubernetes cluster for your projects (e.g. [MicroK8s](https://microk8s.io/) or [K3s](https://k3s.io/)).*
 
@@ -86,7 +86,7 @@ On both:
 
 ### 2.2. Launch a (Minikube) Kubernetes cluster
 
-On Linux (bare-metal execution, without a VM):
+On Linux (bare-metal execution):
 
 	sudo minikube --vm-driver=none start
 	sudo chown -R $USER $HOME/.kube $HOME/.minikube
@@ -99,7 +99,7 @@ On MacOS (using the hypervisor that comes with Docker):
 	
 	minikube start --vm-driver=hyperkit
 
-The minikube start command creates and configures a Virtual Machine that runs a single-node Kubernetes cluster. This command also configures your kubectl installation to communicate with this cluster. Minikube can interact with different hypervisors specifying a proper driver (list [here](https://minikube.sigs.k8s.io/docs/reference/drivers/)). On Linux we will use the "none" driver, which means that we will skip VM creation.
+Minikube runs a single-node Kubernetes cluster (with the help of [Docker Machine](https://github.com/docker/machine)) over a Virtual Machine (or not if you specify the "none" driver). Minikube can interact with different hypervisors specifying a proper driver (list [here](https://minikube.sigs.k8s.io/docs/reference/drivers/)). The minikube "start" command creates and configures the cluster. This command also configures your kubectl installation to communicate with this cluster. 
 
 You can check the status of minikube this way:
 
@@ -221,7 +221,11 @@ Note: You can delete a deployment with "kubectl delete deployment NAME"
 
 A Pod is a single instantiation of your microservice. You can execute multiple Pods (replicas) to scale a microservice. 
 
-When we deployed our microservice before, Kubernetes executed one Pod. We can find the name of the pod (POD_NAME) that instantiates our microservice and save it within an environment variable this way:
+When we deployed our microservice before, Kubernetes executed one Pod. You can see all the running pods with:
+
+	kubectl get pods
+
+It will be convenient to save the name of the pod (POD_NAME) that instantiates our microservice within an environment variable this way:
 
 	export MYPOD=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 
