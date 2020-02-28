@@ -29,6 +29,8 @@ NOTE: This tutorial has been tested in macOS 10.13.6 and Ubuntu 18.04.3 but, in 
 
 In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster within a virtual machine (VM). 
 
+* NOTE: Nowadays there are some alternatives to Minikube that may be more convenient if you want to setup a single node Kubernetes cluster for your projects (e.g. [MicroK8s](https://microk8s.io/) or [K3s](https://k3s.io/)).
+
 #### Prerequisites
 
 It's recommended (and required if you're working over Linux) to have Docker installed on your machine. You can check if it's already installed this way:
@@ -111,6 +113,10 @@ Now that you have a cluster running, you can check if kubectl is able to communi
 
 	kubectl config view
 
+Let's check the status of the cluster:
+
+	kubectl cluster-info
+
 #### Troubleshooting
 
 You can delete an existing minikube setup with:
@@ -148,8 +154,6 @@ www.listen(8080);
 
 Within the "src" directory edit a file named "Dockerfile" with the following contents:
 ```
-vi Dockerfile
-
 FROM node:6.14.2
 EXPOSE 8080
 COPY server.js .
@@ -191,8 +195,6 @@ Kubernetes requires a microservice to be provided as a set of container images p
 
 Let's deploy our Hello World microservice. Before deploying let's check the status of the cluster:
 
-	kubectl version
-	kubectl cluster-info
 	kubectl get nodes
 
 The run command creates a new Deployment (a default one). We need to provide the deployment name and microservice image location (usually a repository url but here we will use the local image name). We want to run the microservice on a specific port so we add the --port parameter:
