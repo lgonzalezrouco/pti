@@ -2,7 +2,7 @@
 
 ## 1. Introduction
 
-In this session we will experiment with Kubernetes, a container-orchestration system commonly used as a way to host applications developed with a microservices architectural style. Microservices is a broad concept, here we will only focus on the abstractions and tools that Kubernetes provides. 
+In this session we will experiment with Kubernetes (aka k8s), a container-orchestration system commonly used as a way to host applications developed with a microservices architectural style. Microservices is a broad concept, here we will only focus on the abstractions and tools that Kubernetes provides. 
 
 <p align="center">
   <img src="microservices_intro.png" width="600">
@@ -27,7 +27,7 @@ NOTE: This tutorial has been tested in macOS 10.13.6 and Ubuntu 18.04.3 but, in 
 
 ### 2.1. Install a toy Kubernetes cluster with Minikube
 
-In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster within a virtual machine (VM) . 
+In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster within a virtual machine (VM). 
 
 #### Prerequisites
 
@@ -51,6 +51,8 @@ Check that Docker is installed and that you can run it without sudo executing:
 Windows and macOS installation procedures can be found [here](https://docs.docker.com/install/).
 
 #### Install kubectl 
+
+Kubectl is a command line tool for controlling Kubernetes clusters. You can install it this way:
 
 On Linux:
 
@@ -80,7 +82,6 @@ On both:
 	chmod +x ./minikube
   	sudo mv minikube /usr/local/bin
 
-
 ### 2.2. Launch a (Minikube) Kubernetes cluster
 
 On Linux (bare-metal execution, without a VM):
@@ -96,9 +97,19 @@ On MacOS (using the hypervisor that comes with Docker):
 	
 	minikube start --vm-driver=hyperkit
 
+The minikube start command creates and configures a Virtual Machine that runs a single-node Kubernetes cluster. This command also configures your kubectl installation to communicate with this cluster. Minikube can interact with different hypervisors specifying a proper driver (list [here](https://minikube.sigs.k8s.io/docs/reference/drivers/)). On Linux we will use the "none" driver, which means that we will skip VM creation.
+
+You can check the status of minikube this way:
+
+	minikube status
+
 We can see the IP address of the Minikube VM with the following command:
 
 	minikube ip
+
+Now that you have a cluster running, you can check if kubectl is able to communicate with it. By default kubectl looks for a configuration file (the "kubeconfig") in the $HOME/.kube directory. The kubeconfig tells kubectls how to communicate with the API server of a cluster. You can view the kubeconfig this way:
+
+	kubectl config view
 
 #### Troubleshooting
 
