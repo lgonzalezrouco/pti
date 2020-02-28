@@ -29,7 +29,7 @@ NOTE: This tutorial has been tested in macOS 10.13.6 and Ubuntu 18.04.3 but, in 
 
 In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster within a virtual machine (VM). 
 
-* NOTE: Nowadays there are some alternatives to Minikube that may be more convenient if you want to setup a single node Kubernetes cluster for your projects (e.g. [MicroK8s](https://microk8s.io/) or [K3s](https://k3s.io/)).
+*NOTE: Nowadays there are some alternatives to Minikube that may be more convenient if you want to setup a single node Kubernetes cluster for your projects (e.g. [MicroK8s](https://microk8s.io/) or [K3s](https://k3s.io/)).*
 
 #### Prerequisites
 
