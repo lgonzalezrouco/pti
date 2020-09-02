@@ -25,7 +25,7 @@ Then edit there a file named "Dockerfile" with the following contents:
 
 ### 2.2 Building the image from the Dockerfile
 
-From the folder containing the "my_webapp" subfolder (e.g. $USER_HOME/apache-tomcat-9.0.5/webapps) run:
+From the folder containing the "my_webapp" subfolder (e.g. $USER_HOME/apache-tomcat-9.0.37/webapps) run:
 
 	docker build -f Dockerfile -t carrental .
 
