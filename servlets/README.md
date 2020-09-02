@@ -257,7 +257,8 @@ Dockerize your web application. Some help [here](./dockerize.md).
 
 <!-- * Add to the report a 1-page explanation of the pros and cons of using Java servlets compared to another alternative (e.g. Node.js). -->
 <!-- * Dockerize your web application. Some help [here](./dockerize.md). -->
-Save the data within a database (e.g. MySQL) instead of a file. Some help [here](./mysql.md).
+* Create a docker-compose.yml file to run the container of your Tomcat image with docker-compose (instead through docker run).
+* Save the data within a database (e.g. MySQL) instead of a file. Some help [here](./mysql.md).
 
 ## 3.  Submission
 
