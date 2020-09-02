@@ -12,13 +12,13 @@
 
 First go into the folder that contains the "my_webapp" subfolder. If you followed the recommended steps, this folder will be the Tomcat's webapps folder:
 
-    cd $USER_HOME/apache-tomcat-9.0.5/webapps
+    cd $USER_HOME/apache-tomcat-9.0.37/webapps
 
 Then edit there a file named "Dockerfile" with the following contents:
 
 	vi Dockerfile
 
-    	FROM tomcat:9
+    FROM tomcat:jdk14-openjdk-buster
 	COPY my_webapp /my_webapp
 	WORKDIR /
 	RUN cp -r my_webapp /usr/local/tomcat/webapps
