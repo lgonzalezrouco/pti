@@ -135,7 +135,7 @@ In order to avoid restarting Tomcat every time you recompile your servlets it's 
 
 ## 2 Lab assignment 
 
-### 2.1 Creating your own car rental web page (8 points)
+### 2.1 Creating your own car rental web page 
 
 #### 2.1.1 Description
 
@@ -211,7 +211,7 @@ Check the following link and its sublinks:
 
 Now add the necessary code to CarRentalNew.java and CarRentalList.java to make the application work properly.
 
-### 2.2 SSL/TLS configuration (1 point)
+### 2.2 SSL/TLS configuration 
 
 Create a keystore file (JKS format, Java KeyStore standard) to store the server's private key and self-signed certificate by executing the following command:
  
@@ -247,13 +247,17 @@ If you get the "connection is not private" warning then your SSL/TLS configurati
 
 You can find more information about the Tomcat's SSL/TLS configuration [here](https://tomcat.apache.org/tomcat-9.0-doc/ssl-howto.html).
 
-### 2.3 Extension (1 point)
+### 2.3 Dockerization 
 
-In order to obtain the maximum grade you can complete any of the following extensions: 
-
-* Add to the report a 1-page explanation of the pros and cons of using Java servlets compared to another alternative (e.g. Node.js).
 * Dockerize your web application. Some help [here](./dockerize.md).
-* Save the data within a database (e.g. MySQL) instead of a file. Some help [here](./mysql.md).
+
+### 2.4 Optional 
+
+<!-- In order to obtain the maximum grade you can complete any of the following extensions: -->
+
+<!-- * Add to the report a 1-page explanation of the pros and cons of using Java servlets compared to another alternative (e.g. Node.js). -->
+<!-- * Dockerize your web application. Some help [here](./dockerize.md). -->
+Save the data within a database (e.g. MySQL) instead of a file. Some help [here](./mysql.md).
 
 ## 3.  Submission
 
