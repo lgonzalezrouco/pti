@@ -249,7 +249,7 @@ You can find more information about the Tomcat's SSL/TLS configuration [here](ht
 
 ### 2.3 Dockerization 
 
-* Dockerize your web application. Some help [here](./dockerize.md).
+Dockerize your web application. Some help [here](./dockerize.md).
 
 ### 2.4 Optional 
 
