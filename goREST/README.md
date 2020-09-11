@@ -23,7 +23,7 @@ Each group will have to:
 
 Conventional room: Select a 64-bit Linux image and login with your credentials.
 
-Operating Systems room: Select the latest Ubuntu imatge (e.g. Ubuntu 14) with credentials user=alumne and pwd:=sistemes
+Operating Systems room: Select the latest Ubuntu imatge with credentials user=alumne and pwd:=sistemes
 
 #### 1.1.2 Prerequisites
 
