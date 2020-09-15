@@ -62,12 +62,18 @@ On Linux:
 
 On MacOS:
 
-	curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/darwin/amd64/kubectl
+	curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.19.0/bin/darwin/amd64/kubectl
 
 On both:
 
 	chmod +x ./kubectl
 	sudo mv ./kubectl /usr/local/bin/kubectl
+
+Check the installation:
+
+	kubectl version --client
+
+*NOTE: In case something went wrong you can find more detailed installation instructions for all the platforms [here](https://kubernetes.io/docs/tasks/tools/install-kubectl/).*
 
 #### Install Minikube 
 
@@ -81,8 +87,9 @@ On MacOS:
 
 On both:
 
-	chmod +x ./minikube
+	chmod +x minikube
   	sudo mv minikube /usr/local/bin
+
 
 ### 2.2. Launch a (Minikube) Kubernetes cluster
 
@@ -98,6 +105,8 @@ On MacOS (using the hypervisor that comes with Docker):
 	sudo chmod u+s /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit
 	
 	minikube start --vm-driver=hyperkit
+
+*NOTE: In case something went wrong you can find more detailed installation instructions for all the platforms [here](https://kubernetes.io/docs/tasks/tools/install-minikube/).*
 
 Minikube runs a single-node Kubernetes cluster (with the help of [Docker Machine](https://github.com/docker/machine)) over a Virtual Machine (or not if you specify the "none" driver). Minikube can interact with different hypervisors specifying a proper driver (list [here](https://minikube.sigs.k8s.io/docs/reference/drivers/)). The minikube "start" command creates and configures the cluster. This command also configures your kubectl installation to communicate with this cluster. 
 
@@ -119,12 +128,17 @@ Let's check the status of the cluster:
 
 #### Troubleshooting
 
-You can delete an existing minikube setup with:
+Minikube can be stopped with:
 
 	minikube stop
+
+Minikube related files can be deleted with:
+
 	minikube delete
 
-Or, in case that fails:
+WARNING: In case an attempt to run "minikube start" fails, before running it again it's necessary to clean up the local state by running "minikube delete".
+
+In case "minikube delete" fails:
 
 	rm -rf ~/.minikube
 
