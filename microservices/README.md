@@ -134,9 +134,9 @@ Minikube can be stopped with:
 
 Minikube related files can be deleted with:
 
-	minikube delete
+	minikube delete --all --purge
 
-WARNING: In case an attempt to run "minikube start" fails, before running it again it's necessary to clean up the local state by running "minikube delete".
+WARNING: In case an attempt to run "minikube start" fails, before running it again it's necessary to clean up the local state by running "minikube delete --all --purge".
 
 In case "minikube delete" fails:
 
