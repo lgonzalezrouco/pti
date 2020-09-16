@@ -17,7 +17,7 @@ Each group will have to:
 
 ### 1.1 Setup
 
-[(help for those wanting to use their own computers (through Docker))](./../docker.md)
+[(help for those wanting to use their own computers (through Docker))](./../../docker.md)
 
 #### 1.1.1 Booting the machine 
 
