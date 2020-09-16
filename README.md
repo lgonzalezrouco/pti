@@ -3,7 +3,7 @@
 
 [Session Tomcat Java servlets](./servlets/README.md)
 
-[Session JSON API in Go](./goREST/README.md)
+[Session JSON API in Go](./REST_API/README.md)
 
 [Session Blockchain](./blockchain/README.md)
 
