@@ -211,15 +211,15 @@ Let's deploy our Hello World microservice. Before deploying let's check the stat
 
 	kubectl get nodes
 
-The run command creates a new Deployment (a default one). We need to provide the deployment name and microservice image location (usually a repository url but here we will use the local image name). We want to run the microservice on a specific port so we add the --port parameter:
+The run command creates a new Deployment (a default one). We need to provide the deployment name and microservice image location (usually a repository URL but here we will use the local image name). We want to run the microservice on a specific port so we add the --port parameter:
 
-	kubectl run helloworld --port=8080 --image-pull-policy=Never --image=helloworld:1.0
+	kubectl create deployment helloworld --image=helloworld:1.0 --port=8080 --replicas=2
 
 To list your deployments use the get deployments command:
 
 	kubectl get deployments
 
-The READY column should show 1/1 Pods. If it shows 0/1 then something went wrong. You can get more information with:
+The READY column should show 2/2 Pods. If it shows 0/2 then something went wrong. You can get more information with:
 
 	kubectl describe deployments/helloworld
 
@@ -230,6 +230,7 @@ To obtain the related YAML file (you did not used it as you relied on default va
 	kubectl get deployments/helloworld -o=yaml
 
 Note: You can delete a deployment with "kubectl delete deployment NAME"
+
 
 #### Pods
 
@@ -268,6 +269,26 @@ Now, in a different terminal we can do:
 Kill the proxy this way:
 
 	pkill kubectl
+
+
+#### Working without a deployment, the run command
+
+The helloworld deployment that we created is just a "configuration" where we describe a desired state. Let's delete it this way:
+
+	kubectl delete deployment helloworld
+
+The deployment has been deleted (you can check that with "kubectl get deployments") but the pods that were launched to satisfy the (deleted) deployment are still running. Check it with:
+
+	kubectl get pods
+
+Let's delete one of the pods "kubectl delete pod POD_NAME". The other pods will be automatically deleted. 
+
+So, if the application can run without a deployment object, can it be also launched without a deployment object? The answer is yes, if you don't need to specify complex deployment options. It can be done with the "kubectl run" command. Let's execute the following, which will be familiar for Docker users:
+
+	kubectl run helloworld --port=8080 --image-pull-policy=Never --image=helloworld:1.0 
+
+
+
 
 #### Services
 
