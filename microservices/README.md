@@ -88,7 +88,7 @@ On MacOS:
 On both:
 
 	chmod +x minikube
-  	sudo mv minikube /usr/local/bin
+	sudo mv minikube /usr/local/bin
 
 
 ### 2.2. Launch a (Minikube) Kubernetes cluster
@@ -201,17 +201,33 @@ Finally, stop the container (this is important as later we will need to use port
 
 	docker stop helloworld
 
+### 2.4. A brief introduction to Kubernetes 
+
+Kubernetes is a distributed system for automating (containerized) applications deployment, scaling, and management over a cluster. A Kubernetes cluster consists of a set of worker machines, called worker nodes or just nodes. A containerized application (e.g. our Hello World microservice) can be executed (replicated) many times. Each replica it's called a **Pod** in Kuberentes. Pods run within nodes and nodes can run many Pods (even if they are replicas of the same application). Containerized applications may consist in more than one container, so Pods may multiple containers. 
+
+<p align="center">
+  <img src="overlay-network-kubernetes.png" width="500">
+</p>
+
+#### Kubernetes and microservices
+
+Kubernetes requires a microservice to be provided as a set of container images plus an optional configuration about storage and networking. Kubernetes does not use the term "microservice" in its API methods and objects, but there are some API object that implicitly relates to it. On the one hand there's the *Deployment* object, which is basically a configuration that instructs Kubernetes how to create and update instances of a microservice. On the other hand, there's the *Service* object, which defines a logical set of Pods and a policy by which to access them. 
+
+<p align="center">
+  <img src="pods-services.png" width="500">
+</p>
+
 ### 2.4. Deploy your microservice
 
 #### The Deployment object
 
-Kubernetes requires a microservice to be provided as a set of container images plus an optional configuration about storage and networking. Kubernetes does not use the term "microservice" in its API methods and objects, but there's one API object that implicitly relates to it, the Deployment object. A Deployment is basically a configuration that instructs Kubernetes how to create and update instances of a microservice. You can specify the Deployment yourself or you can use a default one as we will do next.
+A Deployment is basically a configuration that instructs Kubernetes how to create and update instances of a microservice. You can specify the Deployment yourself or you can use a default one as we will do next.
 
 Let's deploy our Hello World microservice. Before deploying let's check the status of the cluster:
 
 	kubectl get nodes
 
-The run command creates a new Deployment (a default one). We need to provide the deployment name and microservice image location (usually a repository URL but here we will use the local image name). We want to run the microservice on a specific port so we add the --port parameter:
+The create deployment command creates a new Deployment (a default one). We need to provide the deployment name and microservice image location (usually a repository URL but here we will use the local image name). We want to run the microservice on a specific port so we add the --port parameter:
 
 	kubectl create deployment helloworld --image=helloworld:1.0 --port=8080 --replicas=2
 
