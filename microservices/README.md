@@ -206,7 +206,7 @@ Finally, stop the container (this is important as later we will need to use port
 Kubernetes is a distributed system for automating (containerized) applications deployment, scaling, and management over a cluster. A Kubernetes cluster consists of a set of worker machines, called worker nodes or just **nodes**. A containerized application (e.g. our Hello World microservice) can be executed (replicated) many times. Each replica it's called a **Pod** in Kuberentes. Pods run within nodes and nodes can run many Pods (even if they are replicas of the same application). Containerized applications may consist in more than one container, so Pods may multiple containers. 
 
 <p align="center">
-  <img src="overlay-network-kubernetes.png" width="800">
+  <img src="overlay-network-kubernetes.png" width="600">
 </p>
 
 #### Kubernetes and microservices
