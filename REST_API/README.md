@@ -183,7 +183,7 @@ app.get("/students", (req, res, next) => {
     ]});
 });
 ```
-You can see that passing a JSON document as a response is as simple as passing it as a parameter to the "res.json" method.
+You can see that returning a JSON document as a response is as simple as passing it as a parameter to the "res.json" method.
 
 Relaunch the server and open http://localhost:8080/students in your browser.
 
@@ -218,7 +218,7 @@ Relaunch the server. In order to submit a JSON request we will use curl instead 
 
     curl -H "Content-Type: application/json" -d '{"name":"Fatima", "studentId":"234123412f"}' http://localhost:8080/newstudent
 
-As a result the terminal should show "Fatima". Let's try a more complex example:
+As a result the terminal (the server one) should show "Fatima". Let's try a more complex example:
 
 ```js
 app.post('/newstudent', (req, res, next) => {
@@ -231,6 +231,19 @@ app.post('/newstudent', (req, res, next) => {
 In the example you can see how to deal with a JSON request including an array. Relaunch the server. Open a new terminal and type:
 
     curl -H "Content-Type: application/json" -d '{"students": [{"name": "Fatima", "studentId": "234123412f"}, {"name": "Maria", "studentId":"16553412g"}]}' http://localhost:8080/newstudent
+
+But normally a POST request will have some effect over the state of the server (e.g. adding something to a DB). In those cases, it's conveneint to return back a 201 HTTP status code (which means "created"). You can do with the "res.status" function:
+
+```js
+    ...
+    res.status(201);
+    res.end();
+    ...
+```
+In order to check the response header with cURL you can add the -i option:
+
+    curl -i -H "Content-Type: application/json" -d '{"students": [{"name": "Fatima", "studentId": "234123412f"}, {"name": "Maria", "studentId":"16553412g"}]}' http://localhost:8080/newstudent
+
 
 *NOTE: while curl is enough for this session, for your project you could take a look at [POSTMAN](https://www.getpostman.com/)*
 
@@ -246,7 +259,7 @@ In the example you can see how to deal with a JSON request including an array. R
 
 As an example web API you will create a simple car rental web API. It will consist in two functionalities:
 
-- Request a new rental: An endpoint to register a new rental order. Input fields will include the car maker, car model, number of days and number of units. The total price of the rental will be returned to the user along with the data of the requested rental.
+- Request a new rental: An endpoint to register a new rental order. Input fields will include the car maker, car model, number of days and number of units (in JSON format). The endpoint should just return an HTTP Status 201. 
  
 - Request the list of all rentals: An endpoint that will return the list of all saved rental orders (in JSON format). 
 
