@@ -214,7 +214,7 @@ Kubernetes is a distributed system for automating (containerized) applications d
 Kubernetes requires a microservice to be provided as a set of container images plus an optional configuration about storage and networking. Kubernetes does not use the term "microservice" in its API methods and objects, but there are some API object that implicitly relates to it. On the one hand there's the **Deployment** object, which is basically a configuration that instructs Kubernetes how to create and update instances of a microservice. On the other hand, there's the **Service** object, which defines a logical set of Pods and a policy by which to access them. 
 
 <p align="center">
-  <img src="pods-services.png" width="800">
+  <img src="pods-services.png" width="700">
 </p>
 
 ### 2.4. Deploy your microservice

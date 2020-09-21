@@ -22,7 +22,7 @@ Each group will have to:
 *NOTE: The tutorial was tested with Node.js 14.10.1 and Express 4.17.*
 
 
-https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/
+<!--https://www.smashingmagazine.com/2018/01/understanding-using-rest-api/-->
 
 ## Some useful links 
 
