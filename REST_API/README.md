@@ -47,7 +47,7 @@ Let's start by updating the Ubuntu's Package Index:
 
     sudo apt-get update
 
-You need 'curl' installed (check it typing 'curl -V' in the terminal). If, for some strange reason, it's not, just do:
+You need cURL installed (check it typing 'curl -V' in the terminal). If, for some strange reason, it's not, just do:
 
     sudo apt-get install -y curl
 
@@ -187,7 +187,7 @@ You can see that returning a JSON document as a response is as simple as passing
 
 Relaunch the server and open http://localhost:8080/students in your browser.
 
-Let's try also to call the server with curl:
+Let's try also to call the server with cURL:
 
 	curl -H "Content-Type: application/json" http://localhost:8080/students
 
@@ -214,7 +214,7 @@ app.listen(port, () => {
 })
 ```
 
-Relaunch the server. In order to submit a JSON request we will use curl instead of the browser. Open a new terminal and type:
+Relaunch the server. In order to submit a JSON request we will use cURL instead of the browser. Open a new terminal and type:
 
     curl -H "Content-Type: application/json" -d '{"name":"Fatima", "studentId":"234123412f"}' http://localhost:8080/newstudent
 
@@ -238,7 +238,7 @@ In the example you can see how to deal with a JSON request including an array. R
 
     curl -i -H "Content-Type: application/json" -d '{"students": [{"name": "Fatima", "studentId": "234123412f"}, {"name": "Maria", "studentId":"16553412g"}]}' http://localhost:8080/newstudent
 
-But normally a POST request will have some effect over the state of the server (e.g. adding something to a DB). In those cases, it's conveneint to return back a 201 HTTP status response code (which means "created"). You can do with the "res.status" function:
+But normally a POST request will have some effect over the state of the server (e.g. adding something to a DB). In those cases, it's conveneint to return back a 201 HTTP status response code (which means "created"). You can do that with the "res.status" function:
 
 ```js
     ...
@@ -248,10 +248,18 @@ But normally a POST request will have some effect over the state of the server (
 ```
 Try it and check that the status response code is 201.
 
-*NOTE: while curl is enough for this session, for your project you could take a look at [POSTMAN](https://www.getpostman.com/)*
+*NOTE: while cURL is enough for this session, for your project you could take a look at [POSTMAN](https://www.getpostman.com/)*
 
 <!--
-### 1.5. Making it "RESTful" 
+### 1.5. Making our web API "RESTful" 
+
+When developing a web API we may want to follow the [REST architectural style](https://en.wikipedia.org/wiki/Representational_state_transfer). Many people use the term "REST API" or "RESTful" API incorrectly, just to refer to any web API. A RESTful API follows a set of patterns when designing the API endpoints (HTTP method, HTTP status response code, etc.). The benefits of REST are controversial (many relevant web APIs are not RESTful), but it's convenient to know it to be able to understand any API specification. 
+
+#### Using the proper HTTP method
+
+The endpoints of a REST API must use an HTTP method consistent with the type of actions that they perform. People from databases tend to talk about four types of actions: Create, Read, Update and Delete (CRUD). The proper HTTP methods to apply to these actions are POST, GET, PUT (or PATCH) and DELETE, respectively. 
+
+
 -->
 
 ## 2 Lab assignment 
