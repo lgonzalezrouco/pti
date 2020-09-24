@@ -135,7 +135,7 @@ Evaluate the method and assess the obtained results.
 
 2) In our exercise, "everybody" can write a new transaction. Think about mechanisms to protect the execution of the transaction method (to answer in the report).
 
-3) Does our excercise store a state in the blockchain, e.g the amounts A and B have after having done a transaction? If not, how would you add it to the code (to answer in the report what you did).
+3) Does our excercise store a state in the blockchain, e.g the amounts A and B have after having done a transaction? If not, how would you add it to the code (to answer in the report).
 
 ### 2.5 Documenting
 
