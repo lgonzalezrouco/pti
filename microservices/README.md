@@ -203,7 +203,7 @@ Finally, stop the container (this is important as later we will need to use port
 
 ### 2.4. A brief introduction to Kubernetes 
 
-Kubernetes is a distributed system for automating (containerized) applications deployment, scaling, and management over a cluster. A Kubernetes cluster consists of a set of worker machines, called worker nodes or just **nodes**. A containerized application (e.g. our Hello World microservice) can be executed (replicated) many times. Each replica it's called a **Pod** in Kuberentes. Pods run within nodes and nodes can run many Pods (even if they are replicas of the same application). Containerized applications may consist in more than one container, so Pods may multiple containers. 
+Kubernetes is a distributed system for automating (containerized) applications deployment, scaling, and management over a cluster. A Kubernetes cluster consists of a set of worker machines, called worker nodes or just **nodes**. A containerized application (e.g. our Hello World microservice) consists of one or many cotainers and can be executed (replicated) multiple times. Each replica it's called a **Pod** in Kuberentes. Pods run within nodes and nodes can run many Pods (even if they are replicas of the same application). 
 
 <p align="center">
   <img src="overlay-network-kubernetes.png" width="600">
@@ -302,8 +302,6 @@ Let's delete one of the pods "kubectl delete pod POD_NAME". The other pods will 
 So, if the application can run without a deployment object, can it be also launched without a deployment object? The answer is yes, if you don't need to specify complex deployment options. It can be done with the "kubectl run" command. Let's execute the following, which will be familiar for Docker users:
 
 	kubectl run helloworld --port=8080 --image-pull-policy=Never --image=helloworld:1.0 
-
-
 
 
 #### Services
