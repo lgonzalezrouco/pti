@@ -29,7 +29,7 @@ NOTE: This tutorial has been tested in macOS 10.13.6 and Ubuntu 18.04.3 but, in 
 
 In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster. 
 
-*NOTE: Nowadays there are some alternatives to Minikube that may be more convenient if you want to setup a single node Kubernetes cluster for your projects (e.g. [MicroK8s](https://microk8s.io/) or [K3s](https://k3s.io/)).*
+*NOTE: Minikube is convenient for learning the basics but if you plan to use Kubernetes in your project and you want to deploy it on a server Minikube it's not a convenient option. It's recommended to do it directly with [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/), or with other tools (MicroK8s, K3s, etc.). An easier alternative is to use a cloud service (e.g. Google GKE, Amazon EKS, etc.) *
 
 #### Prerequisites
 
@@ -256,7 +256,7 @@ When we deployed our microservice before, Kubernetes executed one Pod. You can s
 
 	kubectl get pods
 
-It will be convenient to save the name of one of the pods (POD_NAME) that instantiates our microservice within an environment variable. For instance:
+It will be convenient to save the name of one of the pods (POD_NAME) that instantiates our microservice within an environment variable. For instance (replace the POD_NAME for the name of one of your pods):
 
 	export MYPOD=helloworld-674c4d4dc8-6qn5r
 
@@ -296,7 +296,7 @@ The helloworld deployment that we created is just a "configuration" where we des
 
 Check that the helloworld2 application has been instantiated with a Pod:
 
-	kubectl get deployments
+	kubectl get pods
 
 However, we will not use this "run" command, we will work with deployments. Let's delete the pod (it may take some seconds):
 
