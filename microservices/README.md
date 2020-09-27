@@ -211,7 +211,7 @@ Kubernetes is a distributed system for automating (containerized) applications d
 
 #### Kubernetes and microservices
 
-Kubernetes requires a microservice to be provided as a set of container images plus an optional configuration about storage and networking. Kubernetes does not use the term "microservice" in its API methods and objects, but there are some API object that implicitly relates to it. On the one hand there's the **Deployment** object, which is basically a configuration that instructs Kubernetes how to create and update instances of a microservice. On the other hand, there's the **Service** object, which defines a logical set of Pods and a policy by which to access them. 
+Kubernetes requires a microservice to be provided as a set of container images plus an optional configuration about storage and networking. Kubernetes does not use the term "microservice" in its API methods and objects, but there are some API objects that implicitly relates to it. On the one hand there's the **Deployment** object, which is basically a configuration that instructs Kubernetes how to create and update instances of a microservice. On the other hand, there's the **Service** object, which defines a logical set of Pods and a policy by which to access them. 
 
 <p align="center">
   <img src="pods-services.png" width="700">
@@ -256,9 +256,11 @@ When we deployed our microservice before, Kubernetes executed one Pod. You can s
 
 	kubectl get pods
 
-It will be convenient to save the name of the pod (POD_NAME) that instantiates our microservice within an environment variable this way:
+It will be convenient to save the name of one of the pods (POD_NAME) that instantiates our microservice within an environment variable. For instance:
 
-	export MYPOD=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+	export MYPOD=helloworld-674c4d4dc8-6qn5r
+
+Check that the variable has the correct value this way:
 
 	echo $MYPOD
 
@@ -278,7 +280,7 @@ Kubernetes creates an endpoint for each pod, based and the pod name. However, th
 
 	kubectl proxy &
 
-Now, in a different terminal we can do:
+Press return and type:
 
 	curl http://localhost:8001/api/v1/namespaces/default/pods/$MYPOD/proxy/
 
@@ -286,10 +288,22 @@ Kill the proxy this way:
 
 	pkill kubectl
 
-
 #### Working without a deployment, the run command
 
-The helloworld deployment that we created is just a "configuration" where we describe a desired state. Let's delete it this way:
+The helloworld deployment that we created is just a "configuration" where we describe a desired state. But, can an application be launched without a deployment object? The answer is yes, if you don't need to specify complex deployment options. It can be done with the "kubectl run" command. Let's execute the following, which will be familiar for Docker users:
+
+	kubectl run helloworld2 --port=8080 --image-pull-policy=Never --image=helloworld:1.0 
+
+Check that the helloworld2 application has been instantiated with a Pod:
+
+	kubectl get deployments
+
+However, we will not use this "run" command, we will work with deployments. Let's delete the pod (it may take some seconds):
+
+	kubectl delete pod helloworld2 --grace-period=0
+
+<!--
+Let's delete it this way:
 
 	kubectl delete deployment helloworld
 
@@ -301,7 +315,8 @@ Let's delete one of the pods "kubectl delete pod POD_NAME". The other pods will 
 
 So, if the application can run without a deployment object, can it be also launched without a deployment object? The answer is yes, if you don't need to specify complex deployment options. It can be done with the "kubectl run" command. Let's execute the following, which will be familiar for Docker users:
 
-	kubectl run helloworld --port=8080 --image-pull-policy=Never --image=helloworld:1.0 
+-->
+
 
 
 #### Services
