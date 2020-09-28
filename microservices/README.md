@@ -231,6 +231,8 @@ The create deployment command creates a new Deployment (a default one). We need 
 
 	kubectl create deployment helloworld --image=helloworld:1.0 --port=8080 --replicas=2
 
+*NOTE: The "port" param is optional and just informational. If you don't specify it you can still access the port inside the cluster. To enable external access you need to create a Service, no matter if you specified the port or not when creating the deployment. But the information may help others to understand the deployment configuration better (the same that happens with EXPOSE in Docker).*
+
 To list your deployments use the get deployments command:
 
 	kubectl get deployments
