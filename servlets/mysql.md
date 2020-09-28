@@ -71,7 +71,7 @@ You will need to include mysql-connector-java-8.0.15.jar within the classpath wh
 
 ## 4 Troubleshooting
 
-If you encounter problems check the logs at log/catalina.out. If the error is something like "MySQL connector "The server time zone value Central European Time" is unrecognized or represents more than one time zone." the solution is to start the MySQL client this way:
+If you encounter problems check the logs at logs/catalina.out (from the apache-tomcat-9.0.37 folder). If the error is something like "MySQL connector "The server time zone value Central European Time" is unrecognized or represents more than one time zone." the solution is to start the MySQL client this way:
 
     mysql -u root -p
 
