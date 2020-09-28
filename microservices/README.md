@@ -95,15 +95,19 @@ On both:
 
 On Linux (bare-metal execution):
 
+	sudo apt-get install conntrack
 	sudo minikube --vm-driver=none start
+	sudo mv /root/.kube /root/.minikube $HOME
 	sudo chown -R $USER $HOME/.kube $HOME/.minikube
+	sudo cp /etc/kubernetes/admin.conf $HOME/
+	sudo chown $(id -u):$(id -g) $HOME/admin.conf
+	export KUBECONFIG=$HOME/admin.conf
 
 On MacOS (using the hypervisor that comes with Docker):
 
 	brew install docker-machine-driver-hyperkit
 	sudo chown root:wheel /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit
 	sudo chmod u+s /usr/local/opt/docker-machine-driver-hyperkit/bin/docker-machine-driver-hyperkit
-	
 	minikube start --vm-driver=hyperkit
 
 *NOTE: In case something went wrong you can find more detailed installation instructions for all the platforms [here](https://kubernetes.io/docs/tasks/tools/install-minikube/).*
