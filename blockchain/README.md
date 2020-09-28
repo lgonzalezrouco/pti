@@ -130,8 +130,8 @@ Test the new operations with your client.
 
 1) Think of an alternative to the used proof-of-work. 
 What options have found/considered?
-If possible, add a method which allows to apply this alternative and test it.
-Evaluate the method and assess the obtained results.
+Can this alternative be integrated in our code?
+If possible, make the modification needed for this alternative and test it.
 
 2) In our exercise, "everybody" can write a new transaction. Think about mechanisms to protect the execution of the transaction method (to answer in the report).
 
