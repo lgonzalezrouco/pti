@@ -64,7 +64,7 @@ Check if it's running (with the browser): http://localhost:8080/
 ### 1.3 Create and display a simple HTML page
 
     mkdir webapps/my_webapp
-    vi webapps/my_webapp/index.html
+    nano webapps/my_webapp/index.html
 
         <html>
             <h1>Hello World!</h1>
@@ -75,7 +75,7 @@ Check: http://localhost:8080/my_webapp
 ### 1.4 Create and simple servlet
 
     mkdir webapps/my_webapp/WEB-INF
-    vi webapps/my_webapp/WEB-INF/web.xml
+    nano webapps/my_webapp/WEB-INF/web.xml
 
         <web-app>
             <servlet>
@@ -90,7 +90,7 @@ Check: http://localhost:8080/my_webapp
     
     mkdir webapps/my_webapp/WEB-INF/classes
     mkdir webapps/my_webapp/WEB-INF/classes/mypackage
-    vi webapps/my_webapp/WEB-INF/classes/mypackage/MyServlet.java
+    nano webapps/my_webapp/WEB-INF/classes/mypackage/MyServlet.java
 
         package mypackage;
         import java.io.*;
@@ -184,7 +184,7 @@ Move the files to Tomcat and compile the servlets:
 
 Add two new servlet definitions to web.xml:
 
-        vi webapps/my_webapp/WEB-INF/web.xml
+        nano webapps/my_webapp/WEB-INF/web.xml
 
         <web-app>
             <servlet>
@@ -221,7 +221,7 @@ Next, you will be prompted for the keystore password. Specify "changeit". Next, 
 
 Now add the following entry in conf/server.xml:
 
-    vi conf/server.xml
+    nano conf/server.xml
 
     <Connector
            protocol="org.apache.coyote.http11.Http11NioProtocol"
