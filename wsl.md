@@ -1,18 +1,54 @@
 # Doing the labs on your own (Windows 10) computer with Windows Subsystem for Linux (WSL)
 
-## Install Windows Subsystem for Linux (WSL) on Windows 10
+The Windows Subsystem for Linux (WSL) lets you run a GNU/Linux environment (e.g. Ubuntu) directly on Windows, without the overhead of a virtual machine or dualboot setup.
 
-* NOTE: Check the official installation instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
+## Step 1. Install WSL
 
-En la barra de búsqueda de Windows 10 (abajo a la izquierda) introducir "características de windows" y seleccionar "Activar o desactivar las características de Windows" (si el sistema está en inglés buscar "windows features"). Marcar la casilla de "Subsistema de Windows para Linux" y reiniciar el ordenador. 
+1. Open the Windows Features menu (search for "windows features" or "características de windows" with the search tool) and check the Windows Subsystem for Linux checkbox.
 
-ALTERNATIVA: Hay una forma alternativa de hacer esto mediante PowerShell. Buscamos "PowerShell", seleccionarlo y entrad el comando "dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart".
+WSL1 is enough for many tasks, so you may stop here and just use it. However, recently a WSL2 update has been released. Besides some improvements, you will need to update to WSL2 if you need to use Docker and you have Windows 10 Home. In case you want to update to WSL2 follow instructions in ANNEX 3 before continuing with the next steps. 
 
-3. En el Microsoft Store buscad "Ubuntu 20" e instalad Ubuntu 20.04.LTS. 
+2. Once you have WSL enabled, you can already go to the Microsoft Store, search "Ubuntu 20" and install Ubuntu 20.04.LTS. 
 
-4. Iniciamos y configuramos con el nombre de usuario y password que queramos.
+3. Check ANNEX 1 and ANNEX 2 to learn how to edit text files that are within WSL.
 
 
+## ANNEX 1. Accessing the WSL filesystem from Windows applications
 
+Two ways:
+
+a. Run the following from within WSL:
+
+	explorer.exe .
+
+b. From the File Explorer access the following path:
+
+	 \\wsl$
+
+
+## ANNEX 2. Editing the code with a text editor
+
+WSL does not currently support graphical user interfaces (GUIs). One work around is to use an X-server but it's not necessary if the only GUI that you need is a text editor. We recommend [Notepad++](https://notepad-plus-plus.org/downloads/).
+
+*NOTE: In order to access the WSL filesystem from Notepad++ use the path \\\\wsl$*
+
+
+## ANNEX 3. Update to WSL2
+
+1. Open PowerShell as Administrator and run:
+
+	dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+2. Restart your machine to complete the WSL install and update to WSL 2.
+
+3. Download and run the Linux kernel update package from [here](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+
+4. Set WSL 2 as your default version running the following PowerShell command:
+
+	wsl --set-default-version 2
+
+*NOTE: Alternative installation instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
+
+Extra stems are necessary if you plan to use Docker with WSL2. Check the Docker documentation.
 
 

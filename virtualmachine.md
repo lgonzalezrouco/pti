@@ -1,8 +1,8 @@
 # Doing the labs on your own computer with a virtual machine
 
-The labs are designed to be performed on a computer running Ubuntu. If you want to do the lab on your own computer on possibility is working over a virtual machine. This page describes how to do it.
+The labs are designed to be performed on a computer running Ubuntu. If you want to do the lab on your own computer one possibility is working over a virtual machine. This page describes how to do it.
 
-*NOTE 1: If your computer runs Windows 10 it may be more convenient to work over [Windows Subsystem for Linux (WSL)](./wsl.md). This method is not suitable for labs that use Docker if you have Windows 10 Home edition (use a virtual machine in that case).*
+*NOTE 1: If your computer runs Windows 10 it may be more convenient to work over [Windows Subsystem for Linux (WSL)](./wsl.md). For labs requiring Docker, WSL 2 seems to allow it for Windows 10 Home too, but we haven't tested it yet.*
 
 *NOTE 2: If your computer runs macOS it may be more convenient to work over [Docker](./docker.md).*
 
@@ -27,7 +27,9 @@ Download Ubuntu Desktop 20.04.2.0 LTS from [here](https://releases.ubuntu.com/20
 
 3. Go to Settings/Storage/Controller IDE, click the disk icon and select the Ubuntu file that you downloaded before.
 
-4. Go to Settings/Shared Folders and create a new shared folder. Select the folder that you want to use to exchange files between your system and the virtual machine (you may prefer to create one for that first). Select the "mount point" (the path within the virtual machine), for instance "/shared".  
+4. Go to Settings/Display/Screen and set Graphics Controller = VBoxVGA.
+
+5. Go to Settings/Diplay and create a new shared folder. Select the folder that you want to use to exchange files between your system and the virtual machine (you may prefer to create one for that first). Select the "mount point" (the path within the virtual machine), for instance "/shared".  
 
 ## Step 4: Launch the virtual machine and configure Ubuntu
 
