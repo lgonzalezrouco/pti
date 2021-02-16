@@ -1,4 +1,4 @@
-# Doing the labs on your own (Windows 10) computer with Windows Subsystem for Linux (WSL)
+# Doing the labs on your own (Windows 10 Home) computer with Windows Subsystem for Linux (WSL)
 
 The Windows Subsystem for Linux (WSL) lets you run a GNU/Linux environment (e.g. Ubuntu) directly on Windows, without the overhead of a virtual machine or dualboot setup.
 
@@ -6,7 +6,7 @@ The Windows Subsystem for Linux (WSL) lets you run a GNU/Linux environment (e.g.
 
 1. Open the Windows Features menu (search for "windows features" or "características de windows" with the search tool) and check the Windows Subsystem for Linux checkbox.
 
-WSL1 is enough for many tasks, so you may stop here and just use it. However, recently a WSL2 update has been released. Besides some improvements, you will need to update to WSL2 if you need to use Docker and you have Windows 10 Home. In case you want to update to WSL2 follow instructions in ANNEX 3 before continuing with the next steps. 
+WSL1 is enough for many tasks, so you just use it. However, recently a WSL2 update has been released. Besides some improvements, you will need to update to WSL2 if you need to use Docker and you have Windows 10 Home. In case you want to update to WSL2 follow instructions in ANNEX 3 before continuing with the next steps. 
 
 2. Once you have WSL enabled, you can already go to the Microsoft Store, search "Ubuntu 20" and install Ubuntu 20.04.LTS. 
 
