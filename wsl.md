@@ -2,7 +2,7 @@
 
 ## Install Windows Subsystem for Linux (WSL) on Windows 10
 
-* NOTE: Check the official installation instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* NOTE: Check the official installation instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
 
 En la barra de búsqueda de Windows 10 (abajo a la izquierda) introducir "características de windows" y seleccionar "Activar o desactivar las características de Windows" (si el sistema está en inglés buscar "windows features"). Marcar la casilla de "Subsistema de Windows para Linux" y reiniciar el ordenador. 
 

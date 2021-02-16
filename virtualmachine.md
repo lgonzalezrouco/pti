@@ -2,15 +2,15 @@
 
 The labs are designed to be performed on a computer running Ubuntu. If you want to do the lab on your own computer on possibility is working over a virtual machine. This page describes how to do it.
 
-*NOTE 1: If your computer runs Windows 10 it may be more convenient to work over [Windows Subsystem for Linux (WSL)](./wsl.md). This method is not suitable for labs that use Docker if you have Windows 10 Home edition (use a virtual machine in that case).
+*NOTE 1: If your computer runs Windows 10 it may be more convenient to work over [Windows Subsystem for Linux (WSL)](./wsl.md). This method is not suitable for labs that use Docker if you have Windows 10 Home edition (use a virtual machine in that case).*
 
-*NOTE 2: If your computer runs macOS it may be more convenient to work over [Docker](./docker.md).  
+*NOTE 2: If your computer runs macOS it may be more convenient to work over [Docker](./docker.md).*
 
 ## Step 1: Install VirtualBox
 
 Go to  [https://www.virtualbox.org/](https://www.virtualbox.org/) and download the installer for your host operating system. Run the installer and accept all the default options.
 
-*NOTE for Mac users: If installation fails, open System Preferences, go to Security & Privacy, and then click Allow next to "System software from 'Oracle America, Inc.' was blocked from loading". Then re-run the VirtualBox installer.
+*NOTE for Mac users: If installation fails, open System Preferences, go to Security & Privacy, and then click Allow next to "System software from 'Oracle America, Inc.' was blocked from loading". Then re-run the VirtualBox installer.*
 
 ## Step 2: Download and import the Ubuntu image
 
