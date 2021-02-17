@@ -10,7 +10,7 @@ b. A [virtual machine](./virtualmachine.md) may be not so practical but it will 
 
 ## If you have Mac
 
-a. A suitable way is to run an Ubuntu Docker container as explained [here](./docker_wsl2.md). This way you will be able to use exactly the same commands that we provide in the documentation without messing with your OS.
+a. A suitable way is to run an Ubuntu Docker container as explained [here](./docker.md). This way you will be able to use exactly the same commands that we provide in the documentation without messing with your OS.
 
 b. Alternativelly, you may try doing things directly on the macOS Terminal. But you will need to find the way to install the necessary tools (with homebrew, etc.). 
 
