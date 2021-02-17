@@ -19,4 +19,4 @@ If you still didn't install WSL2 follow instructions [here](./wsl.md)
 
 2. Open Docker settings/Resources/WSL Integration and enable "integration with additional distros: Ubuntu-20.04"
 
-## Step 3. Install and configure Docker (in Windows)
+Now, if you open an Ubuntu terminal, you should be able to run docker commands.
