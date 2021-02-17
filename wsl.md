@@ -10,6 +10,8 @@ WSL1 is enough for many tasks, so you just use it. However, recently a WSL2 upda
 
 2. Once you have WSL enabled, you can already go to the Microsoft Store, search "Ubuntu 20" and install Ubuntu 20.04.LTS. 
 
+*NOTE: It's recommended to enable copy-paste CTRL+SHIFT+C/V in the Ubuntu window settings.*
+
 3. Check ANNEX 1 and ANNEX 2 to learn how to edit text files that are within WSL.
 
 
@@ -49,6 +51,6 @@ WSL does not currently support graphical user interfaces (GUIs). One work around
 
 *NOTE: Alternative installation instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
 
-Extra stems are necessary if you plan to use Docker with WSL2. Check the Docker documentation.
+Extra steps are necessary if you plan to use Docker with WSL2. Check the Docker documentation.
 
 
