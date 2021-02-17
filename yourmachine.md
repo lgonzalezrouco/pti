@@ -6,7 +6,7 @@ PTI lab assignments are designed to work on Linux (Ubuntu).
 
 a. [WSL2](./wsl.md) may be a very practical way. If you choose WSL2 check [this](./docker_wsl2.md) to be able to use Docker there.
 
-b. A [virtual machine](./virtualmachine) may be not so practical but it will provide a more similar environment. 
+b. A [virtual machine](./virtualmachine.md) may be not so practical but it will provide a more similar environment. 
 
 ## If you have Mac
 
@@ -14,7 +14,7 @@ a. A suitable way is to run an Ubuntu Docker container as explained [here](./doc
 
 b. Alternativelly, you may try doing things directly on the macOS Terminal. But you will need to find the way to install the necessary tools (with homebrew, etc.). 
 
-c. Of course you can always use a [virtual machine](./virtualmachine) or dual boot.
+c. Of course you can always use a [virtual machine](./virtualmachine.md) or dual boot.
 
 
 
