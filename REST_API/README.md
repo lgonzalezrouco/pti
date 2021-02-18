@@ -286,7 +286,7 @@ As an example web API you will create a simple car rental web API. It will consi
  
 - Request the list of all rentals: An endpoint that will return the list of all saved rental orders (in JSON format). 
 
-In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single JSON file will be enough (though not in a real scenario). ANNEX 1 provide help for manipulating JSON files with JavaScript.
+In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single JSON file will be enough (though not in a real scenario). ANNEX 1 provides help for manipulating JSON files with JavaScript.
 
 
 ### 2.2 Extension (1 point)
