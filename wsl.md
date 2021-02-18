@@ -18,13 +18,13 @@ Check ANNEX 1 and ANNEX 2 to learn how to edit text files that are within WSL.
 Two ways:
 
 a. Run the following from within WSL:
-
+```
 	explorer.exe .
-
+```
 b. From the File Explorer access the following path:
-
+```
 	 \\wsl$
-
+```
 
 ## ANNEX 2. Editing the code with a text editor
 
@@ -36,17 +36,17 @@ WSL does not currently support graphical user interfaces (GUIs). One work around
 ## ANNEX 3. Update to WSL2
 
 1. Open PowerShell as Administrator and run:
-
+```
 	dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-
+```
 2. Restart your machine to complete the WSL install and update to WSL2.
 
 3. Download and run the Linux kernel update package from [here](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 
 4. Set WSL2 as your default version running the following PowerShell command:
-
+```
 	wsl --set-default-version 2
-
+```
 *NOTE: Alternative installation instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
 
 If you plan to use Docker with WSL2 read [this](./docker_wsl2.md).

@@ -10,8 +10,8 @@ You should see something like this:
 ```
   NAME                   STATE           VERSION
 * Ubuntu-20.04           Running         2
-```
-If you still didn't install WSL2 follow instructions [here](./wsl.md)
+``
+If you still haven't install WSL2 follow instructions [here](./wsl.md)
 
 ## Step 2. Install and configure Docker (in Windows)
 
