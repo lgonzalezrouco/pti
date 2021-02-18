@@ -10,7 +10,7 @@ The Windows Subsystem for Linux (WSL) lets you run a GNU/Linux environment (e.g.
 
 *NOTE: It's recommended to enable copy-paste CTRL+SHIFT+C/V in the Ubuntu window settings.*
 
-3. Check ANNEX 1 and ANNEX 2 to learn how to edit text files that are within WSL.
+Check ANNEX 1 and ANNEX 2 to learn how to edit text files that are within WSL.
 
 
 ## ANNEX 1. Accessing the WSL filesystem from Windows applications
@@ -28,7 +28,7 @@ b. From the File Explorer access the following path:
 
 ## ANNEX 2. Editing the code with a text editor
 
-WSL does not currently support graphical user interfaces (GUIs). One work around is to use an X-server but it's not necessary if the only GUI that you need is a text editor. We recommend [Notepad++](https://notepad-plus-plus.org/downloads/).
+WSL does not currently support graphical user interfaces (GUIs). One work around is to use an X-server but it's not necessary if the only GUI that you need is a text editor or an IDE. For a text editor you may use [Notepad++](https://notepad-plus-plus.org/downloads/). If you need an IDE, Visual Studio Code is a suitable option as it provides integration with WSL.
 
 *NOTE: In order to access the WSL filesystem from Notepad++ use the path \\\\wsl$*
 
@@ -39,11 +39,11 @@ WSL does not currently support graphical user interfaces (GUIs). One work around
 
 	dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
-2. Restart your machine to complete the WSL install and update to WSL 2.
+2. Restart your machine to complete the WSL install and update to WSL2.
 
 3. Download and run the Linux kernel update package from [here](https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
 
-4. Set WSL 2 as your default version running the following PowerShell command:
+4. Set WSL2 as your default version running the following PowerShell command:
 
 	wsl --set-default-version 2
 
