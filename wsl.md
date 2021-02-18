@@ -49,6 +49,6 @@ WSL does not currently support graphical user interfaces (GUIs). One work around
 
 *NOTE: Alternative installation instructions [here](https://docs.microsoft.com/en-us/windows/wsl/install-win10)*
 
-Extra steps are necessary if you plan to use Docker with WSL2. Check the Docker documentation.
+If you plan to use Docker with WSL2 read [this](./docker_wsl2.md).
 
 
