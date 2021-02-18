@@ -195,7 +195,9 @@ Let's try also to call the server with cURL:
 
 Handling JSON requests can be done with the help of the new "express.json()" built-in function (Express 4.16.0 onwards). 
 
-Let's now add a new endpoint (POST method and "/newstudent" route path) that accepts JSON as input. The 
+Let's now add a new endpoint (POST method and "/newstudent" route path) that accepts JSON as input. 
+
+*WARNING: Do not forget to add "app.use(express.json());" or it will not parse the incoming JSON payload.* 
 
 ```js
 const express = require('express')
@@ -205,7 +207,7 @@ const port = 8080
 app.use(express.json());
 
 app.post('/newstudent', (req, res, next) => {
-    console.log(req.body.name) 
+    console.log(req.body.name);
     res.end(); 
 }) 
 
@@ -219,6 +221,8 @@ Relaunch the server. In order to submit a JSON request we will use cURL instead 
     curl -H "Content-Type: application/json" -d '{"name":"Fatima", "studentId":"234123412f"}' http://localhost:8080/newstudent
 
 As a result the terminal (the server one) should show "Fatima". 
+
+*NOTE: You can see what the server is receiving by replacing "console.log(req.body.name);" by "console.log(req);" or "console.log(req.body);".* 
 
 This time we did not return any HTTP message body. By default, the res.end() will return a response message with an HTTP 200 OK success status response code. You can check the returned HTTP header adding the "-i" option to wour cURL command:
 
