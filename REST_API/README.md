@@ -189,7 +189,9 @@ Relaunch the server and open http://localhost:8080/students in your browser.
 
 Let's try also to call the server with cURL:
 
+```
 	curl -H "Content-Type: application/json" http://localhost:8080/students
+```
 
 #### 1.4.2 A JSON request
 
@@ -218,7 +220,9 @@ app.listen(port, () => {
 
 Relaunch the server. In order to submit a JSON request we will use cURL instead of the browser. Open a new terminal and type:
 
+```
     curl -H "Content-Type: application/json" -d '{"name":"Fatima", "studentId":"234123412f"}' http://localhost:8080/newstudent
+```
 
 As a result the terminal (the server one) should show "Fatima". 
 
@@ -226,7 +230,9 @@ As a result the terminal (the server one) should show "Fatima".
 
 This time we did not return any HTTP message body. By default, the res.end() will return a response message with an HTTP 200 OK success status response code. You can check the returned HTTP header adding the "-i" option to wour cURL command:
 
-    curl - i -H "Content-Type: application/json" -d '{"name":"Fatima", "studentId":"234123412f"}' http://localhost:8080/newstudent
+```
+    curl -i -H "Content-Type: application/json" -d '{"name":"Fatima", "studentId":"234123412f"}' http://localhost:8080/newstudent
+```
 
 Let's try a more complex example:
 
@@ -240,7 +246,9 @@ app.post('/newstudent', (req, res, next) => {
 ```
 In the example you can see how to deal with a JSON request including an array. Relaunch the server. Open a new terminal and type:
 
+```
     curl -i -H "Content-Type: application/json" -d '{"students": [{"name": "Fatima", "studentId": "234123412f"}, {"name": "Maria", "studentId":"16553412g"}]}' http://localhost:8080/newstudent
+```
 
 But normally a POST request will have some effect over the state of the server (e.g. adding something to a DB). In those cases, it's conveneint to return back a 201 HTTP status response code (which means "created"). You can do that with the "res.status" function:
 
