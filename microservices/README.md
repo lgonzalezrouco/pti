@@ -22,7 +22,7 @@ Each group will have to:
 
 ## 2. Kubernetes tutorial
 
-NOTE: This tutorial has been tested in macOS 10.13.6 and Ubuntu 18.04.3 but, in theory, you should be able to do it over Windows too. It's even possible to do the tutorial inside a virtual machine (e.g. VirtualBox) running Ubuntu, but in that case you should configure the VM with at least 2 cores and 3GB of memory.
+NOTE: This tutorial has been tested in Ubuntu 20.04, macOS 10.13.6 and Windows Home with WSL2. It's even possible to do the tutorial inside a virtual machine (e.g. VirtualBox) running Ubuntu, but in that case you should configure the VM with at least 2 cores and 3GB of memory.
 
 
 ### 2.1. Install a toy Kubernetes cluster with Minikube
@@ -77,7 +77,7 @@ Check the installation:
 
 #### Install Minikube 
 
-On Linux:
+On Linux (also on Windows with WSL2, within the Ubuntu terminal):
 
 	curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
@@ -102,6 +102,10 @@ On Linux (bare-metal execution):
 	sudo cp /etc/kubernetes/admin.conf $HOME/
 	sudo chown $(id -u):$(id -g) $HOME/admin.conf
 	export KUBECONFIG=$HOME/admin.conf
+
+On Windows with WSL2, within the Ubuntu terminal:
+
+	minikube start
 
 On MacOS (using the hypervisor that comes with Docker):
 
@@ -183,7 +187,7 @@ In a real scenario you would build your images locally and upload them to Docker
 
 On Ubuntu, as we used vm-driver=none, we don't need to do anything, as our single-node Kubernetes cluster it's running directly on the host machine. Your local Docker registry will be directly accessible by the Kubernetes commands.
 
-On macOS, Minikube uses it's own built-in Docker daemon. So, if you build your images with your local Docker environment, they will not be directly accessible to Minikube. In order to overcome that problem, we will point our Docker commands directly to the Minikube built-in Docker daemon, building our images there, and making them directly accessible to Minikube. To accomplish that just do the following (only on macOS!):
+On **macOS and Windows with WSL2**, Minikube uses it's own built-in Docker daemon. So, if you build your images with your local Docker environment, they will not be directly accessible to Minikube. In order to overcome that problem, we will point our Docker commands directly to the Minikube built-in Docker daemon, building our images there, and making them directly accessible to Minikube. To accomplish that just do the following (only on macOS!):
 
 	eval $(minikube docker-env)
 
