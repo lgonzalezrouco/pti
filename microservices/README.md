@@ -22,7 +22,7 @@ Each group will have to:
 
 ## 2. Kubernetes tutorial
 
-NOTE: This tutorial has been tested in Ubuntu 20.04, macOS 10.13.6 and Windows Home with WSL2. It's even possible to do the tutorial inside a virtual machine (e.g. VirtualBox) running Ubuntu, but in that case you should configure the VM with at least 2 cores and 3GB of memory.
+NOTE: This tutorial has been tested in Ubuntu 20.04, macOS 10.13.6 and Windows Home with [WSL2](../wsl.md). It's even possible to do the tutorial inside a virtual machine (e.g. VirtualBox) running Ubuntu, but in that case you should configure the VM with at least 2 cores and 3GB of memory.
 
 
 ### 2.1. Install a toy Kubernetes cluster with Minikube
@@ -50,7 +50,7 @@ Check that Docker is installed and that you can run it without sudo executing:
 
     docker run hello-world
 
-Windows and macOS installation procedures can be found [here](https://docs.docker.com/install/).
+To install Docker on Windows with WSL2 read [this](../docker_wsl2.md). MacOS installation procedure can be found [here](https://docs.docker.com/install/).
 
 #### Install kubectl 
 
