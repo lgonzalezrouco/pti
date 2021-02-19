@@ -35,7 +35,7 @@ Each group will have to:
 
 ### 1.1 Setup
 
-[Read this if you will do this lab on your own computer](./../yourmachine.md)
+[Read this if you will do this lab on your own computer](./../yourmachine.md).
 
 #### 1.1.1 Booting the machine (Operating Systems room)
 
