@@ -13,7 +13,7 @@ The blockchain is operated through a Web API. We need therefore an HTTP client t
 
 ### 2.1 Install the environment
 
-You will need python3.6. Check if it is installed and install it if needed.
+You will need python3.6 or higher. Check if it is installed and install it if needed.
 
     python3 --version
 
