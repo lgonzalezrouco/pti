@@ -131,7 +131,7 @@ Test the new operations with your client.
 ### 2.4 Additional tasks to be answered in the report
 
 1) Think of an alternative to the used proof-of-work. 
-What options have found/considered?
+What options have you found/considered?
 Can this alternative be integrated in our code?
 If possible, make the modification needed for this alternative and test it.
 
