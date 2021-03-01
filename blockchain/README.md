@@ -29,6 +29,8 @@ And to install the packages
 
     python3.6 -m pip install Flask requests 
 
+    python3.6 -m pip install Werkzeug==0.16
+
 To run python programms: 
     
     python3.6 programa.py
