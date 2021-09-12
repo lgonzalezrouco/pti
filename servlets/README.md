@@ -18,7 +18,7 @@ Each group will have to:
 3. Extensions: Optionally complete one of the suggested extensions.
 4. Write a .pdf report describing the steps taken to complete the assignment, including screenshots of the application output.
 
-## 1. Java Servlets with Tomcat 9, a quick tutorial
+## 1. Java Servlets with Tomcat 10, a quick tutorial
 
 [(help for those wanting to use their own computers (through Docker))](./../docker.md)
 
@@ -29,7 +29,7 @@ Select the latest Ubuntu imatge and type your username and password:
     user: alumne
     pwd: sistemes
 
-### 1.2 Install Tomcat 9
+### 1.2 Install Tomcat 10
 
 Open a terminal (CTRL+ALT+T).
 
@@ -45,16 +45,16 @@ If not installed do the following to install OpenJDK:
 
     sudo apt-get install default-jdk
 
-Install Tomcat 9:
+Install Tomcat 10:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/apache-tomcat-9.0.37.tar.gz
-    tar -xvzf apache-tomcat-9.0.37.tar.gz
+    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/apache-tomcat-10.0.10.tar.gz
+    tar -xvzf apache-tomcat-10.0.10.tar.gz
 
-Enter the Tomcat 9 directory (we will work from here from now on):
+Enter the Tomcat 10 directory (we will work from here from now on):
 
-    cd apache-tomcat-9.0.37
+    cd apache-tomcat-10.0.10
 
-Launch Tomcat 9:
+Launch Tomcat 10:
 
     ./bin/startup.sh &
 
@@ -94,8 +94,8 @@ Check: http://localhost:8080/my_webapp
 
         package mypackage;
         import java.io.*;
-        import javax.servlet.*;
-        import javax.servlet.http.*;
+        import jakarta.servlet.*;
+        import jakarta.servlet.http.*;
         public class MyServlet extends HttpServlet {
           public void doGet(HttpServletRequest req, HttpServletResponse res)
                             throws ServletException, IOException {
