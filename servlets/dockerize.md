@@ -18,7 +18,7 @@ Then edit there a file named "Dockerfile" with the following contents:
 
 	vi Dockerfile
 
-    FROM tomcat:jdk14-openjdk-buster
+    FROM tomcat:10
 	COPY my_webapp /my_webapp
 	WORKDIR /
 	RUN cp -r my_webapp /usr/local/tomcat/webapps
