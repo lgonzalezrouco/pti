@@ -13,7 +13,7 @@ The objectives of this assignment are to:
 
 Each group will have to:
 
-1. Tutorial: Follow a brief tutorial about how to develop the back end (server side) of a web applications with servlets and Tomcat 9.  
+1. Tutorial: Follow a brief tutorial about how to develop the back end (server side) of a web applications with servlets and Tomcat 10.  
 2. Assignment (basic part): Complete the lab assignment consisting on developing a simple car rental web application. 
 3. Extensions: Optionally complete one of the suggested extensions.
 4. Write a .pdf report describing the steps taken to complete the assignment, including screenshots of the application output.
