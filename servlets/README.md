@@ -20,7 +20,7 @@ Each group will have to:
 
 ## 0. Download pti repository
 
-You may first download the complete pti repository from gitlab if this is convenient for you.
+You may first download the pti repository from gitlab if this is convenient for you.
 
 ## 1. Java Servlets with Tomcat 10, a quick tutorial
 
