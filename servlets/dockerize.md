@@ -35,7 +35,11 @@ Run the container this way:
 
 	docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
 
-Now check with your browser if the application is running. The teacher will get your Dockerfile and your my_webapp folder and will run the previous docker build and docker run commands.
+Now check with your browser if the application is running: 
+
+http://localhost:8080/my_webapp/index.html
+
+The teacher will get your Dockerfile and your my_webapp folder and will run the previous docker build and docker run commands.
 
 ## 3 Deliver
 
