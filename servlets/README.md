@@ -18,6 +18,10 @@ Each group will have to:
 3. Extensions: Optionally complete one of the suggested extensions.
 4. Write a .pdf report describing the steps taken to complete the assignment, including screenshots of the application output.
 
+## 0. Download pti repository
+
+You may first download the complete pti repository from gitlab if this is convenient for you.
+
 ## 1. Java Servlets with Tomcat 10, a quick tutorial
 
 [(help for those wanting to use their own computers (through Docker))](./../docker.md)
