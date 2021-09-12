@@ -139,7 +139,7 @@ In order to avoid restarting Tomcat every time you recompile your servlets it's 
 
 #### 2.1.1 Description
 
-You have to program a simple car rental web application using Tomcat and servlets. It will consist in two functionalities:
+You have to program a simple **car rental web application** using Tomcat and servlets. It will consist in two functionalities:
 
 - Request a new rental: A form to enter a new rental order. Input fields will include the car model, engine, number of days, number of units and discount. If all data is correct, the data of the requested rental will be returned.
 
