@@ -134,12 +134,18 @@ Now that you have a cluster running, you can check if kubectl is able to communi
 Let's check the status of the cluster:
 
 	kubectl cluster-info
-
+	
+	
 #### Troubleshooting
 
 Minikube can be stopped with:
 
 	minikube stop
+	
+Minikube can be re-started with:
+
+	export KUBECONFIG=$HOME/admin.conf
+	minikube --vm-driver=none start
 
 Minikube related files can be deleted with:
 
@@ -150,6 +156,7 @@ WARNING: In case an attempt to run "minikube start" fails, before running it aga
 In case "minikube delete" fails:
 
 	rm -rf ~/.minikube
+	
 
 ### 2.3. Containerized Hello World microservice
 
@@ -368,7 +375,7 @@ Let's start by checking the current number of Pods:
 
 	kubectl get deployments
 
-The READY column shows the ratio of CURRENT to DESIRED replicas (Pods). We should have 1/1 Pods. 
+The READY column shows the ratio of CURRENT to DESIRED replicas (Pods). We should have 2/2 Pods. 
 
 Next, let’s scale the Deployment to 4 replicas:
 
@@ -409,11 +416,16 @@ As an example microservices-based application you will create and deploy a simpl
 
 Regarding the DATA, you can directly store it within a JSON file into the disk, as if you were working locally. These data can be lost anytime, as the Pods are ephimeral, but it will be ok for this lab session. If you are interested in knowing how to do that better, you can use a Kubernete's PersistentVolume as explained [here](persistentvolume.md) (optional).
 
+*NOTE: It's not necessary to partition the car renal Web API into two microservices, the code from the previous lab session will be ok.*
+
+*NOTE: When building and deploying your microservice use a complete docker image name+tag, with version number, such as in helloworld:1.0.*
+
+
 ## 4.  Submission
 
-You need to upload the following files to your BSCW's lab group folder before the next lab session:
+You need to upload the following files to your BSCW's lab group folder before the next lab session (it's not necessary to upload any code as it's the same from the previous lab session):
 
-* A tarball containing the source files.
+<!--* A tarball containing the source files.-->
 * A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   
 
 ## 4. Further reading
