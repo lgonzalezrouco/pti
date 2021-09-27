@@ -102,6 +102,7 @@ On Linux (bare-metal execution):
 	sudo cp /etc/kubernetes/admin.conf $HOME/
 	sudo chown $(id -u):$(id -g) $HOME/admin.conf
 	export KUBECONFIG=$HOME/admin.conf
+	minikube update-context
 
 On Windows with WSL2, within the Ubuntu terminal:
 
