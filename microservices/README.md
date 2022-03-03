@@ -363,6 +363,12 @@ Now you can already call your microservice this way:
 
 You should see the "Hello World!" message.
 
+NOTE: On **Windows with WSL2** you need and extra step to acess the service. Run the following command to map a port from localhost to the port of the service. In the Ubuntu terminal run:
+
+	kubectl port-forward service/helloworld 7080:8080
+
+And try accessing localhost:7080 in your browser.
+
 ### 2.5. Scale your microservice
 
 If traffic increases, we will need more instances/replicas of the microservice (Pods) to keep up with user demand. The possibility to scale parts of an application independently is one of the advantages of microservices. The following figure, from a [James Lewis' article](https://martinfowler.com/articles/microservices.html), illustrates the idea:
