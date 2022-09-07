@@ -52,7 +52,7 @@ You can see a Web interface that let's you drop images. For trying you can take 
 <!--!![classification](/uploads/80ce379ffbdd25883c5c7342c798974f/classification.png)-->
 
 <p align="center">
-<img src="/uploads/80ce379ffbdd25883c5c7342c798974f/classification.png" width="600">
+<img src="/uploads/5da1a1350fe154a16697428d026a1d24/classification.png" width="600">
 </p>
 
 
