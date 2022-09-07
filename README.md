@@ -9,7 +9,9 @@
 
 [Session 4. Blockchain](./blockchain/README.md)
 
-[Session (opcional) XML Processing with Java](./xml/README.md)
+[Session 5. Machine learning-based application](./ml_application/README.md)
+
+[Session (old) XML Processing with Java](./xml/README.md)
 
 
 [ANNEX 1. Docker](./docker.md)
