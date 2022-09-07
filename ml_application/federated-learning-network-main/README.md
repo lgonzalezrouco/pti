@@ -109,7 +109,7 @@ If you refresh the central node's dashboard in `http://localhost:5000` you can s
 <!--![FL_dashboard](/uploads/9bc441b8fdba94ca55449f74e3a29155/FL_dashboard.png) -->
 
 <p align="center">
-<img src="/uploads/9bc441b8fdba94ca55449f74e3a29155/FL_dashboard.png" width="800">
+<img src="/uploads/8e974ce9c5771b9aa6eb2c4f25550b00/FL_dashboard.png" width="800">
 </p>
 
 
