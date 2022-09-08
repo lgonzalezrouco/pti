@@ -174,9 +174,9 @@ In order to help you, some files are provided:
 
 In order to install the provided files perform the following steps:
 
-Download and unzip the file:
+Download and unzip the file or take it from your local servlet folder:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/carrental.zip
+    wget https://repo.fib.upc.edu/pti/pti/raw/master/servlets/carrental.zip
 
 Move the files to Tomcat and compile the servlets:
     
