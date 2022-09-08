@@ -22,6 +22,8 @@ Each group will have to:
 
 You may first download the pti repository from gitlab if this is convenient for you.
 
+    git clone https://repo.fib.upc.es/felix.freitag/pti
+
 ## 1. Java Servlets with Tomcat 10, a quick tutorial
 
 [(help for those wanting to use their own computers (through Docker))](./../docker.md)
@@ -49,9 +51,8 @@ If not installed do the following to install OpenJDK:
 
     sudo apt-get install default-jdk
 
-Install Tomcat 10:
+Install Tomcat 10 (open the zip in the servlet folder):
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/apache-tomcat-10.0.10.tar.gz
     tar -xvzf apache-tomcat-10.0.10.tar.gz
 
 Enter the Tomcat 10 directory (we will work from here from now on):
