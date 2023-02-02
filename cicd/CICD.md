@@ -16,7 +16,7 @@ There are multiple tools to implement these practices (e.g. Jenkins). Here, for 
 
 We are going to carry out a small test to get an idea of ​​the type of tasks involved in introducing CI/CD practices in development. In summary, you should perform the following tasks:
 
-- Create a repository for the carrental REST API in GitLab (repo.fib.upc.es)
+1) Create a repository for the carrental REST API in GitLab (repo.fib.upc.es)
 - Upload the carrental application to the repo (including the Dockerfile). The repo should have the following structure:
 
 ```
@@ -26,11 +26,11 @@ We are going to carry out a small test to get an idea of ​​the type of tasks
 		package.json
 ```
 
-- Install a GitLab Runner in your machine, register it and run it. 
-- Create a .gitlab-ci.yml file at the root of your repository. This file is where you define the CI/CD jobs. 
-- Modify the .gitlab-ci.yml file to achieve that every time there is a commit, the Docker image is (1) rebuilt and (2) uploaded to the GitLab container registry.
+2) Install a GitLab Runner in your machine, register it and run it. 
+3) Create a .gitlab-ci.yml file at the root of your repository. This file is where you define the CI/CD jobs. 
+4) Modify the .gitlab-ci.yml file to achieve that every time there is a commit, the Docker image is (1) rebuilt and (2) uploaded to the GitLab container registry.
 
-## 3. Help step by step+
+## 3. Help step by step
 
 *NOTE: You cand find more information about GitLab CI/CD [here](https://docs.gitlab.com/ee/ci/)*
 
@@ -48,7 +48,7 @@ GitLab CI/CD tasks are executed by an application called [GitLab Runner](https:/
 
 *NOTE: Obtain the $REGISTRATION_TOKEN from Settings > CI / CD > Runners*
 
-3) Run the runner in:
+3) Run the runner in a separate Terminal:
 
 	gitlab-runner run
 
@@ -67,4 +67,41 @@ CI/CD tasks are often grouped around the concept of a [pipeline](https://docs.gi
 	    - echo "Hello, $GITLAB_USER_LOGIN!" 
 ```
 
-2) Commit and push the change to the repo. 
+Commit and push the change to the repo. Check the result of the pipeline in CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output. Check the result of the pipeline in CI / CD > Pipelines 
+
+2) Modify .gitlab-ci.yml to automate the building of the Docker image:
+
+```
+	build:
+	  script:
+	      - docker build  -t carrental myapp
+	test:
+	  script:
+	    - docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
+	    - sleep 1
+	    - curl --request GET  "localhost:8080"
+	    - docker stop carrental
+	    - docker rm carrental
+```
+
+*NOTE: For a list of configuration options in .gitlab-ci.yml, see the GitLab [CI/CD Pipeline Configuration Reference](https://docs.gitlab.com/ee/ci/yaml/index.html).
+
+3) Push the Docker image to the GitLab Container Registry
+
+First go to Settings > 
+
+Package Registry > 
+
+```
+	build:
+	  script:
+	      - docker build  -t carrental myapp
+	test:
+	  script:
+	    - docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
+	    - sleep 1
+	    - curl --request GET  "localhost:8080"
+	    - docker stop carrental
+	    - docker rm carrental
+```
+
