@@ -84,18 +84,20 @@ Commit and push the change to the repo. Check the result of the pipeline in CI /
 	    - docker rm carrental
 ```
 
-*NOTE: For a list of configuration options in .gitlab-ci.yml, see the GitLab [CI/CD Pipeline Configuration Reference](https://docs.gitlab.com/ee/ci/yaml/index.html).
+3) Push the Docker image to a registry
 
-3) Push the Docker image to the GitLab Container Registry
+Ideally you would push the image to the GitLab Container Registry but it's not enabled for the FIB's GitLab. Let's try it by launching a local registry. In the terminal type:
 
-First go to Settings > 
+	docker run -d -p 5000:5000 --restart=always --name registry registry:2
 
-Package Registry > 
+*NOTE: See [this](https://docs.docker.com/registry/deploying/) form more information about launching a registry server.*
+
+Now change .gitlab-ci.yml this way:
 
 ```
 	build:
-	  script:
-	      - docker build  -t carrental myapp
+  script:
+      - docker build  -t carrental myapp
 	test:
 	  script:
 	    - docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
@@ -103,5 +105,14 @@ Package Registry >
 	    - curl --request GET  "localhost:8080"
 	    - docker stop carrental
 	    - docker rm carrental
-```
 
+	release-image:
+	  script:
+	      - docker tag carrental:latest localhost:5000/carrental 
+	      - docker push localhost:5000/carrental
+	      - docker image remove localhost:5000/carrental
+	      - docker pull localhost:5000/carrental
+```
+Push and check the output.
+
+[Tagging](https://docs.docker.com/engine/reference/commandline/tag/) the image as localhost:5000/carrental is required to be able to push it to your local private registry. 
