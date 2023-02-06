@@ -274,7 +274,7 @@ The endpoints of a REST API must use an HTTP method consistent with the type of 
 
 ## 2 Lab assignment 
 
-### 2.1 Creating your own car rental web API (9 points)
+### 2.1 Creating your own car rental web API (8 points)
 
 #### 2.1.1 Description
 
@@ -287,12 +287,13 @@ As an example web API you will create a simple car rental web API. It will consi
 In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single JSON file will be enough (though not in a real scenario). ANNEX 1 provides help for manipulating JSON files with JavaScript.
 
 
-### 2.2 Extension (1 point)
+### 2.2 Extension 1 (1 point)
 
-In order to obtain the maximum grade you can complete any of the following extensions: 
+Dockerize your web application. Some help [here](./dockerize.md).
 
-* Add to the report a 1-page explanation of the pros and cons of Node.js compared to another alternative (e.g. Java servlets, etc.).
-* Dockerize your web application. Some help [here](./dockerize.md).
+### 2.3 Extension 2 (1 point)
+
+Include a CI/CD practice as explained [here](./cicd/CICD.md).
 
 ## 3.  Submission
 
