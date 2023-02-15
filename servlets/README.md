@@ -215,7 +215,19 @@ Check the following link and its sublinks:
 	
 	http://localhost:8080/my_webapp/carrental_home.html
 
-Now add the necessary code to CarRentalNew.java and CarRentalList.java to make the application work properly.
+The form 
+
+    http://localhost:8080/my_webapp/carrental_form_new.html
+
+calls a servlet with name "new" that corresponds to the class mypackage.CarRentalNew.
+
+The form
+
+    http://localhost:8080/my_webapp/carrental_form_list.html
+
+calls a servlet with name "list" that corresponds to the class mypackage.CarRentalList.
+
+Now add the necessary code to the source file of these two servlets, i.e., CarRentalNew.java and CarRentalList.java, to make the application work properly.
 
 ### 2.2 SSL/TLS configuration 
 
