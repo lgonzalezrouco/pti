@@ -68,6 +68,8 @@ Check if it's running (with the browser): http://localhost:8080/
 
 ### 1.3 Create and display a simple HTML page
 
+Being in the folder apache-tomcat-10.0.10:
+
     mkdir webapps/my_webapp
     nano webapps/my_webapp/index.html
 
