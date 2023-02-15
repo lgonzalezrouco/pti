@@ -148,11 +148,11 @@ In order to avoid restarting Tomcat every time you recompile your servlets it's 
 
 You have to program a simple **car rental web application** using Tomcat and servlets. It will consist in two functionalities:
 
-- Request a new rental: A form to enter a new rental order. Input fields will include the car model, engine, number of days, number of units and discount. If all data is correct, the data of the requested rental will be returned.
+- Request a new rental: A form to enter a new rental order. Input fields will include the car model, engine, number of days, number of units and discount. If all data is correct, the **data of the requested rental will be returned**.
 
 ![alt text](RentalNew.png "New car rental" )
 
-- Request the list of all rentals: A form asking a password (as only the administrator can see this information) that will return the list of all saved rental orders. 
+- Request the list of all rentals: A form asking a password (as only the administrator can see this information) that will **return the list of all saved rental orders**. 
 
 ![alt text](RentalList.png "Car rental list" )
 
@@ -160,7 +160,7 @@ You have to program a simple **car rental web application** using Tomcat and ser
 
 Both functionalities will consist in a request form plus a response page. In our lab exercise the request forms are static HTML pages and the responses are HTML dynamically generated from the servlets. For simplicity, in case of invalid input it is not needed to show the request form again (though you can do it if you want).
 
-In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). We will use JSON format for writing/reading rental orders to disk. We have included json-simple-1.1.1.jar, which may help you to perform this task (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
+In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). **We will use JSON format** for writing/reading rental orders to disk (see above the figure). We have included json-simple-1.1.1.jar, which may help you to perform this task (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
 
 #### 2.1.2 Install the provided sources
 
@@ -225,7 +225,12 @@ The form
 
     http://localhost:8080/my_webapp/carrental_form_list.html
 
-calls a servlet with name "list" that corresponds to the class mypackage.CarRentalList.
+calls a servlet with name "list" that corresponds to the class mypackage.CarRentalList. 
+You can see that in the response of the servlet appears the text that you have written in the field "UserId" of the form. This is because the servlet obtains with the line 
+
+    String nombre = req.getParameter("userid");     
+
+the value which is put in the html form.
 
 Now add the necessary code to the source file of these two servlets, i.e., CarRentalNew.java and CarRentalList.java, to make the application work properly.
 
