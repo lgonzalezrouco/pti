@@ -297,7 +297,7 @@ Include a CI/CD practice as explained [here](./cicd/CICD.md).
 
 ## 3.  Submission
 
-You need to upload the following files to your BSCW's lab group folder before the next lab session:
+You need to upload the following files to your Google Drive lab group folder before the next lab session:
 
 * A tarball containing the source files.
 * A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   

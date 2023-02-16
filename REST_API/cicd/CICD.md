@@ -98,7 +98,7 @@ CI/CD tasks are often grouped around the concept of a [pipeline](https://docs.gi
 ```
 test:
  script:
-  - echo "Hello, $GITLAB_USER_LOGIN!" 
+  - echo "Hello, World!" 
 ```
 
 Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output. Check the result of the pipeline in CI / CD > Pipelines. 
@@ -154,3 +154,7 @@ release-image:
 Commit, push and check the output.
 
 [Tagging](https://docs.docker.com/engine/reference/commandline/tag/) the image as localhost:5000/carrental is required to be able to push it to your local private registry. 
+
+### 4 Submission
+
+Just include screenshots of the commands output in the main report.
