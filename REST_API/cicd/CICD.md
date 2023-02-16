@@ -29,9 +29,25 @@ We are going to carry out a small test to get an idea of ​​the type of tasks
 
 *NOTE: A minimal knowledge about git is assumed here. Ask for help otherwise.* 
 
-1) Sign in into repo.fib.upc.es and create a repository for the carrental REST API. 
+1) Sign in into repo.fib.upc.es and create a public repository (you could name it "carrental") for the carrental REST API.
 
-2) Copy the files from the REST API lab into the root of the repository (including the Dockerfile). The repo should have the following structure:
+2) In a terminal, move to, e.g., your home directory and clone the repository using the HTTPS link you will find in GitLab.
+
+	cd 
+	git clone https://repo.fib.upc.es/USERNAME/carrental.git
+
+*NOTE: If you get a gnutls_handshake error try the first solution [here](https://stackoverflow.com/questions/60262230/fatal-unable-to-access-gnutls-handshake-failed-handshake-failed).* 
+
+3) Copy or move the files from the REST API lab into the root of the repository (including the Dockerfile). For instance (asuming you have myapp in your home directory):
+
+	mv myapp carrental
+	
+4) Enter the repo and check the contents
+
+	cd carrental
+	ls
+
+The repo should have the following structure:
 
 ```
 	myapp
@@ -39,11 +55,21 @@ We are going to carry out a small test to get an idea of ​​the type of tasks
 		server.js
 		package.json
 ```
-3) Add a .gitignore at the root of the repo with this content to avoid uploading to the repo the application dependencies:
+5) Add a .gitignore at the root of the repo with this content to avoid uploading to the repo the application dependencies:
 ```
 	node_modules/
 ```
-4) Commit and push the changes. 
+6) Configure git to be able to run commands and to avoid entering the credentials many times:
+
+	git config --global user.name "FIRST_NAME LAST_NAME"
+	git config --global user.email "USERNAME@upc.edu"
+	git config --global credential.helper store
+
+7) Commit and push the changes. 
+
+	git add .
+	git commit -m "nc"
+	git push
 
 ### 3.2 Installing, registering and running a GitLab Runner
 
@@ -53,17 +79,15 @@ GitLab CI/CD tasks are executed by an application called [GitLab Runner](https:/
 
 	Settings > CI / CD > Runners > Show runner installation instructions
 
-2) Register the runner for your project (select "shell" as executor):
+2) Follow the instructions to register the runner for your project (select "shell" as executor). Obtain the $REGISTRATION_TOKEN from Settings > CI / CD > Runners.
 
-	gitlab-runner register --url https://repo.fib.upc.es/ --registration-token $REGISTRATION_TOKEN
+3) Check that the runner status in Settings > CI / CD > Runners
 
-*NOTE: Obtain the $REGISTRATION_TOKEN from Settings > CI / CD > Runners*
+*NOTE: If the runner is not active execute "gitlab-runner run" in the terminal.*
 
-3) Run the runner in a separate Terminal:
+5) In your terminal, add gitlab-runner to the docker group:
 
-	gitlab-runner run
-
-4) Check that the runner status in Settings > CI / CD > Runners
+	sudo usermod -aG docker gitlab-runner
 
 ### 3.3 Define a CI/CD pipeline
 
@@ -72,9 +96,9 @@ CI/CD tasks are often grouped around the concept of a [pipeline](https://docs.gi
 1) Create a test .gitlab-ci.yml file with the following content:
 
 ```
-	test:
-	  script:
-	    - echo "Hello, $GITLAB_USER_LOGIN!" 
+test:
+ script:
+  - echo "Hello, $GITLAB_USER_LOGIN!" 
 ```
 
 Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output. Check the result of the pipeline in CI / CD > Pipelines. 
@@ -82,16 +106,16 @@ Commit and push the change to the repo. This will trigger the pipeline. Check th
 2) Modify .gitlab-ci.yml to automate the building of the Docker image:
 
 ```
-	build:
-	  script:
-	      - docker build  -t carrental myapp
-	test:
-	  script:
-	    - docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
-	    - sleep 1
-	    - curl --request GET  "localhost:8080"
-	    - docker stop carrental
-	    - docker rm carrental
+build:
+ script:
+  - docker build  -t carrental myapp
+test:
+ script:
+  - docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
+  - sleep 1
+  - curl --request GET  "localhost:8080"
+  - docker stop carrental
+  - docker rm carrental
 ```
 
 Commit and push the change to the repo. Check the result of the different jobs of the pipeline. 
@@ -109,23 +133,23 @@ Ideally you would push the image to the GitLab Container Registry but it's not e
 Now change .gitlab-ci.yml this way:
 
 ```
-	build:
+build:
+ script:
+  - docker build  -t carrental myapp
+test:
   script:
-      - docker build  -t carrental myapp
-	test:
-	  script:
-	    - docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
-	    - sleep 1
-	    - curl --request GET  "localhost:8080"
-	    - docker stop carrental
-	    - docker rm carrental
+   - docker run --name carrental -d -p 8080:8080 -p 8443:8443 carrental
+   - sleep 1
+   - curl --request GET  "localhost:8080"
+   - docker stop carrental
+   - docker rm carrental
 
-	release-image:
-	  script:
-	      - docker tag carrental:latest localhost:5000/carrental 
-	      - docker push localhost:5000/carrental
-	      - docker image remove localhost:5000/carrental
-	      - docker pull localhost:5000/carrental
+release-image:
+  script:
+   - docker tag carrental:latest localhost:5000/carrental 
+   - docker push localhost:5000/carrental
+   - docker image remove localhost:5000/carrental
+   - docker pull localhost:5000/carrental
 ```
 Commit, push and check the output.
 

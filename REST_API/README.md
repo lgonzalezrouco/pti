@@ -274,7 +274,7 @@ The endpoints of a REST API must use an HTTP method consistent with the type of 
 
 ## 2 Lab assignment 
 
-### 2.1 Creating your own car rental web API (8 points)
+### 2.1 Creating your own car rental web API (7 points)
 
 #### 2.1.1 Description
 
@@ -291,7 +291,7 @@ In order to keep the rentals data (to be able to list them) you will need to sav
 
 Dockerize your web application. Some help [here](./dockerize.md).
 
-### 2.3 Extension 2 (1 point)
+### 2.3 Extension 2 (2 points)
 
 Include a CI/CD practice as explained [here](./cicd/CICD.md).
 
