@@ -151,9 +151,7 @@ release-image:
    - docker image remove localhost:5000/carrental
    - docker pull localhost:5000/carrental
 ```
-Commit, push and check the output.
-
-[Tagging](https://docs.docker.com/engine/reference/commandline/tag/) the image as localhost:5000/carrental is required to be able to push it to your local private registry. 
+Commit, push and check the output. 
 
 ### 4 Submission
 
