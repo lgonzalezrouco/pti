@@ -17,7 +17,8 @@ Run the following commands:
 
 From the apache-tomcat-9.0.37 folder type:
 
-    wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/mysql-connector-java-8.0.15.jar
+    wget https://repo.fib.upc.es/felix.freitag/pti/raw/master/servlets/mysql-connector-java-8.0.15.jar
+<!-- wget https://gitlab.fib.upc.edu/pti/pti/raw/master/servlets/mysql-connector-java-8.0.15.jar -->
     mv mysql-connector-java-8.0.15.jar lib
 
 Add the following to the file conf/context.xml:
