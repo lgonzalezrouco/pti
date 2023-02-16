@@ -32,21 +32,21 @@ We are going to carry out a small test to get an idea of ​​the type of tasks
 1) Sign in into repo.fib.upc.es and create a public repository (you could name it "carrental") for the carrental REST API.
 
 2) In a terminal, move to, e.g., your home directory and clone the repository using the HTTPS link you will find in GitLab.
-
-	cd 
+```
+	cd
 	git clone https://repo.fib.upc.es/USERNAME/carrental.git
-
+```
 *NOTE: If you get a gnutls_handshake error try the first solution [here](https://stackoverflow.com/questions/60262230/fatal-unable-to-access-gnutls-handshake-failed-handshake-failed).* 
 
 3) Copy or move the files from the REST API lab into the root of the repository (including the Dockerfile). For instance (asuming you have myapp in your home directory):
-
+```
 	mv myapp carrental
-	
+```	
 4) Enter the repo and check the contents
-
+```
 	cd carrental
 	ls
-
+```
 The repo should have the following structure:
 
 ```
@@ -60,17 +60,17 @@ The repo should have the following structure:
 	node_modules/
 ```
 6) Configure git to be able to run commands and to avoid entering the credentials many times:
-
+```
 	git config --global user.name "FIRST_NAME LAST_NAME"
 	git config --global user.email "USERNAME@upc.edu"
 	git config --global credential.helper store
-
+```
 7) Commit and push the changes. 
-
+```
 	git add .
 	git commit -m "nc"
 	git push
-
+```
 ### 3.2 Installing, registering and running a GitLab Runner
 
 GitLab CI/CD tasks are executed by an application called [GitLab Runner](https://docs.gitlab.com/runner/). The runner can be hosted in GitLab servers but here, for convenience, you will run it your machine. 
@@ -86,9 +86,9 @@ GitLab CI/CD tasks are executed by an application called [GitLab Runner](https:/
 *NOTE: If the runner is not active execute "gitlab-runner run" in the terminal.*
 
 5) In your terminal, add gitlab-runner to the docker group:
-
+```
 	sudo usermod -aG docker gitlab-runner
-
+```
 ### 3.3 Define a CI/CD pipeline
 
 CI/CD tasks are often grouped around the concept of a [pipeline](https://docs.gitlab.com/ee/ci/pipelines/index.html). A pipeline is a specification of CI/CD tasks (jobs) structured in stages. You do that by including a .gitlab-ci.yml file in the root of your project repo. 
