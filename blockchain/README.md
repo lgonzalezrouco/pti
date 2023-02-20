@@ -27,13 +27,13 @@ Depending on your environment, you may need to apply the following steps:
 And to install the packages
 <!-- python3.6 -m pip install Flask==0.12.2 requests==2.18.4 -->
 
-    python3.6 -m pip install Flask requests 
+    python3 -m pip install Flask requests 
 
-    python3.6 -m pip install Werkzeug==0.16
+    python3 -m pip install Werkzeug
 
 To run python programms: 
     
-    python3.6 programa.py
+    python3 programa.py
 
 Download the code.
 Click on blockchain.tar.gz in the repositorie's folder or download the repository with
@@ -42,7 +42,14 @@ Click on blockchain.tar.gz in the repositorie's folder or download the repositor
 
 Open the blockchain.tar.gz and test if it runs correctly (or with python3.6 explicitely)
 
-    python blockchain.py -p 5000   /    python3.6 blockchain.py -p 5000
+    python3 blockchain.py -p 5000   
+
+If you use your own computer, it will be convenient to install everything in a virtual environment:
+
+    python3 -m venv prbc
+    source prbc/bin/activate
+    pip3 install flask requests werkzeug
+
 
 ### 2.2  Test the blockchain
 
