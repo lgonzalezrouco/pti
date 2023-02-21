@@ -116,8 +116,7 @@ If you refresh the central node's dashboard in `http://localhost:5000` you can s
 ## Lab assignment part Ia
 
 In order to demonstrate the previous steps:
-1. Take a screenshot of the server console after the three clients have registed (before having run a training round).
-ing done a training round. 
+1. Take a screenshot of the server console after the three clients have registed (before having run a training round). 
 2. Take a screenshot of any of the client console after having registered at the server (before having run a training round).
 
 #### 3.2.3 Training sessions
