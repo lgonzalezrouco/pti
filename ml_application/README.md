@@ -22,12 +22,12 @@ The result of the lab is the acquisition of an initial experience on how machine
 
 ## Lab assignment 
 
-1. It is expected to do part I and part II. The successful execution of the code has to be demonstrated with screenshots complemented by the reporting of the experience. See the details on exactly what screenshots are expected in the README in the subfolders for part I and part II.
+1. Do part I and part II: The successful execution of the code has to be demonstrated with screenshots complemented by the reporting of the experience. See the details on exactly what screenshots are expected in the README in the subfolders for part I and part II.
 
-2. Extension: Choose on aspect/topic of the lab (either of part I or part II, as you prefer) to look into in more detail.
+2. Do an extension: Choose on aspect/topic of the lab (either of part I or part II, as you prefer) to look into in more detail.
 The topic/aspect is _at your choice_. 
 It can be "theoretical" or "practical". Theoretical, e.g. by analyzing more deeply something of the system like the protocol of interactions ..., or practical, e.g. by implementing a small extension. 
-If you add any extension (either to the code of the federated learning network (part I) or medical doctor application (part II), you can choose what extension you want to develop but for your report explain or demonstrate (e.g. with screenshot) the result of the implementation and argue the benefit of the extension you implemented.
+If you add a practical extension (either to the code of the federated learning network (part I) or medical doctor application (part II), you can choose what extension you want to develop. For your report you have to explain or demonstrate (e.g. with screenshot) the result of the implementation and argue the benefit of the extension you implemented.
 
 
 
