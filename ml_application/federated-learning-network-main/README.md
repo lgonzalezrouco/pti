@@ -53,7 +53,9 @@ The final structure of the dataset folders must be (other content in this folder
 
 By default, the client node looks for it at GLOBAL_DATASETS/chest_xray. It is suggested to create **within the subfolder `client`** the folder `dataset` and there unzip the dataset. The path to one of the images subfolder can look like `federated-learning-network-main/client/dataset/chest_xray/train/NORMAL`. 
 The variable GLOBAL_DATASETS is defined in the configuration file `client/config.py`.
-Update or check the value of GLOBAL_DATASETS to where you installed the dataset. You may put the absolute path to the dataset if you prefer. 
+Update or check the value of GLOBAL_DATASETS to where you installed the dataset. 
+Probably the right value is `GLOBAL_DATASETS = '/database'`
+(if the terminal output of the client finishes with an error of kind `ValueError: Sample larger than population or is negative`, then the data samples could not be read correctly.The data samples are read in the file `chest_x_ray_model_trainer.py`. You can check if the path where you put the chest_xray dataset is indeed where the program looks for the data files.)  
 
 ### 3.2 Running the implementation 
 
