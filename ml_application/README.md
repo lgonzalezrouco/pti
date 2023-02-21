@@ -26,7 +26,7 @@ The result of the lab is the acquisition of an initial experience on how machine
 
 2. Do an extension: Choose on aspect/topic of the lab (either of part I or part II, as you prefer) to look into in more detail.
 The topic/aspect is _at your choice_. 
-It can be "theoretical" or "practical". Theoretical, e.g. by analyzing more deeply something of the system like the protocol of interactions ..., or practical, e.g. by implementing a small extension. 
+It can be "theoretical" or "practical". Theoretical, e.g. by analyzing more deeply something of the system like the protocol of interactions (maybe changing the value of some hardcoded parameter like epochs and see what are the effects, or thinking about bandwidth consumption of this technique of model training) ..., or practical, e.g. by implementing a small extension. 
 If you add a practical extension (either to the code of the federated learning network (part I) or medical doctor application (part II), you can choose what extension you want to develop. For your report you have to explain or demonstrate (e.g. with screenshot) the result of the implementation and argue the benefit of the extension you implemented.
 
 
