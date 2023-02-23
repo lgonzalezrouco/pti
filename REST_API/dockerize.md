@@ -24,11 +24,9 @@ Let's move into the myapp folder (where the "server.js" and "package.json" are).
 
 	RUN npm install
 	
-	# Bundle app source
-	COPY . .
+	# Bundle app source	
 	COPY server.js .
-
-	EXPOSE 8080
+	
 	CMD [ "node", "server.js" ]
 
 ### 2.2 Building the image from the Dockerfile
