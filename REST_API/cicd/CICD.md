@@ -85,9 +85,13 @@ GitLab CI/CD tasks are executed by an application called [GitLab Runner](https:/
 
 *NOTE: If the runner is not active execute "gitlab-runner run" in the terminal.*
 
-5) In your terminal, add gitlab-runner to the docker group:
+4) In your terminal, add gitlab-runner to the docker group:
 ```
 	sudo usermod -aG docker gitlab-runner
+```
+5) Execute the following to avoid the error "ERROR: Job failed: prepare environment" in Ubuntu:
+```
+	sudo rm -r /home/gitlab-runner/.bash_logout
 ```
 ### 3.3 Define a CI/CD pipeline
 
