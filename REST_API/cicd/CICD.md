@@ -121,6 +121,7 @@ test:
   - docker stop carrental
   - docker rm carrental
 ```
+*NOTE: The curl test assumes you still have the hello world endpoint at /.*
 
 Commit and push the change to the repo. Check the result of the different jobs of the pipeline. 
 
