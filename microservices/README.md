@@ -217,7 +217,7 @@ We are done but if you want you can try your containerized microservice by runni
 	docker run --name helloworld -d -p 8080:8080 helloworld:1.0
 
 
-Now check with if the microservice is running with (you cannot use the localhost address because your container is running within minikube):
+Now check if the microservice is running with (you cannot use the localhost address because your container is running within minikube):
 
 	curl $(minikube ip):8080
 
