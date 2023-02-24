@@ -188,7 +188,6 @@ www.listen(8080);
 Within the "src" directory edit a file named "Dockerfile" with the following contents:
 ```
 FROM node:6.14.2
-EXPOSE 8080
 COPY server.js .
 CMD node server.js
 ```
@@ -217,7 +216,10 @@ We are done but if you want you can try your containerized microservice by runni
 
 	docker run --name helloworld -d -p 8080:8080 helloworld:1.0
 
-Now check with your browser (localhost:8080) if the microservice is running. 
+
+Now check with if the microservice is running with (you cannot use the localhost address because your container is running within minikube):
+
+	curl $(minikube ip):8080
 
 Finally, stop the container (this is important as later we will need to use port 8080 from Kubernetes):
 
