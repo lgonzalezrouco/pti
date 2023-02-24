@@ -27,5 +27,11 @@ Tag and push the image:
 	docker push localhost:5000/helloworld
 
 kubectl create deployment helloworld --image=localhost:5000/helloworld --port=8080 --replicas=2
+
+	kubectl expose deployment/helloworld --type="NodePort" --port 8080
+
+	curl localhost:NODE_PORT
+
+
 	
 
