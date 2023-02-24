@@ -33,5 +33,45 @@ kubectl create deployment helloworld --image=localhost:5000/helloworld --port=80
 	curl localhost:NODE_PORT
 
 
-	
+----------------------------------------------------------
+two-machines cluster
 
+v1
+
+SERVER NODE:
+
+	curl -sfL https://get.k3s.io | sh -
+	cat /var/lib/rancher/k3s/server/node-token
+
+SECONDARY NODE:
+
+	curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh -
+	
+	NOTE: Each machine must have a unique hostname. If your machines do not have unique hostnames, pass the K3S_NODE_NAME environment variable and provide a value with a valid and unique hostname for each node.
+
+
+v2
+
+SERVER NODE:
+
+	wget https://github.com/k3s-io/k3s/releases/download/v1.23.5%2Bk3s1/k3s
+	chmod +x k3s
+	sudo ./k3s server
+	
+	sudo ./k3s kubectl get nodes
+	
+	cat /var/lib/rancher/k3s/server/node-token
+	
+	NODE-TOKEN
+	
+SECONDARY NODE:
+
+	sudo ./k3s agent --server https://myserver:6443 --token NODE-TOKEN
+
+	
+----------------------------------------------------------
+KUBECTL
+
+https://kubernetes.io/docs/reference/kubectl/
+
+kubectl config set-context --current --namespace=<namespace-name>
