@@ -29,7 +29,10 @@ NOTE: This tutorial has been tested in Ubuntu 20.04, macOS 10.13.6 and Windows H
 
 In a production environment, Kubernetes typically runs over a private computer cluster or it is managed by a cloud provider (e.g. Google GKE, Amazon EKS, etc.). In order to be able to try Kubernetes locally, we will use Minikube, a tool that runs a single-node Kubernetes cluster. 
 
-*NOTE: Minikube is convenient for learning the basics but if you plan to use Kubernetes in your project and you want to deploy it on a server Minikube it's not a convenient option. It's recommended to do it directly with [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/), or with other tools (MicroK8s, K3s, etc.). An easier alternative is to use a cloud service (e.g. Google GKE, Amazon EKS, etc.).*
+*NOTE: If you encounter problems with Minikube you can try K3s. We are currently testing it and it will probably become our default option in the future. It's also the recommended way to deploy Kubernetes on the VMs provided by the LCFIB. Some help [here](README_k3s.md).*    
+
+<!--
+*NOTE: Minikube is convenient for learning the basics but if you plan to use Kubernetes in your project and you want to deploy it on a server Minikube it's not a convenient option. It's recommended to do it directly with [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/), or with other tools (MicroK8s, K3s, etc.). An easier alternative is to use a cloud service (e.g. Google GKE, Amazon EKS, etc.).*-->
 
 #### Prerequisites
 
@@ -216,7 +219,6 @@ We are done but if you want you can try your containerized microservice by runni
 
 	docker run --name helloworld -d -p 8080:8080 helloworld:1.0
 
-
 Now check if the microservice is running with (you cannot use the localhost address because your container is running within minikube):
 
 	curl $(minikube ip):8080
@@ -224,6 +226,22 @@ Now check if the microservice is running with (you cannot use the localhost addr
 Finally, stop the container (this is important as later we will need to use port 8080 from Kubernetes):
 
 	docker stop helloworld
+
+
+#### (OPTIONAL) Alternative: pushing your image to a container registry
+
+Kubernetes accessing the Docker images directly from a local Docker daemon can be problematic. One simple (and more realistic) alternative is to push the images to a Docker resistry. This can be also done locally, launching a local registry with a special Docker container:
+	
+	docker run -d -p 5000:5000 --restart=always --name registry registry:2
+
+Tag and push the image:
+
+	docker tag helloworld:1.0 localhost:5000/helloworld 
+	docker push localhost:5000/helloworld
+
+In order to use the image from Kubernetes refer to it as:
+
+	localhost:5000/helloworld
 
 ### 2.4. A brief introduction to Kubernetes 
 
@@ -342,8 +360,6 @@ Let's delete one of the pods "kubectl delete pod POD_NAME". The other pods will 
 So, if the application can run without a deployment object, can it be also launched without a deployment object? The answer is yes, if you don't need to specify complex deployment options. It can be done with the "kubectl run" command. Let's execute the following, which will be familiar for Docker users:
 
 -->
-
-
 
 #### Services
 
