@@ -454,7 +454,7 @@ Regarding the DATA, you can directly store it within a JSON file into the disk, 
 
 ## 4.  Submission
 
-You need to upload the following files to your BSCW's lab group folder before the next lab session (it's not necessary to upload any code as it's the same from the previous lab session):
+You need to upload the following files to your GDrive's lab group folder before the next lab session (it's not necessary to upload any code as it's the same from the previous lab session):
 
 <!--* A tarball containing the source files.-->
 * A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   
