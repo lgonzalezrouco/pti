@@ -173,7 +173,7 @@ After having saved the trained model, we can use it in part II in the applicatio
 
 #### Additional explanations about implementation details 
 
-The machine learning model is defined in the file `chest_x_ray_model_trainer.py` within the `client` folder. Is applies the Sequential class of the Tensorflow/Keras framework to define a deep neural network model.
+The machine learning model is defined in the file `chest_x_ray_model_trainer.py` within the `client` folder. It applies the Sequential class of the Tensorflow/Keras framework to define a deep neural network model.
 Some of the training parameters are defined in the `server` folder in the file `federated_learning_config.py` and the values are used for doing the training of the model in `chest_x_ray_model_trainer.py`.
 The instance of a client with the Flask server is created in the file `app.py` within the `client` folder.
 The instance of the server with the Flask server is created in the file `__init__.py` within the `server` folder.
