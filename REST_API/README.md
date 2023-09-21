@@ -64,9 +64,9 @@ If that didn't solve the error try changing the default Ubuntu package repositor
 
 Run the following command:
 
-	curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+<!--	curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 
-Install Node.js:
+Install Node.js:-->
 	
 	sudo apt-get install -y nodejs
 
