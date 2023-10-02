@@ -11,9 +11,9 @@ The laboratory consists of two parts:
 Note (only for information purpose - don't use these repositories for the lab exercise): The first part is based on the federated learning network in this [github repository](https://github.com/eyp/federated-learning-network).
 The second part is based on this [github repository](https://github.com/imfing/keras-flask-deploy-webapp).
 
-For doing part I, go to the subfolder `federated-learning-network-main`.
+**For doing part I, go to the subfolder `federated-learning-network-main`.**
 
-For doing part II, go to the subfolder `keras-flask-deploy-webapp-class_pneu`.
+**For doing part II, go to the subfolder `keras-flask-deploy-webapp-class_pneu`.**
 
 The connection between the first and the second part of the lab consists in the fact that in the second part we will use the machine learning model trained in the first part. However, for the second part default machine learning models are provided, so both parts can be done independently.
 
