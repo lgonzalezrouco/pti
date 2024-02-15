@@ -164,7 +164,7 @@ In order to keep the rentals data (to be able to list them) you will need to sav
 
 #### 2.1.2 Install the provided sources
 
-In order to help you, some files are provided:
+In order to help you, some files are provided within carrental.zip:
 
 - An HTML index file: carrental_home.html
 - A rental request HTML form: carrental_form_new.html (it calls CarRentalNew.java)
