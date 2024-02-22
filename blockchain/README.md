@@ -146,7 +146,7 @@ If possible, make the modification needed for this alternative and test it.
 
 3) Does our excercise store a state in the blockchain, e.g the amounts A and B have after having done a transaction? If not, how would you add it to the code (to answer in the report).
 
-4) In our exercise, are the data of the transactions private? How is the openness of the data related with the validation of the blocks? Is there any technique/technology that you could apply to our exercise to increase the privacy of the data of the transaction while still allowing the validation of the blockchain? 
+4) In our exercise, are the data of the transactions private? How is the openness of the data related with the validation of the blocks? Is there any technique/technology (search in Internet) that you could apply to our exercise to increase the privacy of the data of the transaction while still allowing the validation of the blockchain? 
 
 ### 2.5 Documenting
 
