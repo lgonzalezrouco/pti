@@ -391,6 +391,14 @@ Now you can already call your microservice this way:
 
 You should see the "Hello World!" message.
 
+To delete the service:
+
+	kubectl delete service helloworld
+
+To delete the deployment: 
+
+	kubectl delete deployment helloworld
+
 NOTE: On **Windows with WSL2** you need and extra step to acess the service. Run the following command to map a port from localhost to the port of the service. In the Ubuntu terminal run:
 
 	kubectl port-forward service/helloworld 7080:8080
