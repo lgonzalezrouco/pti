@@ -482,7 +482,7 @@ With the carrental deployed as Service in 3.1, check in the dashboard Pods, Depl
 
 ### 3.3. (optional) Make a deployment with the manifest file
 
-With the carrental deployed, you obtain the corresponding yaml file, with name carrental.yaml.
+With the carrental deployed, obtain the corresponding yaml file (manifest file), name it e.g. carrental.yaml:
 
 	kubectl get deployments/carrental -o=yaml
 
