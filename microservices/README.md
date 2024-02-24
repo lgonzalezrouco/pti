@@ -456,6 +456,22 @@ Regarding the DATA, you can directly store it within a JSON file into the disk, 
 
 <!-- TODO: Make an optional part consisting in partitioning the microservice and using a persistent volume-->
 
+### 3.2. (optional) Minikube dashboard
+
+Check minikube addons with:
+
+	minikube addons list
+
+If needed, enable the dashboard with:
+
+	minikube addons enable dashboard
+
+To open the dashboard in the browser, execute the command:
+
+	minikube dashboard
+
+With the carrental deployed as Service in 3.1, check in the dashboard Pods, Deployments, and Services and take some screenshots. 
+
 ## 4.  Submission
 
 You need to upload the following files to your GDrive's lab group folder before the next lab session (it's not necessary to upload any code as it's the same from the previous lab session):
@@ -463,6 +479,10 @@ You need to upload the following files to your GDrive's lab group folder before 
 <!--* A tarball containing the source files.-->
 * A .pdf with a report describing the steps taken to complete the assignment, including screenshots of the application output.   
 
+
+
+<!--* 
 ## 4. Further reading
 
 * [James Lewis' article about Microservices](https://martinfowler.com/articles/microservices.html).
+-->
