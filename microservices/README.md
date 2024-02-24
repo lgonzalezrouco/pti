@@ -480,6 +480,18 @@ To open the dashboard in the browser, execute the command:
 
 With the carrental deployed as Service in 3.1, check in the dashboard Pods, Deployments, and Services and take some screenshots. 
 
+### 3.3. (optional) Make a deployment with the manifest file
+
+With the carrental deployed, you obtain the corresponding yaml file, with name carrental.yaml.
+
+	kubectl get deployments/carrental -o=yaml
+
+Then delete the deployment. 
+
+Now you make the deployment with:
+
+	kubectl apply -f carrental.yaml
+
 ## 4.  Submission
 
 You need to upload the following files to your GDrive's lab group folder before the next lab session (it's not necessary to upload any code as it's the same from the previous lab session):
