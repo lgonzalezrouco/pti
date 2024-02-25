@@ -478,19 +478,30 @@ To open the dashboard in the browser, execute the command:
 
 	minikube dashboard
 
-With the carrental deployed as Service in 3.1, check in the dashboard Pods, Deployments, and Services and take some screenshots. 
+With the carrental deployed as Service in section 3.1, check in the dashboard Pods, Deployments, and Services and take some screenshots. 
 
-### 3.3. (optional) Make a deployment with the manifest file
+### 3.3. (optional) Using a manifest file
 
-With the carrental deployed, obtain the corresponding yaml file (manifest file), name it e.g. carrental.yaml:
+This is to try a manifest file. With the carrental deployed from section 3.1, obtain the corresponding yaml file (manifest file), name it e.g. carrentaldeployment.yaml:
 
 	kubectl get deployments/carrental -o=yaml
 
-Then delete the deployment. 
+Then delete the Deployment. 
 
-Now you make the deployment with:
+Now you make the Deployment with:
 
-	kubectl apply -f carrental.yaml
+	kubectl apply -f carrentaldeployment.yaml
+
+Deploy the Service for the Deployment as in section 3.1. Check that it is running.
+Then you can get the manifest file for this service. You can name it, e.g. carrentalservice.yaml.
+
+	kubectl get services/carrental -o=yaml
+
+You can then delete the service and start it again with the yaml file:
+
+	kubectl apply -f carrentalservice.yaml
+
+Finally, you can open the two yaml files and compare their content. 
 
 ## 4.  Submission
 
