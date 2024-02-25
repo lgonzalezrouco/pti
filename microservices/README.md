@@ -241,7 +241,7 @@ Tag and push the image:
 
 You can see the pushed images in the registry with a curl (run minikube ip to get its IP). 
 
-	curl -X GET $(minikube IP):5000/v2/_catalog
+	curl -X GET $(minikube ip):5000/v2/_catalog
 
 In order to use the image from Kubernetes refer to it as:
 
