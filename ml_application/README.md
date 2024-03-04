@@ -8,7 +8,7 @@ The laboratory consists of two parts:
 1) Run the training of a machine learning model. We will use an existing implementation which trains a deep machine learning model with [federated learning](https://en.wikipedia.org/wiki/Federated_learning). 
 2) Run the prototype application.
 
-Note (only for information purpose - don't use these repositories for the lab exercise): The first part is based on the federated learning network in this [github repository](https://github.com/eyp/federated-learning-network).
+Note (only for information purpose - **don't use these repositories for the lab exercise**): The first part is based on the federated learning network in this [github repository](https://github.com/eyp/federated-learning-network).
 The second part is based on this [github repository](https://github.com/imfing/keras-flask-deploy-webapp).
 
 **For doing part I, go to the subfolder `federated-learning-network-main`.**
