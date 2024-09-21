@@ -13,18 +13,18 @@ The blockchain is operated through a Web API. We need therefore an HTTP client t
 
 ### 2.1 Install the environment
 
-You will need python3.6 or higher. Check if it is installed and install it if needed.
+You will need python 3.6 or higher. Check if it is installed and install it if needed.
 
     python3 --version
 
-Depending on your environment, you may need to apply the following steps:
+<!-- Depending on your environment, you may need to apply the following steps:
 
     sudo add-apt-repository ppa:deadsnakes/ppa
     sudo apt-get update
     sudo apt-get install python3.6
-    sudo apt-get install python3-pip
+    sudo apt-get install python3-pip  -->
 
-And to install the packages
+Install the packages
 <!-- python3.6 -m pip install Flask==0.12.2 requests==2.18.4 -->
 
     python3 -m pip install Flask requests 
