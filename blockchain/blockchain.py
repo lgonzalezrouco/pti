@@ -130,12 +130,15 @@ class Blockchain:
         :param order: Order number
         :return: The index of the Block that will hold this transaction
         """
-        self.current_transactions.append({
+        
+        transaction = {
             'sender': sender,
             'recipient': recipient,
             'amount': amount,
-            'order': order,
-        })
+            'order': order,    
+        }
+        
+        self.current_transactions.append(transaction)
 
         return self.last_block['index'] + 1
 
