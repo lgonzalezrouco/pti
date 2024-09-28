@@ -464,7 +464,7 @@ Regarding the DATA, you can directly store it within a JSON file into the disk, 
 
 <!-- TODO: Make an optional part consisting in partitioning the microservice and using a persistent volume-->
 
-### 3.2. (optional) Minikube dashboard
+### 3.2. Minikube dashboard
 
 Check minikube addons with:
 
