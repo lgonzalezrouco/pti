@@ -87,13 +87,7 @@ On Linux (also on Windows with WSL2, within the Ubuntu terminal):
 On MacOS:
 
 	curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
-
-On both:
-
-	chmod +x minikube
-	sudo mv minikube /usr/local/bin
-
-
+kubectl create deployment helloworld --image=helloworld:1.0 --port=8080 --replicas=2
 ### 2.2. Launch a (Minikube) Kubernetes cluster
 
 <!--On Linux (bare-metal execution):
@@ -276,6 +270,8 @@ Let's deploy our Hello World microservice. Before deploying let's check the stat
 The create deployment command creates a new Deployment (a default one). We need to provide the deployment name and microservice image location (usually a repository URL but here we will use the local image name). We want to run the microservice on a specific port so we add the --port parameter:
 
 	kubectl create deployment helloworld --image=helloworld:1.0 --port=8080 --replicas=2
+
+*NOTE: Specifying also the tag of the image, "1.0" here or  "latest" sometimes in other images, is important.*
 
 *NOTE: The "port" param is optional and just informational. If you don't specify it you can still access the port inside the cluster. To enable external access you need to create a Service, no matter if you specified the port or not when creating the deployment. But the information may help others to understand the deployment configuration better (the same that happens with EXPOSE in Docker).*
 
