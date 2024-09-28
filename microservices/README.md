@@ -458,7 +458,7 @@ As an example microservices-based application you will create and deploy a simpl
 
 Regarding the DATA, you can directly store it within a JSON file into the disk, as if you were working locally. These data can be lost anytime, as the Pods are ephimeral, but it will be ok for this lab session. If you are interested in knowing how to do that better, you can use a Kubernete's PersistentVolume as explained [here](persistentvolume.md)
 
-*NOTE: It's not necessary to partition the car renal Web API into two microservices, the code from the previous lab session will be ok.*
+*NOTE: It's not necessary to partition the car renal Web API into two microservices, the **code from the previous lab session will be ok**.*
 
 *NOTE: When building and deploying your microservice use a complete docker image name+tag, with version number, such as in helloworld:1.0.*
 
