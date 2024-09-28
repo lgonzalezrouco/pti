@@ -226,7 +226,7 @@ As a result the terminal (the server one) should show "Fatima".
 
 *NOTE: You can see what the server is receiving by replacing "console.log(req.body.name);" by "console.log(req);" or "console.log(req.body);".* 
 
-This time we did not return any HTTP message body. By default, the res.end() will return a response message with an HTTP 200 OK success status response code. You can check the returned HTTP header adding the "-i" option to wour cURL command:
+This time we did not return any HTTP message body. By default, the res.end() will return a response message with an HTTP 200 OK success status response code. You can check the returned HTTP header adding the "-i" option to our cURL command:
 
 ```
     curl -i -H "Content-Type: application/json" -d '{"name":"Fatima", "studentId":"234123412f"}' http://localhost:8080/newstudent
