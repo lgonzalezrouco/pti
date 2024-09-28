@@ -497,6 +497,10 @@ You can then delete the service and start it again with the yaml file:
 
 	kubectl apply -f carrentalservice.yaml
 
+Get the endpoint of the carrental service with
+
+	minikube service carrental --url
+
 Finally, you can open the two yaml files and compare their content. 
 
 ## 4.  Submission
