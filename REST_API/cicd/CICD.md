@@ -124,7 +124,7 @@ test:
   - echo "Hello, World!" 
 ```
 
-Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in Build / CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output.
+Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in Build > CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output.
 
 2) Modify .gitlab-ci.yml to automate the building of the Docker image:
 
