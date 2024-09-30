@@ -73,14 +73,30 @@ The repo should have the following structure:
 ```
 ### 3.2 Installing, registering and running a GitLab Runner
 
-**WARNING: GitLab has changed some things, we are updating this part.**
-
 GitLab CI/CD tasks are executed by an application called [GitLab Runner](https://docs.gitlab.com/runner/). The runner can be hosted in GitLab servers but here, for convenience, you will run it your machine. 
 
 1) Install a GitLab Runner in your machine following the instructions in: 
 
-	Settings > CI / CD > Runners > Show runner installation instructions
+	Settings > CI / CD > Runners > Project runners > New project runner
 
+In the Tags section select "Run untagged". Ignore the other fields and click Create runners.
+
+2) Follow the instructions to register the runner for your project (select "shell" as executor).
+
+3) Check that the runner status in Settings > CI / CD > Runners
+
+*NOTE: If the runner is not active execute "gitlab-runner run" in the terminal.*
+
+4) In your terminal, add gitlab-runner to the docker group:
+```
+	sudo usermod -aG docker gitlab-runner
+```
+5) Execute the following to avoid the error "ERROR: Job failed: prepare environment" in Ubuntu:
+```
+	sudo rm -r /home/gitlab-runner/.bash_logout
+```
+
+<!--
 2) Follow the instructions to register the runner for your project (select "shell" as executor). Obtain the $REGISTRATION_TOKEN from Settings > CI / CD > Runners.
 
 3) Check that the runner status in Settings > CI / CD > Runners
@@ -95,6 +111,7 @@ GitLab CI/CD tasks are executed by an application called [GitLab Runner](https:/
 ```
 	sudo rm -r /home/gitlab-runner/.bash_logout
 ```
+-->
 ### 3.3 Define a CI/CD pipeline
 
 CI/CD tasks are often grouped around the concept of a [pipeline](https://docs.gitlab.com/ee/ci/pipelines/index.html). A pipeline is a specification of CI/CD tasks (jobs) structured in stages. You do that by including a .gitlab-ci.yml file in the root of your project repo. 
@@ -107,7 +124,7 @@ test:
   - echo "Hello, World!" 
 ```
 
-Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output. Check the result of the pipeline in CI / CD > Pipelines. 
+Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in Build / CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output.
 
 2) Modify .gitlab-ci.yml to automate the building of the Docker image:
 
