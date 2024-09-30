@@ -73,6 +73,8 @@ The repo should have the following structure:
 ```
 ### 3.2 Installing, registering and running a GitLab Runner
 
+**WARNING: GitLab has changed some things, we are updating this part.**
+
 GitLab CI/CD tasks are executed by an application called [GitLab Runner](https://docs.gitlab.com/runner/). The runner can be hosted in GitLab servers but here, for convenience, you will run it your machine. 
 
 1) Install a GitLab Runner in your machine following the instructions in: 
