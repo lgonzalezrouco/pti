@@ -22,9 +22,9 @@ Activate the virtual environment.
 
     source practfl/bin/activate
 
-The existing code needs several packages to be installed. The packages are listed in the file requirements.txt. We will install the packages with pip3 (if pip3 is not available in your system, you will need to install it)
+The existing code needs several packages to be installed. The packages are listed in the file req_info.txt (not the requirements.txt). We will install the packages with pip3 (if pip3 is not available in your system, you will need to install it)
 
-    pip3 install -r requirements.txt
+    pip3 install -r req_info.txt
 
 
 ## 3 Running the medical doctor application prototype
