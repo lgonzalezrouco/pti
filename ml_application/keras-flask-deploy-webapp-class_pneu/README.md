@@ -57,7 +57,12 @@ You can see a Web interface that let's you drop images. For trying you can take 
 
 ## 4 (optional) Deploy the medical doctor application prototype as docker container 
 
+### 4.1 Run with Docker
 Use the Dockerfile (check if you need to do any updates) to build the Docker image and run the container.
+
+### 4.2 Run with Minikube
+Apply the steps from the Microservices lab.
+
 Take screenshots of the commands and the deployment.
 
 ## Lab assignment part II 
