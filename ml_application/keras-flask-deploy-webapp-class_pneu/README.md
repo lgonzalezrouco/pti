@@ -55,11 +55,16 @@ You can see a Web interface that let's you drop images. For trying you can take 
 <img src="/uploads/5da1a1350fe154a16697428d026a1d24/classification.png" width="600">
 </p>
 
+## 4 (optional) Deploy the medical doctor application prototype as docker container 
+
+Use the Dockerfile (check if you need to do any updates) to build the Docker image and run the container.
+Take screenshots of the commands and the deployment.
 
 ## Lab assignment part II 
 
-1. In order to demonstrate the previous steps:
-Take a screenshot of the console where you run `app_pneu.py` after having classified an image.
+1. Take screenshots that show the successful completion of the assignment.
+<!--In order to demonstrate the previous steps:
+Take a screenshot of the console where you run `app_pneu.py` after having classified an image. -->
 
 
 ## Lab assignment global
