@@ -476,7 +476,7 @@ To open the dashboard in the browser, execute the command:
 
 With the carrental deployed as Service in section 3.1, check in the dashboard Pods, Deployments, and Services and take some screenshots. 
 
-### 3.3. (optional) Using a manifest file
+### 3.3. Using a manifest file
 
 This is to try a manifest file. With the carrental deployed from section 3.1, obtain the corresponding yaml file (manifest file), name it e.g. carrentaldeployment.yaml:
 
@@ -501,7 +501,7 @@ Get the endpoint of the carrental service with
 
 	minikube service carrental --url
 
-Finally, you can open the two yaml files and compare their content. 
+Finally, open the two yaml files and compare their content. 
 
 ## 4.  Submission
 
