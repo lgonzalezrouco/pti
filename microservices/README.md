@@ -87,7 +87,13 @@ On Linux (also on Windows with WSL2, within the Ubuntu terminal):
 On MacOS:
 
 	curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64
-kubectl create deployment helloworld --image=helloworld:1.0 --port=8080 --replicas=2
+<!--kubectl create deployment helloworld --image=helloworld:1.0 --port=8080 --replicas=2 -->
+
+On both:
+
+	chmod +x minikube
+	sudo mv minikube /usr/local/bin
+
 ### 2.2. Launch a (Minikube) Kubernetes cluster
 
 <!--On Linux (bare-metal execution):
