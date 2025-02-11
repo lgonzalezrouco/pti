@@ -299,9 +299,9 @@ You can find more information about the Tomcat's SSL/TLS configuration [here](ht
 Dockerize your web application. Some help [here](./dockerize.md).
 
 ### 2.4 Optional extensions
-<!-- In order to obtain the maximum grade you can complete any of the following extensions: -->
+In order to obtain the maximum grade you can complete any of the following extensions:
 * Add to the report a 1-page explanation of the pros and cons of using Java servlets compared to another alternative (e.g. Node.js). 
-* Create a docker-compose.yml file to run the container of your Tomcat image with docker-compose (instead through docker run).
+* Create a docker-compose.yml file to run the container of your Tomcat image with docker compose (instead through docker run).
 * Save the data within a database (e.g. MySQL) instead of a file. Some help [here](./mysql.md).
 
 ## 3.  Submission
