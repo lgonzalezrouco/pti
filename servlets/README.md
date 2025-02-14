@@ -160,7 +160,7 @@ You have to program a simple **car rental web application** using Tomcat and ser
 
 Both functionalities will consist in a request form plus a response page. In our lab exercise the request forms are static HTML pages and the responses are HTML dynamically generated from the servlets. For simplicity, in case of invalid input it is not needed to show the request form again (though you can do it if you want).
 
-In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). **We will use JSON format** for writing/reading rental orders to disk using the **file rentals.json** (see above the figure). We have included json-simple-1.1.1.jar, which may help you to perform this task (http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
+In order to keep the rentals data (to be able to list them) you will need to save the data to the disk. A single text file where each line represents a rental will be enough (though not in a real scenario). **We will use JSON format** for writing/reading rental orders to disk using the **file rentals.json** (see above the figure). We have included json-simple-1.1.1.jar, which may help you to perform this task (The following link has some examples, but talk into account that the classes are now in capital letters, JSON*, (JSONArray, JSONObject, JSONParser) http://www.mkyong.com/java/json-simple-example-read-and-write-json/).
 To import into the .java of your servlet:
 
     package mypackage;
