@@ -40,7 +40,7 @@ The command defines a Docker volume for the local directory $HOME/pti, mapped in
 Within the container you will do some things in a different way:
 
     - Don't use 'sudo'. 
-    - Need to install some tools such as vim, wget, default-jdk or git.
+    - Need to install some tools such as vim, nano, unzip, wget, default-jdk or git.
 
 ## Some useful docker commands
 
