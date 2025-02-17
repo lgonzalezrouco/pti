@@ -310,13 +310,18 @@ An easy way to save the list of rentals could be a JSON file (not a good idea fo
 ```js
 const fs = require('fs');
 
-//Create an empty JSON document in memory and save it to a file (students.json)
-studentsJSON = {"students": []};
-fs.writeFileSync("students.json", JSON.stringify(studentsJSON));
+const filepath = 'rentals.json'
 
-//Read a JSON document from a file
-studentsFileRawData = fs.readFileSync('students.json');
-studentsJSON = JSON.parse(studentsFileRawData);
+//Check if the file already exists 
+if (!fs.existsSync(filepath)) {
+    //Create an empty JSON document in memory and save it to a file (students.json)
+    studentsJSON = {"students": []};
+    fs.writeFileSync(filepath, JSON.stringify(studentsJSON));
+} else {
+    //The file exists, let's read the JSON document into memory
+    studentsFileRawData = fs.readFileSync(filepath);
+    studentsJSON = JSON.parse(studentsFileRawData);
+}
 
 //Add something to the (in memory) JSON document
 studentsJSON['students'].push({"name": "Marc", "studentId": "12341231h"});
