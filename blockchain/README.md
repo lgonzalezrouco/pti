@@ -38,7 +38,7 @@ To run python programms:
 Download the code.
 Click on blockchain.tar.gz in the repositorie's folder or download the repository with
 
-    git clone https://gitlab.fib.upc.edu/pti/pti.git
+    git clone https://repo.fib.upc.es/felix.freitag/pti
 
 Open the blockchain.tar.gz and test if it runs correctly (or with python3.6 explicitely)
 
