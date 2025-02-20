@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  tomcat:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "8080:8080"
+    container_name: my-tomcat-container
+    volumes:
+      - ./my_webapp:/usr/local/tomcat/webapps/my_webapp
