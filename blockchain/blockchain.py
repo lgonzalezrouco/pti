@@ -193,6 +193,29 @@ class Blockchain:
         guess = f'{last_proof}{proof}{last_hash}'.encode()
         guess_hash = hashlib.sha256(guess).hexdigest()
         return guess_hash[:4] == "0000"
+    
+    def manipulate(self, block_index):
+        """
+        Manipulates a transaction in the specified node's blockchain
+        
+        :param node: The index of the block to manipulate
+        """
+        # Convert node parameter to integer
+        block_index = int(block_index)
+        
+        # Check if the block exists
+        if block_index >= len(self.chain):
+            return False
+            
+        # Get the block
+        block = self.chain[block_index]
+        
+        # Manipulate the first transaction in the block if it exists
+        if block['transactions']:
+            # Change the amount of the first transaction
+            block['transactions'][0]['amount'] += 100
+            
+        return True
 
 
 # Instantiate the Node
@@ -295,6 +318,25 @@ def consensus():
 
     return jsonify(response), 200
 
+@app.route('/nodes/list', methods=['GET'])
+def list_nodes():
+    response = {
+        'nodes': list(blockchain.nodes)
+    }
+    return jsonify(response), 200
+
+@app.route('/validate', methods=['GET'])
+def validate():
+    response = {
+        'valid': blockchain.valid_chain(blockchain.chain)
+    }
+    return jsonify(response), 200
+
+@app.route('/nodes/manipulate', methods=['POST'])
+def manipulate():
+    values = request.get_json()
+    blockchain.manipulate(values['block_index'])
+    return jsonify({'message': 'Block manipulated'}), 200
 
 if __name__ == '__main__':
     from argparse import ArgumentParser
