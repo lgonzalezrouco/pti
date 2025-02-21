@@ -72,3 +72,8 @@ echo -e "\n15. Validating chain after manipulation..."
 curl http://localhost:5000/validate
 
 echo -e "\nDemo complete!"
+
+deactivate
+
+# Kill any running Python processes
+pkill python
