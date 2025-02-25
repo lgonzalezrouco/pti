@@ -75,23 +75,25 @@ The repo should have the following structure:
 
 GitLab CI/CD tasks are executed by an application called [GitLab Runner](https://docs.gitlab.com/runner/). The runner can be hosted in GitLab servers but here, for convenience, you will run it your machine. 
 
-1) Install a GitLab Runner in your machine following the instructions in: 
+1) Install GitLab Runner in your machine following [this instructions](https://docs.gitlab.com/runner/install/).
+
+2) Install a runner in your machine following the instructions in: 
 
 	Settings > CI / CD > Runners > Project runners > New project runner
 
 In the Tags section select "Run untagged". Ignore the other fields and click Create runners.
 
-2) Follow the instructions to register the runner for your project (select "shell" as executor).
+3) Follow the instructions to register the runner for your project (select "shell" as executor).
 
-3) Check that the runner status in Settings > CI / CD > Runners
+4) Check that the runner status in Settings > CI / CD > Runners
 
 *NOTE: If the runner is not active execute "gitlab-runner run" in the terminal.*
 
-4) In your terminal, add gitlab-runner to the docker group:
+5) In your terminal, add gitlab-runner to the docker group:
 ```
 	sudo usermod -aG docker gitlab-runner
 ```
-5) Execute the following to avoid the error "ERROR: Job failed: prepare environment" in Ubuntu:
+6) Execute the following to avoid the error "ERROR: Job failed: prepare environment" in Ubuntu:
 ```
 	sudo rm -r /home/gitlab-runner/.bash_logout
 ```
@@ -124,7 +126,7 @@ test:
   - echo "Hello, World!" 
 ```
 
-Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in Build > CI / CD > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output.
+Commit and push the change to the repo. This will trigger the pipeline. Check the result of the pipeline in Build > Pipelines. Click the pipeline number, then click over the "test" job. You should see the output.
 
 2) Modify .gitlab-ci.yml to automate the building of the Docker image:
 

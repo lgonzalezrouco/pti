@@ -1,0 +1,8 @@
+{
+  "rentals": [
+    { "maker": "Volkswagen", "model": "Suran", "days": 10, "units": 4 },
+    { "maker": "Ford", "model": "Focus", "days": 5, "units": 1 },
+    { "maker": "Chevrolet", "model": "Camaro", "days": 2, "units": 1 },
+    { "maker": "Chevrolet", "model": "Camaro", "days": 2, "units": 1 }
+  ]
+}

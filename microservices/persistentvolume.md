@@ -56,7 +56,10 @@ Look again at the PersistentVolume to see that the PVC has been bined to it (STA
 
 Now edit a file deployment_persistentvolume.yaml with the following content:
 
-```
+NOTE: We use the docker images pushed to our local docker registry. 
+
+
+<!--
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -74,8 +77,57 @@ spec:
       - name: task-pv-volume
         persistentVolumeClaim:
           claimName: task-pv-claim
+-->
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carrental
+spec:
+  replicas: 1  # Define the number of pod replicas
+  selector:
+    matchLabels:
+      app: carrental  # This must match the labels in template.metadata
+  template:
+    metadata:
+      labels:
+        app: carrental  # This must match the selector
+    spec:
+      containers:
+      - name: carrental
+        image: localhost:5000/carrental  # Ensure this image exists in your registry
+        imagePullPolicy: Never   # Prevent Kubernetes from trying to pull it from external registry, force to use local image
+        volumeMounts:
+        - mountPath: /mnt/data
+          name: task-pv-volume
+      volumes:
+      - name: task-pv-volume
+        persistentVolumeClaim:
+          claimName: task-pv-claim  # Ensure this PVC exists
 ```
 
 We can replace the Deployment configuration of our microservice with this one doing the following:
 
 		kubectl apply -f deployment_persistentvolume.yaml
+
+Now edit a file service_persistentvolume.yaml with the following content:
+
+```
+apiVersion: v1
+kind: Service
+metadata:
+  name: carrental-service
+spec:
+  selector:
+    app: carrental
+  ports:
+    - protocol: TCP
+      port: 80  # Internal service port
+      targetPort: 8080  # Container port
+      nodePort: 30007  # External port (Optional: range 30000-32767)
+  type: NodePort
+```
+
+We can deploy the service with the following:
+
+		kubectl apply -f service_persistentvolumne.yaml
